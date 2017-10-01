@@ -24,4 +24,9 @@ public class Vector3D {
 		y *= -1;
 		z *= -1;
 	}
+	
+	double dot(Vector3D v)
+	{
+		return (this.x * v.x) + (this.y * v.y) + (this.z + v.z);
+	}
 }
