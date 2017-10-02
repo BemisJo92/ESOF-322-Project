@@ -1,19 +1,11 @@
 package pa1;
 
 public class Vector3D {
-	
-<<<<<<< HEAD
-	
+		
 	double x;
 	double y;
 	double z;
-	//test
-=======
-	double x; 
-	double y;
-	double z;
->>>>>>> master
-	
+		
 	public static void main(String[] args)
 	{
 		
@@ -35,7 +27,7 @@ public class Vector3D {
 		return this; 
 	}
 	
-<<<<<<< HEAD
+
 	public Vector3D subtract(Vector3D v)
 	{
 		this.x -= v.x;
@@ -44,14 +36,6 @@ public class Vector3D {
 		return this;
 	}
 	
-}
-=======
-	public Vector3D(double x, double y, double z)
-	{
-		this.x = x;
-		this.y = y;
-		this.z = z;
-	}
 	
 	public void negate()
 	{
@@ -65,4 +49,4 @@ public class Vector3D {
 		return (this.x * v.x) + (this.y * v.y) + (this.z * v.z);
 	}
 }
->>>>>>> master
+

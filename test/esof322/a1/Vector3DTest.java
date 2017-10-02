@@ -6,7 +6,6 @@ import org.junit.Test;
 
 public class Vector3DTest {
 
-<<<<<<< HEAD
 	@Test
 	public void testAdd()
 	{
@@ -30,7 +29,7 @@ public class Vector3DTest {
 		assertEquals(v1.y, vectorResult.y, Double.NaN);
 		assertEquals(v1.z, vectorResult.z, Double.NaN);
 	}
-=======
+
 	Vector3D v = new Vector3D(1, 2, 3);
 	
 	@Test
@@ -39,25 +38,17 @@ public class Vector3DTest {
 		Vector3D v = new Vector3D(1, 2, 3);
 		v.negate();
 		double result = v.x + v.y + v.z;
-<<<<<<< HEAD
 		assertEquals("Result", -6, result, Double.NaN);
-=======
 		assertEquals(-6, result, Double.NaN);
->>>>>>> master
 	}
-	
+
 	@Test
 	public void testDot()
 	{
 		Vector3D v1 = new Vector3D(1.0, 2.0, 3.0);
 		Vector3D v2 = new Vector3D(2.0, 3.0, 4.0);
 		double result = v1.dot(v2);
-<<<<<<< HEAD
 		assertEquals("Result", 20.0, result, Double.NaN);
-=======
 		assertEquals(20.0, result, Double.NaN);
->>>>>>> master
 	}
-
->>>>>>> master
 }
