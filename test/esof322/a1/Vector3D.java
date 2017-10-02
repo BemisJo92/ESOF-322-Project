@@ -34,7 +34,7 @@ public class Vector3D {
 	}
 	
 
-	public double magnitidue()
+	public double magnitude()
 	{
 		return Math.sqrt((x*x + y*y + z*z));
 	}

@@ -43,7 +43,7 @@ public class Vector3DTest {
 		scalorY = y * scalor;
 		scalorZ = z * scalor;
 
-		Vector 3D v2 = instance.scale(scalor);
+		Vector3D v2 = instance.scale(scalor);
 		
 		//compare instance's vars with expected results
 		testEquals(scalorX, v2.x);
