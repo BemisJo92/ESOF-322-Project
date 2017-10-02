@@ -8,7 +8,11 @@ public class Vector3D {
 		
 	public static void main(String[] args)
 	{
-		
+		Vector3D test = new Vector3D(1,2,3); 
+                test.negate();
+                System.out.println(test.x);
+                System.out.println(test.y);
+                System.out.println(test.z);
 	}	
 	
 	//constructor
@@ -52,12 +56,13 @@ public class Vector3D {
 	
 	public Vector3D negate()
 	{
-		return scale(-1);
+		return scale(-1.0);
 	}
 	
 	double dot(Vector3D v)
 	{
 		return (this.x * v.x) + (this.y * v.y) + (this.z * v.z);
 	}
+
 }
 
