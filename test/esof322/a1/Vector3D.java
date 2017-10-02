@@ -21,27 +21,27 @@ public class Vector3D {
 	
 	public Vector3D add(Vector3D v) 
 	{
-		this.x += v.x;
-		this.y += v.y;
-		this.z += v.z; 
-		return this; 
+		double x1 = this.x + v.x;
+		double y1 = this.y + v.y;
+		double z1 = this.z + v.z; 
+		Vector3D vectorResult = new Vector3D(x1, y1, z1);
+		return vectorResult; 
 	}
 	
 
 	public Vector3D subtract(Vector3D v)
 	{
-		this.x -= v.x;
-		this.y -= v.y;
-		this.z -= v.z;
-		return this;
+		double x1 = this.x - v.x;
+		double y1 = this.y - v.y;
+		double z1 = this.z - v.z; 
+		Vector3D vectorResult = new Vector3D(x1, y1, z1);
+		return vectorResult; 
 	}
 	
 	
-	public void negate()
+	public Vector3D negate()
 	{
-		x *= -1;
-		y *= -1;
-		z *= -1;
+		return scale(-1);
 	}
 	
 	double dot(Vector3D v)

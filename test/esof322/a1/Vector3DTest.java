@@ -11,33 +11,34 @@ public class Vector3DTest {
 	{
 		Vector3D v1 = new Vector3D(1,2,3);
 		Vector3D v2 = new Vector3D(1,2,3);
-		v1.add(v2);
-		Vector3D vectorResult = new Vector3D(2,4,6);
-		assertEquals(v1.x, vectorResult.x, Double.NaN);
-		assertEquals(v1.y, vectorResult.y, Double.NaN);
-		assertEquals(v1.z, vectorResult.z, Double.NaN);
+		
+		Vector3D vectorResult = v1.add(v2);
+		
+		assertEquals(2, vectorResult.x, Double.NaN);
+		assertEquals(4, vectorResult.y, Double.NaN);
+		assertEquals(6, vectorResult.z, Double.NaN);
 		
 	}
 
+	@Test
 	public void testSubtract() 
 	{
-		Vector3D v1 = new Vector3D(3,4,5);
+		Vector3D v1 = new Vector3D(1,2,3);
 		Vector3D v2 = new Vector3D(1,2,3);
-		v1.subtract(v2);
-		Vector3D vectorResult = new Vector3D(2,2,2);
-		assertEquals(v1.x, vectorResult.x, Double.NaN);
-		assertEquals(v1.y, vectorResult.y, Double.NaN);
-		assertEquals(v1.z, vectorResult.z, Double.NaN);
+		
+		Vector3D vectorResult = v1.subtract(v2);
+		
+		assertEquals(0, vectorResult.x, Double.NaN);
+		assertEquals(0, vectorResult.y, Double.NaN);
+		assertEquals(0, vectorResult.z, Double.NaN);
 	}
-
-	Vector3D v = new Vector3D(1, 2, 3);
 	
 	@Test
 	public void testNegate() 
 	{
-		Vector3D v = new Vector3D(1, 2, 3);
-		v.negate();
-		double result = v.x + v.y + v.z;
+		Vector3D vectorResult = new Vector3D(1, 2, 3);
+		vectorResult.negate();
+		double result = vectorResult.x + vectorResult.y + vectorResult.z;
 		assertEquals("Result", -6, result, Double.NaN);
 		assertEquals(-6, result, Double.NaN);
 	}
