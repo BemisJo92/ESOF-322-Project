@@ -11,7 +11,7 @@ public class Vector3D {
 		
 	}	
 	
-	
+	//constructor
 	public Vector3D(double x, double y, double z)
 	{
 		this.x = x;
@@ -26,6 +26,17 @@ public class Vector3D {
 		double z1 = this.z + v.z; 
 		Vector3D vectorResult = new Vector3D(x1, y1, z1);
 		return vectorResult; 
+	}
+	
+	public Vector3D scale(double f)
+	{
+		return new Vector3D(x*f,y*f,z*f);
+	}
+	
+
+	public double magnitidue()
+	{
+		return Math.sqrt((x*x + y*y + z*z));
 	}
 	
 
