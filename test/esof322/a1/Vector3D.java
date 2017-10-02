@@ -6,6 +6,7 @@ public class Vector3D {
 	double x;
 	double y;
 	double z;
+	//test
 	
 	public static void main(String[] args)
 	{
