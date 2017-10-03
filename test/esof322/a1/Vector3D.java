@@ -8,11 +8,7 @@ public class Vector3D {
 		
 	public static void main(String[] args)
 	{
-		Vector3D test = new Vector3D(1,2,3); 
-        Vector3D test2 = test.negate();
-        System.out.println(test2.x);
-        System.out.println(test2.y);
-        System.out.println(test2.z);
+		
 	}	
 	
 	//constructor
@@ -63,7 +59,8 @@ public class Vector3D {
 	{
 		return (this.x * v.x) + (this.y * v.y) + (this.z * v.z);
 	}
-	@Override
+	
+        @Override
 	public String toString()
 	{		
 		String result = 
@@ -74,5 +71,14 @@ public class Vector3D {
 		return result;
 	}
 
+        public boolean equals(Vector3D test)
+        {
+            int compx = Double.compare(this.x, test.x);
+            int compy = Double.compare(this.y, test.y);
+            int compz = Double.compare(this.z, test.z);
+            
+            if(compx == 0 && compy == 0 && compz == 0)  {return true;}
+            else                                        {return false;}
+        }
 }
 

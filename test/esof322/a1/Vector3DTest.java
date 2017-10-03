@@ -129,4 +129,16 @@ public class Vector3DTest {
 		
 		testEquals(s1, s2);		
 	}
+        
+        @Test
+        public void testEquals()
+        {
+            Vector3D test1 = new Vector3D(x, y, z);
+            Vector3D test2 = new Vector3D(x, y, z);
+            
+            if(!test1.equals(test2))
+            {
+                throw(AssertionError);
+            }
+        }
 }
