@@ -77,8 +77,14 @@ public class Vector3D {
             int compy = Double.compare(this.y, test.y);
             int compz = Double.compare(this.z, test.z);
             
-            if(compx == 0 && compy == 0 && compz == 0)  {return true;}
-            else                                        {return false;}
+            if(compx == 0 && compy == 0 && compz == 0)  
+            {
+            	return true;
+            }
+            else
+            {
+            	return false;
+            }
         }
 }
 

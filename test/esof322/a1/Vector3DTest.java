@@ -138,7 +138,7 @@ public class Vector3DTest {
             
             if(!test1.equals(test2))
             {
-                throw(AssertionError);
+                throw new AssertionError();
             }
         }
 }

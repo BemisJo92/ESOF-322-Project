@@ -1,0 +1,40 @@
+Team Members Names: Logan Davis, Joel Lechman, John Bemis, Ian Hecker
+
+A couple things that gave us trouble is first, using Git commands was a huge
+learning curve for all of us. We ran into many issues where git was not working
+the way we intended. Using the test-first development method for this assignment
+worked very well for us, coding the test requirements and then writing the actual
+code. A second issue that we ran into was trying to merge everyones Java files 
+into one. Using the "git merge" command, we ran into the issue of everyone just 
+replacing the java files in master and not merging them together.  
+
+Throughout this entire project, we all were together in person working on it. 
+There was a lot of communication the whole time trying to problem solve and reach
+the final objectives in an effiect manner. Even though some team members may have
+more pushes/commits than others, we all made equal contributions through the 
+entire process from start to finish. 
+
+
+Some more specifc contributions by each member:
+
+Logan (11 hours)  - Coded the methods and test methods for both ADD and SUBTRACT. Helped fix 
+			merging conflicts. 
+
+Andy  (11 hours)  - Coded the methods and test methods for both DOT and NEGATE. Helped fix
+			merging conflicts.
+
+Ian   (11 hours)  - Coded the test methods for both testMAGNITUDE and testSCALE. Helped fix
+			merging conflicts.
+
+Joel  (11 horus)  - Coded the methods for both MAGNITUDE and SCALE. Took personal time to 
+			sort out all version of java files and combine into one. 
+
+
+During the entire project, we all were helping each other and looking over each
+others code making sure we met all the requirements, especially making each method
+immutable. 
+
+
+
+
+
