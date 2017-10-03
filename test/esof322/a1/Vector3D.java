@@ -9,10 +9,10 @@ public class Vector3D {
 	public static void main(String[] args)
 	{
 		Vector3D test = new Vector3D(1,2,3); 
-                test.negate();
-                System.out.println(test.x);
-                System.out.println(test.y);
-                System.out.println(test.z);
+        Vector3D test2 = test.negate();
+        System.out.println(test2.x);
+        System.out.println(test2.y);
+        System.out.println(test2.z);
 	}	
 	
 	//constructor
@@ -34,7 +34,7 @@ public class Vector3D {
 	
 	public Vector3D scale(double f)
 	{
-		return new Vector3D(x*f,y*f,z*f);
+		return new Vector3D(x*f, y*f, z*f);
 	}
 	
 
@@ -62,6 +62,16 @@ public class Vector3D {
 	double dot(Vector3D v)
 	{
 		return (this.x * v.x) + (this.y * v.y) + (this.z * v.z);
+	}
+	@Override
+	public String toString()
+	{		
+		String result = 
+				("x = " + this.x +
+			   	 "y = " + this.y + 
+			   	 "z = " + this.z);
+		
+		return result;
 	}
 
 }
