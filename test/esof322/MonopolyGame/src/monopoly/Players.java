@@ -1,5 +1,3 @@
-
-
 package monopoly;
 //joel's test comment
 
