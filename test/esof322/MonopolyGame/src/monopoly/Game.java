@@ -6,8 +6,10 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class Game {
+public class Game 
+{
 
+        //Logan Sucks
         public static void addComponentsToPane(Container pane) {
             
         pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
