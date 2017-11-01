@@ -1,7 +1,8 @@
 package monopoly;
 
 
-public class Tile {
+public class Tile 
+{
     
     
 
