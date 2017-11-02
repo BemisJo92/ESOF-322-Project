@@ -1,47 +1,93 @@
-package Monopoly;
 
-import java.awt.Component;
-import java.awt.Container;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JFrame;
+package monopoly;
+
+
+import java.util.Scanner;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Game {
-
-        public static void addComponentsToPane(Container pane) {
-            
-        pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
- 
-        addButton("Button 1", pane);
-        
-    }
- 
-    private static void addButton(String text, Container container) {
-        JButton button = new JButton(text);
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        container.add(button);
-    }
- 
+    Board gameBoard;                   //instance of board
+    final int timeLimit = 10;         //time limit in mins
     
-    private static void showGUI() {
-        //Create and set up the window.
-        JFrame frame = new JFrame("Test GUI");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
- 
-        //Set up the content pane.
-        addComponentsToPane(frame.getContentPane());
- 
-        //Display the window.
-        frame.setSize(500,500);
-        frame.setVisible(true);
+    //implement a timer
+    Timer gameTimer = new Timer();
+    TimerTask callGameOver = new TimerTask(){           //timer task that calls gameOver
+        public void run()  //call game over method 
+        {
+            gameOver();
+        }
+    };
+      
+    public void TimedExit()
+    {
+        gameTimer.schedule(callGameOver, new Date(System.currentTimeMillis()+(timeLimit*60000)));   //execute timer task "callGameOver" after 'timeLimit' mins
     }
- 
-    public static void main(String[] args) {
-        
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                showGUI();
+    
+    public Game(int totalPlayers)
+    {
+        gameBoard = new Board(totalPlayers);
+    }
+    
+    public static void main(String[] args)  //driver method
+        {
+            System.out.println("Monopoly Game Start");
+            Scanner scanner = new Scanner(System.in);
+            int totalPlayers = 0;
+            while(totalPlayers <2 || totalPlayers > 4)
+            {
+                System.out.println("How many players? (2-4)");
+                totalPlayers = scanner.nextInt();
+                if(totalPlayers < 2 || totalPlayers > 4)
+                {
+                    System.out.println("Please enter a valid player count.");
+                }
             }
-        });
+            scanner.close();
+            Game game = new Game(totalPlayers);      
+            game.startGame();
+        }
+    public void startGame() //need to implement a timer here
+    {        
+        System.out.println("---------------------");
+        
+        while(!gameStatus(currentGameTime))
+        {
+            if(!gameBoard.getCurrentPlayer().isBroke())
+            {
+                int die1 = gameBoard.getCurrentPlayer().rollDie();
+                int die2 = gameBoard.getCurrentPlayer().rollDie();
+                int rollValue = die1 + die2;
+                gameBoard.movePlayer(gameBoard.getCurrentPlayer(), rollValue);
+            }
+            System.out.println("Next players turn (from Game)");
+            gameBoard.nextTurn();
+        }
+        
+        System.out.println("The time limit has been reached. The game is now over!");
+        
+
+        
     }
+    
+    public boolean gameStatus(int time)    //true if Game is over
+    {
+        if(time >= timeLimit)
+        {
+            return true;
+        }else
+        {
+            return false;
+        }
+    }
+    
+    public void gameOver()  //determine winner and exit
+    {
+        System.out.println("Program will now exit");
+        System.exit(0);
+    }
+    
+    
+    
 }
