@@ -1,5 +1,7 @@
 package monopoly;
 
+import java.util.*;
+
 public abstract class Tile 
 {
     String name;
@@ -83,23 +85,57 @@ public abstract class Tile
     class HouseTile
     {
         int price;
-        boolean owner = false;
+        int owner = -1;
+        Scanner sc = new Scanner(System.in);
         
-        public HouseTile(String name)
+        public HouseTile(String name, int price)
         {
             Tile.this.name = name;
+            this.price = price;
         }
         
         public void doAction(Player player, Board board)
         {
-            if(owner = false)
+            if(owner < 0)
             {
                 System.out.println(player.getName() + ", would you like to purchase " + getName() + "?");
+                System.out.println("Press 1 for Yes and 0 for No");
+                int choice = sc.nextInt();
+                switch(choice)
+                {
+                    case 0:
+                        System.out.println(player.getName() + " declines to buy " + getName());
+                        //will be put up for auction here
+                        break;
+                        
+                    case 1:
+                        System.out.println(player.getName() + " chooses to buy " + getName());
+                        owner = player.getIdNum();
+                        player.removeMoney(price);
+                        break;
+                        
+                    default:
+                        System.out.println("This is an invalid option. Please try again.");
+                        break;
+                }
             }
-            else if(owner = true)
+            else
             {
-                
+                if(owner != player.getIdNum())
+                {
+                    int taxes = price * (70/100);
+                    System.out.println(player.getName() + " pays $" + taxes + " to " + owner);
+                    //owner will later change to return the actual name of the player instead
+                    //of just the ID number of the player
+                    player.removeMoney(taxes);
+                    //add money to owner here. will be implemented in board
+                }
             }
+        }
+        
+        class ChanceTile
+        {
+            //will be implemented later
         }
     }
 }
