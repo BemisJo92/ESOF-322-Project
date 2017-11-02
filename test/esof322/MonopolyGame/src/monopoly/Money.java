@@ -5,12 +5,7 @@ package monopoly;
 
 public class Money 
 {
-    int money;
-    
-    public void Money(int startingMoney)
-    {
-        this.money = startingMoney;
-    }
+    int money = 0;
     
     public int getMoney()
     {
