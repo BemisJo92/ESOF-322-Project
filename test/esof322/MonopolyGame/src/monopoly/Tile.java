@@ -56,6 +56,8 @@ public abstract class Tile
     
     class JailTile
     {
+        boolean inJail = false;
+        
         public JailTile(String name)
         {
             Tile.this.name = name;
@@ -63,8 +65,16 @@ public abstract class Tile
         
         public void doAction(Player player, Board board)
         {
-            System.out.println(player.getName() + " is in Jail." + player.getName() + " loses $500.");
-            player.removeMoney(500);
+            if(inJail)
+            {
+                //player is in jail. need to finish
+                System.out.println(player.getName() + " is in Jail.");
+            }
+            else
+            {
+                //player is not in jail. need to finish
+                System.out.println(player.getName() + " is not in jail.");
+            }
         }
     }
     
