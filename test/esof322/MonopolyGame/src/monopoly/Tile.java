@@ -137,5 +137,15 @@ public abstract class Tile
         {
             //will be implemented later
         }
+        
+        class CommunityChest
+        {
+            //will be implemented later
+        }
+        
+        class FreeParking
+        {
+            //will be implemented later
+        }
     }
 }
