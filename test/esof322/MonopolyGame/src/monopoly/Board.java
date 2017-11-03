@@ -155,9 +155,14 @@ public class Board
     
     public Tile movePlayer(Player player, int rollValue, boolean count)  
     {
-        
-        
+      
     }
+    public Tile movePlayer(Player player, int tile)         //move a player to a specific tile # (for sending to jail)
+    {
+    
+    }
+    
+}
 
     public Player[] getPlayers()
     {
