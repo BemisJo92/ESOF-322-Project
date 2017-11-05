@@ -16,6 +16,7 @@ public class Game {
     TimerTask callGameOver = new TimerTask(){           //timer task that calls gameOver
         public void run()  //call game over method 
         {
+            System.out.println("The time limit has been reached. The game is now over!");
             gameOver();
         }
     };
@@ -75,7 +76,6 @@ public class Game {
     public void gameOver()  //determine winner and exit
     {
         gameStatus = false;
-        System.out.println("The time limit has been reached. The game is now over!");
         System.out.println("Program will now exit");
         System.exit(0);
     }
