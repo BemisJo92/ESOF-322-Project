@@ -7,6 +7,7 @@ public class Board
     Player[] players;
     Tile[] tiles = new Tile[40];
     int jailTile = 10;
+    int passGoMoney = 200;
     
     
     public Board(int totalPlayers)
@@ -158,6 +159,13 @@ public class Board
     public void movePlayer(Player player, int rollValue)
     {
         int currentTile = player.getCurrentTile();
+        if(currentTile + rollValue >= 39)
+        {
+            //pass or land on Go
+            int remainingTiles = (currentTile + rollValue) - 40;
+            player.setTile(remainingTiles);
+            player.addMoney(passGoMoney);
+        }
         int nextTile = currentTile + rollValue;
         player.setTile(nextTile);
         Tile t = tiles[player.getCurrentTile()];
