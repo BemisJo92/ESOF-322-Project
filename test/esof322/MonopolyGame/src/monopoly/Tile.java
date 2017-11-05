@@ -50,19 +50,18 @@ public abstract class Tile
     
         
         
-        class ChanceTile
-        {
-            //will be implemented later
-        }
-        
-        class CommunityChestTile
-        {
-            //will be implemented later
-        }
-        
-        class FreeParkingTile
-        {
-            //nothing happens, its the next players turn
-        }
+    class ChanceTile
+    {
+        //will be implemented later
+    }
+
+    class CommunityChestTile
+    {
+        //will be implemented later
+    }
+
+    class FreeParkingTile
+    {
+        //nothing happens, its the next players turn
     }
 }

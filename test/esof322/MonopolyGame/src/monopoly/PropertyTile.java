@@ -1,5 +1,6 @@
 package monopoly;
 
+import java.util.*;
 
 class PropertyTile extends Tile {
     private final String name;
@@ -56,44 +57,43 @@ class PropertyTile extends Tile {
     
     @Override
     public void doAction(Player player, Board board)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        if(owner == -1)   //if no one owns the house
         {
-           
-            if(owner == -1)   //if no one owns the house
+            System.out.println(player.getName() + ", would you like to purchase " + getName() + "?");
+            System.out.println("Press 1 for Yes and 0 for No");
+            int choice = sc.nextInt();
+            switch(choice)
             {
-                System.out.println(player.getName() + ", would you like to purchase " + getName() + "?");
-                System.out.println("Press 1 for Yes and 0 for No");
-                int choice = sc.nextInt();
-                switch(choice)
-                {
-                    case 0:
-                        System.out.println(player.getName() + " declines to buy " + getName());
-                        //will be put up for auction here
-                        break;
-                        
-                    case 1:
-                        System.out.println(player.getName() + " chooses to buy " + getName());
-                        owner = player.getIdNum();
-                        player.subtractMoney(purchasePrice);
-                        break;
-                        
-                    default:
-                        System.out.println("This is an invalid option. Please try again.");
-                        break;
-                }
+                case 0:
+                    System.out.println(player.getName() + " declines to buy " + getName());
+                    //will be put up for auction here
+                    break;
+
+                case 1:
+                    System.out.println(player.getName() + " chooses to buy " + getName());
+                    owner = player.getIdNum();
+                    player.subtractMoney(purchasePrice);
+                    break;
+
+                default:
+                    System.out.println("This is an invalid option. Please try again.");
+                    break;
             }
-            else
+        }
+        else
+        {
+            if(owner != player.getIdNum())
             {
-                if(owner != player.getIdNum())
-                {
-                    int taxes = purchasePrice * (70/100);
-                    System.out.println(player.getName() + " pays $" + taxes + " to " + owner);
-                    //owner will later change to return the actual name of the player instead
-                    //of just the ID number of the player
-                    player.subtractMoney(taxes);
-                    //add money to owner here. will be implemented in board
-                }
+                int taxes = purchasePrice * (70/100);
+                System.out.println(player.getName() + " pays $" + taxes + " to " + owner);
+                //owner will later change to return the actual name of the player instead
+                //of just the ID number of the player
+                player.subtractMoney(taxes);
+                //add money to owner here. will be implemented in board
             }
         }
     }
-    
 }

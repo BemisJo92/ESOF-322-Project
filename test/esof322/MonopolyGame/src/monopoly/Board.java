@@ -8,7 +8,7 @@ public class Board
     int totalPlayers = 0;
     Player[] players;
     Tile[] tiles = new Tile[40];
-    
+    int jailTile = 10;
     
     
     public Board(int totalPlayers)
@@ -45,16 +45,16 @@ public class Board
                     tiles[tilePos] = new PropertyTile("Oriental Ave",100,6,30,90,270,400,550,50,50,50);
                     break;
                 case 7:     //first chance
-                    tiles[tilePos] = new ChanceTile();
+                    tiles[tilePos] = new Tile.ChanceTile();
                     break;
                 case 8:
-                    tiles[tilePos] = new PropertyTile("Vermont Ave", 100,6,12,30,90,270,400,550,50,50,50);
+                    tiles[tilePos] = new PropertyTile("Vermont Ave", 100,6,30,90,270,400,550,50,50,50);
                     break;
                 case 9:
-                    tiles[tilePos] = new PropertyTile("Connecticut Ave", 120, 8,16,40,100,300,450,600,50,50,60);
+                    tiles[tilePos] = new PropertyTile("Connecticut Ave", 120, 8,40,100,300,450,600,50,50,60);
                     break;
                 case 10:    //jail
-                    tiles[tilePos] = new JailTile();
+                    tiles[tilePos] = new JailTile("Jail");
                     break;
                 case 11:
                     tiles[tilePos] = new PropertyTile("St.Charles Place", 140,10,50,150,450,625,750,100,100,70);
@@ -145,22 +145,28 @@ public class Board
                     break;
                     
             }
-    }
-    public Tile movePlayer(Player player, int rollValue)    //???
-    {
-        return movePlayer(player,rollValue, true);
+        }
     }
     
-    public Tile movePlayer(Player player, int rollValue, boolean count)  
+    public void moveToJail(Player player)
     {
-      
+        player.setTile(jailTile);
+        Tile t = tiles[10];
+        t.doAction(player, this);
+        //send straight to tile number 10
+        //integrate with GUI here
     }
-    public Tile movePlayer(Player player, int tile)         //move a player to a specific tile # (for sending to jail)
+        
+    public void movePlayer(Player player, int rollValue)
     {
-    
+        int currentTile = player.getCurrentTile();
+        int nextTile = currentTile + rollValue;
+        player.setTile(nextTile);
+        Tile t = tiles[player.getCurrentTile()];
+        t.doAction(player, this);
+        //integrate with GUI here
     }
     
-}
 
     public Player[] getPlayers()
     {
