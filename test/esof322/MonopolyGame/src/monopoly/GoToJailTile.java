@@ -16,6 +16,6 @@ public class GoToJailTile extends Tile
         {
             System.out.println(player.getName() + " must go to Jail.");
             //move player to jail here and set jailStatus to True
-            movePlayer()
+            board.moveToJail(player);
         }
     }
