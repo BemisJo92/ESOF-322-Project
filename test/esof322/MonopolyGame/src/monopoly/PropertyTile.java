@@ -62,37 +62,46 @@ class PropertyTile extends Tile {
         if(owner == -1)   //if no one owns the house
         {
             int choice = 0;
-            System.out.println(player.getName() + ", would you like to purchase " + getName() + "?");
-            System.out.println("Press 1 for Yes and 0 for No");
-            choice = scanner.nextInt();
-            switch(choice)
+            int remainingMoney = player.getMoney();
+            if(remainingMoney < purchasePrice)
             {
-                case 0:
-                    System.out.println(player.getName() + " declines to buy " + getName());
-                    //will be put up for auction here
-                    break;
+                System.out.println(player.getName() + " does not have enought money to purchase this property.");
+                player.mortgage();
+            }
+            else
+            {
+                System.out.println(player.getName() + ", would you like to purchase " + getName() + "?");
+                System.out.println("Press 1 for Yes and 0 for No");
+                choice = scanner.nextInt();
+                switch(choice)
+                {
+                    case 0:
+                        System.out.println(player.getName() + " declines to buy " + getName());
+                        //will be put up for auction here
+                        break;
 
-                case 1:
-                    System.out.println(player.getName() + " chooses to buy " + getName());
-                    owner = player.getIdNum();
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    player.removeMoney(purchasePrice);
-                    System.out.println(player.getName() + " has " + player.getMoney() + " dollars remaining.");
-                    break;
+                    case 1:                                 
+                        System.out.println(player.getName() + " chooses to buy " + getName());
+                        owner = player.getIdNum();
+                        player.removeMoney(purchasePrice);
+                        player.addProperty(this);
+                        System.out.println(player.getName() + " has " + player.getMoney() + " dollars remaining.");
+                        break;
 
-                default:
-                    System.out.println("This is an invalid option. Please try again.");
-                    break;
+                    default:
+                        System.out.println("This is an invalid option. Please try again.");
+                        break;
+                }
             }
         }
         else
         {
+            int moneyRemaining = player.getMoney();
+            while(moneyRemaining < purchasePrice)
+            {
+                System.out.println("Sorry! You are broke!"); 
+                player.mortgage();
+            }
             if(owner != player.getIdNum())
             {
                 int taxes = purchasePrice;
