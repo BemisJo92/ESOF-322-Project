@@ -1,13 +1,16 @@
 package monopoly;
 
 import java.lang.*;
+import java.util.ArrayList;
 
 public class Player 
 {
     int tilePosition;               //position on the board 0-3
     int id, die, money;
     String name;
+    ArrayList<Tile> properties = new ArrayList<Tile>();
     boolean broke = false;
+    boolean mortagageStatus = false;
     int numRailroadsOwned = 0;
     int numBrownOwned = 0;
     int numLightBlueOwned = 0;
@@ -57,4 +60,9 @@ public class Player
     
     public boolean isBroke()
         {return money <= 0;}
+    
+    public void addProperty(Tile property)
+    {
+        properties.add(property);
+    }
 }

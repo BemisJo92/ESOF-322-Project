@@ -55,6 +55,11 @@ class PropertyTile extends Tile {
         return hotelCost;
     }
     
+    public int getMortgage()
+    {
+        return mortgageValue;
+    }
+    
     @Override
     public void doAction(Player player, Board board)
     {
@@ -74,14 +79,7 @@ class PropertyTile extends Tile {
 
                 case 1:
                     System.out.println(player.getName() + " chooses to buy " + getName());
-                    owner = player.getIdNum();
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                    owner = player.getIdNum();               
                     player.removeMoney(purchasePrice);
                     System.out.println(player.getName() + " has " + player.getMoney() + " dollars remaining.");
                     break;
