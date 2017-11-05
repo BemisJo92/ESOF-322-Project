@@ -75,7 +75,15 @@ class PropertyTile extends Tile {
                 case 1:
                     System.out.println(player.getName() + " chooses to buy " + getName());
                     owner = player.getIdNum();
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     player.removeMoney(purchasePrice);
+                    System.out.println(player.getName() + " has " + player.getMoney() + " dollars remaining.");
                     break;
 
                 default:
