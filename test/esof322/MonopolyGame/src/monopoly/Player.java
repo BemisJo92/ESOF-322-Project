@@ -10,6 +10,15 @@ public class Player
     boolean broke = false;
     Money money = new Money();  //do we really need a class for money or can it be handled in player?
     int die;
+    int numRailroadsOwned = 0;
+    int numBrownOwned = 0;
+    int numLightBlueOwned = 0;
+    int numPinkOwned = 0; 
+    int numOrangeOwned = 0;
+    int numRedOwned = 0;
+    int numYellowOwned = 0;
+    int numGreenOwned = 0;
+    int numDarkBlueOwned = 0;
     
     public Player(int idNum, String name)
     {
