@@ -9,7 +9,8 @@ public class UtilityTile extends Tile{
 
     @Override
     public void doAction(Player player, Board board) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Landed on Utility Tile");
     }
     
 }
