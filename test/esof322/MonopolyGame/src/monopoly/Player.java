@@ -57,4 +57,14 @@ public class Player
     
     public boolean isBroke()
         {return money <= 0;}
+    
+    public void addProperty(Tile property)
+        {}
+    
+    public void mortgage()
+    {
+        System.out.println("Here are the properties you can mortgage");
+        //display player's properties 
+        
+    }
 }

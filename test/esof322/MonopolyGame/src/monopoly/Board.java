@@ -46,7 +46,7 @@ public class Board
                 case 7:     //first chance
                     tiles[tilePos] = new ChanceTile("Chance1");
                     break;
-                case 8:
+                case 8:                        
                     tiles[tilePos] = new PropertyTile("Vermont Ave", 100,6,30,90,270,400,550,50,50,50);
                     break;
                 case 9:
@@ -59,7 +59,7 @@ public class Board
                     tiles[tilePos] = new PropertyTile("St.Charles Place", 140,10,50,150,450,625,750,100,100,70);
                     break;
                 case 12:   //electric company tile
-                    tiles[tilePos] = new UtilityTile("Electric Company");
+                    tiles[tilePos] = new UtilityTile("Electric Company",150,75);
                     break;
                 case 13:
                     tiles[tilePos] = new PropertyTile("States Ave", 140, 10,50,150,450,625,750,100,100,70);
@@ -107,7 +107,7 @@ public class Board
                     tiles[tilePos] = new PropertyTile("Ventnor Ave", 260,22,110,330,800,975,1150,150,150,130);
                     break;
                 case 28:
-                    tiles[tilePos] = new UtilityTile("Waterworks");
+                    tiles[tilePos] = new UtilityTile("Waterworks",150,75);
                     break;
                 case 29:
                     tiles[tilePos] = new PropertyTile("Marvin Gardens", 280,24,130,360,850,1025,1200,150,150,140);
