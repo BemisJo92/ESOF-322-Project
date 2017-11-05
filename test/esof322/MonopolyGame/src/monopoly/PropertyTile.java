@@ -87,8 +87,10 @@ class PropertyTile extends Tile {
         {
             if(owner != player.getIdNum())
             {
-                int taxes = purchasePrice * (70/100);
-                System.out.println(player.getName() + " pays $" + taxes + " to " + owner);
+                int taxes = purchasePrice;
+                Player[] players = board.getPlayers();
+                String playerName = players[owner].getName();
+                System.out.println(player.getName() + " pays $" + taxes + " to " + playerName);
                 //owner will later change to return the actual name of the player instead
                 //of just the ID number of the player
                 player.removeMoney(taxes);

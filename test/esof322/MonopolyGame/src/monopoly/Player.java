@@ -36,6 +36,7 @@ public class Player
     public String getName()   
         {return name;}
     
+    
     public int getIdNum()    
         {return id;}
   

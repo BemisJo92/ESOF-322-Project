@@ -160,15 +160,20 @@ public class Board
         int currentTile = player.getCurrentTile();
         if(currentTile + rollValue >= 39)
         {
-            System.out.println("Player passed Go");
+            System.out.println(player.getName() + " passed Go");
             //pass or land on Go
-            int remainingTiles = (currentTile + rollValue) - 40;
+            int remainingTiles = (currentTile + rollValue) - 39;
             player.setTile(remainingTiles);
             player.addMoney(passGoMoney);
+            
         }
-        int nextTile = currentTile + rollValue;
-        player.setTile(nextTile);
+        else
+        {
+            int nextTile = currentTile + rollValue;
+            player.setTile(nextTile);
+        }
         System.out.println("Current tile is " + player.getCurrentTile());
+        System.out.println(player.getName() + "'s money is " + player.getMoney());
         Tile t = tiles[player.getCurrentTile()];
         t.doAction(player, this);
         //integrate with GUI here
