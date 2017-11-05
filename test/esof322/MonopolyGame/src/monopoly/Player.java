@@ -66,5 +66,17 @@ public class Player
         System.out.println("Here are the properties you can mortgage");
         //display player's properties 
         
+        
+        //user input for choice
+        System.out.println("");
+        
+        //set mortgage boolean on property to true.
+       //property.setMortgageStatus(true);
+       
+        //get mortgage value mValue
+        
+        //give player mortgageValue money
+        addMoney(mValue);
+        
     }
 }
