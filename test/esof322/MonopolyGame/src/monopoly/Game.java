@@ -10,7 +10,7 @@ import java.util.TimerTask;
 public class Game {
     Board gameBoard;                   //instance of board
     final int timeLimit = 10;         //time limit in mins
-    
+    Boolean gameStatus = true;
     //implement a timer
     Timer gameTimer = new Timer();
     TimerTask callGameOver = new TimerTask(){           //timer task that calls gameOver
@@ -52,7 +52,7 @@ public class Game {
     {        
         System.out.println("---------------------");
         
-        while(!gameStatus(currentGameTime))
+        while(gameStatus)
         {
             if(!gameBoard.getPlayer().isBroke())
             {
@@ -65,25 +65,15 @@ public class Game {
             gameBoard.nextTurn();
         }
         
-        System.out.println("The time limit has been reached. The game is now over!");
         
 
         
     }
     
-    public boolean gameStatus(int time)    //true if Game is over
-    {
-        if(time >= timeLimit)
-        {
-            return true;
-        }else
-        {
-            return false;
-        }
-    }
-    
     public void gameOver()  //determine winner and exit
     {
+        gameStatus = false;
+        System.out.println("The time limit has been reached. The game is now over!");
         System.out.println("Program will now exit");
         System.exit(0);
     }
