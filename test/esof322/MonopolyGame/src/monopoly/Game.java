@@ -59,6 +59,8 @@ public class Game {
                 int die1 = gameBoard.getPlayer().rollDie();
                 int die2 = gameBoard.getPlayer().rollDie();
                 int rollValue = die1 + die2;
+                System.out.println("Die 1: " + die1);
+                System.out.println("Die 2: " + die2);
                 gameBoard.movePlayer(gameBoard.getPlayer(), rollValue);
             }
             System.out.println("Next players turn (from Game)");

@@ -64,7 +64,8 @@ class PropertyTile extends Tile {
         {
             System.out.println(player.getName() + ", would you like to purchase " + getName() + "?");
             System.out.println("Press 1 for Yes and 0 for No");
-            int choice = sc.nextInt();
+            int choice = 1;
+            //int choice = sc.nextInt();
             switch(choice)
             {
                 case 0:
