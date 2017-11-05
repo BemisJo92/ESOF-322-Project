@@ -12,6 +12,11 @@ public class UtilityTile extends Tile{
         this.purchasePrice = purchasePrice;
         this.mortgageValue = mortgageValue;
     }
+    
+    public int getMortgage()
+    {
+        return mortgageValue;
+    }
 
     @Override
     public void doAction(Player player, Board board) {

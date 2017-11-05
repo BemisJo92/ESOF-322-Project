@@ -7,9 +7,6 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="ff" green="ff" red="ff" type="rgb"/>
     </Property>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[858, 858]"/>
-    </Property>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -45,7 +42,7 @@
                   <Component id="jPanel12" min="-2" max="-2" attributes="0"/>
                   <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="1000" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="1007" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

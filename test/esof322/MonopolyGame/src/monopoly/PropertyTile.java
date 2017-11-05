@@ -55,6 +55,11 @@ class PropertyTile extends Tile {
         return hotelCost;
     }
     
+    public int getMortgage()
+    {
+        return mortgageValue;
+    }
+    
     @Override
     public void doAction(Player player, Board board)
     {
@@ -87,7 +92,7 @@ class PropertyTile extends Tile {
                         player.addProperty(this);
                         System.out.println(player.getName() + " has " + player.getMoney() + " dollars remaining.");
                         break;
-
+ 
                     default:
                         System.out.println("This is an invalid option. Please try again.");
                         break;

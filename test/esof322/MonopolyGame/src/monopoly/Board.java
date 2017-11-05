@@ -26,7 +26,7 @@ public class Board
                     tiles[tilePos] = new GoTile("GO");  //make sure correct format with tile class
                     break;
                 case 1: 
-                    tiles[tilePos] = new PropertyTile("Mederteranian Ave",60,2,10,30,90,160,250,50,50,30);   //format for PropertyTile: name,buy price,rent, rent with 1 house,2,3,4,1 hotet, house cost, hotel cost(w/4 houses), mortgage value
+                    tiles[tilePos] = new PropertyTile("Mediterranian Ave",60,2,10,30,90,160,250,50,50,30);   //format for PropertyTile: name,buy price,rent, rent with 1 house,2,3,4,1 hotet, house cost, hotel cost(w/4 houses), mortgage value
                     break;
                 case 2: //first community chest
                     tiles[tilePos] = new CommunityChestTile("CommunityChest1");
@@ -38,13 +38,13 @@ public class Board
                     tiles[tilePos] = new IncomeTaxTile("Income Tax");
                     break;
                 case 5:
-                    tiles[tilePos] = new RailroadTile("Reading Railroad");                           
+                    tiles[tilePos] = new RailroadTile("Reading Railroad", 100);                           
                     break;
                 case 6:
                     tiles[tilePos] = new PropertyTile("Oriental Ave",100,6,30,90,270,400,550,50,50,50);
                     break;
                 case 7:     //first chance
-                    tiles[tilePos] = new ChanceTile("Chance1");
+                    tiles[tilePos] = new ChanceTile("Chance 1");
                     break;
                 case 8:                        
                     tiles[tilePos] = new PropertyTile("Vermont Ave", 100,6,30,90,270,400,550,50,50,50);
@@ -68,7 +68,7 @@ public class Board
                     tiles[tilePos] = new PropertyTile("Virginia Ave",160, 12,60,180,500,700,900,100,100,80);
                     break; 
                 case 15:
-                    tiles[tilePos] = new RailroadTile("Pennsylvania Railroad");  
+                    tiles[tilePos] = new RailroadTile("Pennsylvania Railroad", 100);  
                     break;
                 case 16:
                     tiles[tilePos] = new PropertyTile("St. James Place", 180, 14,70,200,550,750,950,100,100,90);
@@ -98,7 +98,7 @@ public class Board
                     tiles[tilePos] = new PropertyTile("Illinois Ave", 240,20,100,300,750,925,1100,150,150,120);
                     break;
                 case 25:
-                    tiles[tilePos] = new RailroadTile("B & O Railroad");
+                    tiles[tilePos] = new RailroadTile("B & O Railroad", 100);
                     break;
                 case 26:
                     tiles[tilePos] = new PropertyTile("Atlantic Ave", 260,22,110,330,800,975,1150,150,150,130);
@@ -128,7 +128,7 @@ public class Board
                     tiles[tilePos] = new PropertyTile("Pennsylvania Avenue",320,28,150,450,1000,1200,1400,200,200,160);
                     break;
                 case 35:
-                    tiles[tilePos] = new RailroadTile("ShortLine");
+                    tiles[tilePos] = new RailroadTile("ShortLine", 100);
                     break;
                 case 36:    //3rd chance
                     tiles[tilePos] = new ChanceTile("Chance 3");
