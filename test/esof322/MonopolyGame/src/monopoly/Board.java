@@ -1,7 +1,5 @@
 package monopoly;
 
-import java.util.Random;
-
 public class Board 
 {
     int whosTurn = 0;
@@ -194,9 +192,9 @@ public class Board
         }
     }
 
-    public Player getPlayer(int num)
+    public Player getPlayer()    //get the player based on who's turn it is
     {
-        return players[num];
+        return players[whosTurn];
     }
 
     public int getTotalTiles()

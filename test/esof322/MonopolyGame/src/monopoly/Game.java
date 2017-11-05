@@ -31,35 +31,35 @@ public class Game {
     }
     
     public static void main(String[] args)  //driver method
+    {
+        System.out.println("Monopoly Game Start");
+        Scanner scanner = new Scanner(System.in);
+        int totalPlayers = 0;
+        while(totalPlayers <2 || totalPlayers > 4)
         {
-            System.out.println("Monopoly Game Start");
-            Scanner scanner = new Scanner(System.in);
-            int totalPlayers = 0;
-            while(totalPlayers <2 || totalPlayers > 4)
+            System.out.println("How many players? (2-4)");
+            totalPlayers = scanner.nextInt();
+            if(totalPlayers < 2 || totalPlayers > 4)
             {
-                System.out.println("How many players? (2-4)");
-                totalPlayers = scanner.nextInt();
-                if(totalPlayers < 2 || totalPlayers > 4)
-                {
-                    System.out.println("Please enter a valid player count.");
-                }
+                System.out.println("Please enter a valid player count.");
             }
-            scanner.close();
-            Game game = new Game(totalPlayers);      
-            game.startGame();
         }
+        scanner.close();    
+        Game game = new Game(totalPlayers);      
+        game.startGame();
+    }
     public void startGame() //need to implement a timer here
     {        
         System.out.println("---------------------");
         
         while(!gameStatus(currentGameTime))
         {
-            if(!gameBoard.getCurrentPlayer().isBroke())
+            if(!gameBoard.getPlayer().isBroke())
             {
-                int die1 = gameBoard.getCurrentPlayer().rollDie();
-                int die2 = gameBoard.getCurrentPlayer().rollDie();
+                int die1 = gameBoard.getPlayer().rollDie();
+                int die2 = gameBoard.getPlayer().rollDie();
                 int rollValue = die1 + die2;
-                gameBoard.movePlayer(gameBoard.getCurrentPlayer(), rollValue);
+                gameBoard.movePlayer(gameBoard.getPlayer(), rollValue);
             }
             System.out.println("Next players turn (from Game)");
             gameBoard.nextTurn();
