@@ -1,8 +1,6 @@
 package monopoly;
 
 import java.util.Random;
-import monopoly.Player;
-import monopoly.Tile;
 
 public class Board 
 {
