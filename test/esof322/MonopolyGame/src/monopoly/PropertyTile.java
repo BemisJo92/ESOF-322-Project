@@ -75,7 +75,7 @@ class PropertyTile extends Tile {
                 case 1:
                     System.out.println(player.getName() + " chooses to buy " + getName());
                     owner = player.getIdNum();
-                    player.subtractMoney(purchasePrice);
+                    player.removeMoney(purchasePrice);
                     break;
 
                 default:
@@ -91,7 +91,7 @@ class PropertyTile extends Tile {
                 System.out.println(player.getName() + " pays $" + taxes + " to " + owner);
                 //owner will later change to return the actual name of the player instead
                 //of just the ID number of the player
-                player.subtractMoney(taxes);
+                player.removeMoney(taxes);
                 //add money to owner here. will be implemented in board
             }
         }
