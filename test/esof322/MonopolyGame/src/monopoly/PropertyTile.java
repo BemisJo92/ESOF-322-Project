@@ -1,6 +1,6 @@
 package monopoly;
 
-import java.util.*;
+import java.util.Scanner;
 
 class PropertyTile extends Tile {
     private final String name;
@@ -58,14 +58,13 @@ class PropertyTile extends Tile {
     @Override
     public void doAction(Player player, Board board)
     {
-        Scanner sc = new Scanner(System.in);
-
+        Scanner scanner = new Scanner(System.in);
         if(owner == -1)   //if no one owns the house
         {
+            int choice = 0;
             System.out.println(player.getName() + ", would you like to purchase " + getName() + "?");
             System.out.println("Press 1 for Yes and 0 for No");
-            int choice = 1;
-            //int choice = sc.nextInt();
+            choice = scanner.nextInt();
             switch(choice)
             {
                 case 0:

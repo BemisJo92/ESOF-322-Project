@@ -44,7 +44,7 @@ public class Game {
                 System.out.println("Please enter a valid player count.");
             }
         }
-        scanner.close();    
+        //scanner.close();    
         Game game = new Game(totalPlayers);      
         game.startGame();
     }

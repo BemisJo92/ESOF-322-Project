@@ -142,7 +142,6 @@ public class Board
                 case 39:
                     tiles[tilePos] = new PropertyTile("Boardwalk", 400,50,200,600,1400,1700,2000,200,200,200);
                     break;
-                    
             }
         }
     }
@@ -161,6 +160,7 @@ public class Board
         int currentTile = player.getCurrentTile();
         if(currentTile + rollValue >= 39)
         {
+            System.out.println("Player passed Go");
             //pass or land on Go
             int remainingTiles = (currentTile + rollValue) - 40;
             player.setTile(remainingTiles);
@@ -168,6 +168,7 @@ public class Board
         }
         int nextTile = currentTile + rollValue;
         player.setTile(nextTile);
+        System.out.println("Current tile is " + player.getCurrentTile());
         Tile t = tiles[player.getCurrentTile()];
         t.doAction(player, this);
         //integrate with GUI here
