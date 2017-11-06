@@ -81,33 +81,47 @@ class PropertyTile extends Tile {
             if(remainingMoney < purchasePrice)
             {
                 System.out.println(player.getName() + " does not have enought money to purchase this property.");
-                
-                player.mortgage(board);
-            }
-            else
-            {
-                System.out.println(player.getName() + ", would you like to purchase " + getName() + "?");
-                System.out.println("Press 1 for Yes and 0 for No");
+                System.out.println("Do you want to mortgage a property? Enter 1 for yes and 0 for no.");
+                choice = 0;
                 choice = scanner.nextInt();
                 switch(choice)
                 {
                     case 0:
-                        System.out.println(player.getName() + " declines to buy " + getName());
-                        //will be put up for auction here
+                        System.out.println("Player elects not to mortgage their properties.");
                         break;
-
-                    case 1:                                 
-                        System.out.println(player.getName() + " chooses to buy " + getName());
-                        owner = player.getIdNum();
-                        player.removeMoney(purchasePrice);
-                        player.addProperty(this);
-                        System.out.println(player.getName() + " has " + player.getMoney() + " dollars remaining.");
+                        
+                    case 1:
+                        System.out.println("Player elects to mortgage a property.");
+                        player.mortgage(board);
                         break;
- 
+                        
                     default:
-                        System.out.println("This is an invalid option. Please try again.");
+                        System.out.println("Invalid response. Please choose either 1 or 0");
                         break;
                 }
+            }
+            choice = 0;
+            System.out.println(player.getName() + ", would you like to purchase " + getName() + "?");
+            System.out.println("Press 1 for Yes and 0 for No");
+            choice = scanner.nextInt();
+            switch(choice)
+            {
+                case 0:
+                    System.out.println(player.getName() + " declines to buy " + getName());
+                    //will be put up for auction here
+                    break;
+
+                case 1:                                 
+                    System.out.println(player.getName() + " chooses to buy " + getName());
+                    owner = player.getIdNum();
+                    player.removeMoney(purchasePrice);
+                    player.addProperty(this);
+                    System.out.println(player.getName() + " has " + player.getMoney() + " dollars remaining.");
+                    break;
+
+                default:
+                    System.out.println("This is an invalid option. Please try again.");
+                    break;
             }
         }
         else
