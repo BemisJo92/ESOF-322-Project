@@ -86,7 +86,10 @@ public class Player
 
         for(Tile property: properties)
         {
-            System.out.println(property.getName() + " mortgage Value: $" + property.getMortgage() + " ID NUM: " + property.getTileID());
+            if(property.mortgageStatus == true) //fix    move mortgageStatus to Tile instead of subtile classes
+            {
+                System.out.println(property.getName() + " mortgage Value: $" + property.getMortgage() + " ID NUM: " + property.getTileID());
+            }
         }
        
         System.out.println("What property would you like to mortgage? Please enter the ID number");
