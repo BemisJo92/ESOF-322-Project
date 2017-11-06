@@ -1,5 +1,6 @@
 package monopoly;
 
+import java.util.Scanner;
 
 class PropertyTile extends Tile {
     private final String name;
@@ -8,8 +9,10 @@ class PropertyTile extends Tile {
     private final int houseCost, hotelCost, mortgageValue;
     
     int owner = -1; //the number of the player who owns the property (-1 means no-one owns the property)
-   
+    
     int numHouses, numhotels = 0;  //number of houses and hotels on the property is initially 0
+    
+    private boolean mortgageStatus = false;
     
     
     //constructor
@@ -54,46 +57,75 @@ class PropertyTile extends Tile {
         return hotelCost;
     }
     
+    public int getMortgage()
+    {
+        return mortgageValue;
+    }
+    
     @Override
     public void doAction(Player player, Board board)
+    {
+        Scanner scanner = new Scanner(System.in);
+        if(owner == -1)   //if no one owns the house
         {
-           
-            if(owner == -1)   //if no one owns the house
+            int choice = 0;
+            int remainingMoney = player.getMoney();
+            if(remainingMoney < purchasePrice)
+            {
+                System.out.println(player.getName() + " does not have enought money to purchase this property.");
+                player.mortgage();
+            }
+            else
             {
                 System.out.println(player.getName() + ", would you like to purchase " + getName() + "?");
                 System.out.println("Press 1 for Yes and 0 for No");
-                int choice = sc.nextInt();
+                choice = scanner.nextInt();
                 switch(choice)
                 {
                     case 0:
                         System.out.println(player.getName() + " declines to buy " + getName());
                         //will be put up for auction here
                         break;
-                        
-                    case 1:
+
+                    case 1:                                 
                         System.out.println(player.getName() + " chooses to buy " + getName());
                         owner = player.getIdNum();
-                        player.subtractMoney(purchasePrice);
+                        player.removeMoney(purchasePrice);
+                        player.addProperty(this);
+                        System.out.println(player.getName() + " has " + player.getMoney() + " dollars remaining.");
                         break;
-                        
+ 
                     default:
                         System.out.println("This is an invalid option. Please try again.");
                         break;
                 }
             }
-            else
+        }
+        else
+        {
+            int moneyRemaining = player.getMoney();
+            while(moneyRemaining < purchasePrice)
             {
-                if(owner != player.getIdNum())
+                System.out.println("Sorry! You are broke!"); 
+                player.mortgage();
+            }
+            if(owner != player.getIdNum())
+            {
+                int taxes = purchasePrice;
+                if(!mortgageStatus)
                 {
-                    int taxes = purchasePrice * (70/100);
-                    System.out.println(player.getName() + " pays $" + taxes + " to " + owner);
-                    //owner will later change to return the actual name of the player instead
-                    //of just the ID number of the player
-                    player.subtractMoney(taxes);
-                    //add money to owner here. will be implemented in board
+                    taxes = 0;
+                    System.out.println("This property is currently mortgaged, no taxes will be paid");
+                }
+                else
+                {
+                    Player[] players = board.getPlayers();
+                    String playerName = players[owner].getName();
+                    System.out.println(player.getName() + " pays $" + taxes + " to " + playerName);
+                    player.removeMoney(taxes);
+                    players[owner].addMoney(taxes);
                 }
             }
         }
     }
-    
 }
