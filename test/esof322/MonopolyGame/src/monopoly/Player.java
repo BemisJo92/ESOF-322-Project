@@ -62,21 +62,59 @@ public class Player
     public boolean isBroke()
         {return money <= 0;}
     
-    public void addProperty(Tile property)
-    {}
+    public void addProperty(PropertyTile property)
+    {
+        properties.add(property);
+    }
     
-    public void mortgage()
+    public void addProperty(RailroadTile property)
+    {
+        properties.add(property);
+    }
+    
+    public void addProperty(UtilityTile property)
+    {
+        properties.add(property);
+    }
+    
+    public void mortgage(PropertyTile property)
     {
         Scanner scanner = new Scanner(System.in);
         
         System.out.println("Here are the properties you can mortgage");
         //display player's properties 
+
         for(Tile property: properties)
         {
             System.out.println(property.getName() + " mortgage Value: " + property.getMortgage() + " ID NUM: " + property.getTileID());
         }
        
         System.out.println("What property would you like to mortgage? Please enter the ID number");
+        
+        properties.remove(property);
+        
+        addMoney(property.getMortgage());
+    }
+    
+    public void mortgage(RailroadTile property)
+    {
+        System.out.println("Here are the properties you can mortgage");
+        //display player's properties 
+        properties.remove(property);
+        
+        addMoney(property.getMortgage());
+    }
+    
+    public void mortgage(UtilityTile property)
+    {
+        System.out.println("Here are the properties you can mortgage");
+        //display player's properties 
+
+        properties.remove(property);
+        
+        addMoney(property.getMortgage());
+        
+       
         //user input for choice
         int choice = scanner.nextInt();       
         
@@ -84,11 +122,5 @@ public class Player
         Tile currentProperty = tiles[choice];
         //set mortgage boolean on property to true.
        //property.setMortgageStatus(true);
-       
-        //get mortgage value mValue
-        
-        //give player mortgageValue money
-        addMoney(mValue);
-       
     }
 }

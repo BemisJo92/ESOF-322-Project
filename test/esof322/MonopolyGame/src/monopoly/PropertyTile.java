@@ -8,9 +8,11 @@ class PropertyTile extends Tile {
     private final int[] rents = new int[6]; //rent,rent1h,rent2h,rent3h,rent4h,rentHotel
     private final int houseCost, hotelCost, mortgageValue;
     
-    int owner = -1; //the number of the player who owns the property (-1 means no-one owns the property)
+    int owner = -1; //the number of the player who owns the property (-1 means no one owns the property)
     
     int numHouses, numhotels = 0;  //number of houses and hotels on the property is initially 0
+    
+    private boolean mortgageStatus = false;
     
     
     //constructor
@@ -75,7 +77,8 @@ class PropertyTile extends Tile {
             if(remainingMoney < purchasePrice)
             {
                 System.out.println(player.getName() + " does not have enought money to purchase this property.");
-                player.mortgage();
+                
+                player.mortgage(this);
             }
             else
             {
@@ -114,13 +117,19 @@ class PropertyTile extends Tile {
             if(owner != player.getIdNum())
             {
                 int taxes = purchasePrice;
-                Player[] players = board.getPlayers();
-                String playerName = players[owner].getName();
-                System.out.println(player.getName() + " pays $" + taxes + " to " + playerName);
-                //owner will later change to return the actual name of the player instead
-                //of just the ID number of the player
-                player.removeMoney(taxes);
-                //add money to owner here. will be implemented in board
+                if(!mortgageStatus)
+                {
+                    taxes = 0;
+                    System.out.println("This property is currently mortgaged, no taxes will be paid");
+                }
+                else
+                {
+                    Player[] players = board.getPlayers();
+                    String playerName = players[owner].getName();
+                    System.out.println(player.getName() + " pays $" + taxes + " to " + playerName);
+                    player.removeMoney(taxes);
+                    players[owner].addMoney(taxes);
+                }
             }
         }
     }
