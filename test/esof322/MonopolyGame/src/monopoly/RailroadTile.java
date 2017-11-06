@@ -9,12 +9,11 @@ public class RailroadTile extends Tile{
     
     int owner = -1; //the number of the player who owns the property (-1 means no-one owns the property)
     final private int purchaseAmount = 200; //all railroads have a purchase amount of $200
-    final private int mortgageValue;
+    final private int mortgageValue = 100; //all railroads have a mortgage of $100
 
     
-    public RailroadTile(String name, int mortgageValue) {
-        super(name);
-        this.mortgageValue = mortgageValue;
+    public RailroadTile(String name) {
+        super(name);     
     }
     
     public int getRent(int i)           //return approperate value of rent

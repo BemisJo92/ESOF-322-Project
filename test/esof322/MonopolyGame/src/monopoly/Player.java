@@ -61,12 +61,45 @@ public class Player
     public boolean isBroke()
         {return money <= 0;}
     
-    public void addProperty(Tile property)
-    {}
+    public void addProperty(PropertyTile property)
+    {
+        properties.add(property);
+    }
     
-    public void mortgage()
+    public void addProperty(RailroadTile property)
+    {
+        properties.add(property);
+    }
+    
+    public void addProperty(UtilityTile property)
+    {
+        properties.add(property);
+    }
+    
+    public void mortgage(PropertyTile property)
     {
         System.out.println("Here are the properties you can mortgage");
         //display player's properties 
+        properties.remove(property);
+        
+        addMoney(property.getMortgage());
+    }
+    
+    public void mortgage(RailroadTile property)
+    {
+        System.out.println("Here are the properties you can mortgage");
+        //display player's properties 
+        properties.remove(property);
+        
+        addMoney(property.getMortgage());
+    }
+    
+    public void mortgage(UtilityTile property)
+    {
+        System.out.println("Here are the properties you can mortgage");
+        //display player's properties 
+        properties.remove(property);
+        
+        addMoney(property.getMortgage());
     }
 }
