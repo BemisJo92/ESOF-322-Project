@@ -63,7 +63,7 @@ public class MonopolyGUI extends javax.swing.JFrame {
         jPanel1.add(jLabel5);
         jLabel5.setBounds(1230, 1210, 20, 60);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Logan\\Desktop\\monopoly board.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Logan\\OneDrive\\Documents\\GitHub\\Team17\\test\\esof322\\MonopolyGame\\monopoly board.jpg")); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(10, -100, 1490, 1490);
 

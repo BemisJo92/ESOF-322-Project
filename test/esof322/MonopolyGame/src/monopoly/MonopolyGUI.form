@@ -118,7 +118,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Logan\Desktop\monopoly board.jpg"/>
+              <Image iconType="2" name="C:\Users\Logan\OneDrive\Documents\GitHub\Team17\test\esof322\MonopolyGame\monopoly board.jpg"/>
             </Property>
           </Properties>
           <Constraints>
