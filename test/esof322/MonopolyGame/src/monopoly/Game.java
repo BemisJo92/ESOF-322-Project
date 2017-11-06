@@ -11,7 +11,7 @@ public class Game {
     Board gameBoard;                   //instance of board
     final int timeLimit = 10;         //time limit in mins
     Boolean gameStatus = true;
-    public static int tileID = 0;
+    public static int tileIDTotal = 0;
 
     //implement a timer
     Timer gameTimer = new Timer();
@@ -80,6 +80,11 @@ public class Game {
         gameStatus = false;
         System.out.println("Program will now exit");
         System.exit(0);
+    }
+    
+    public Board getBoard()
+    {
+        return gameBoard;
     }
     
     

@@ -216,9 +216,9 @@ public class Board
         return tiles.length;
     }
     
-    public Tile[] getTiles()
+    public Tile getTile(int i)
     {
-        return tiles;
+        return tiles[i];
     }
 
 }

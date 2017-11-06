@@ -6,6 +6,7 @@ public class UtilityTile extends Tile{
     //rent is 4x the amount shown on dice if 1 utility owned. and 10x if both utilities owned
     private int purchasePrice = 150; //all utility tiles have a purchase price of $150
     private int mortgageValue = 75; //all utility tiles have a mortgage of $75
+    private Boolean mortgageStatus = false;
     
     public UtilityTile(String name) {
         super(name);
@@ -25,6 +26,11 @@ public class UtilityTile extends Tile{
         //auction to next player
         
         //already owned, 
+    }
+
+    @Override
+    public void setMortgageStatus(Boolean status) {
+        mortgageStatus = status;
     }
     
 }

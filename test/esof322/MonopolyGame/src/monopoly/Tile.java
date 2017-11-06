@@ -23,6 +23,8 @@ public abstract class Tile
    
     public abstract int getMortgage();
     
+    public abstract void setMortgageStatus(Boolean status);
+    
     public int getTileID()
     {
         return tileID;

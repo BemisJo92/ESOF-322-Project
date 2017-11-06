@@ -10,7 +10,7 @@ public class RailroadTile extends Tile{
     int owner = -1; //the number of the player who owns the property (-1 means no-one owns the property)
     final private int purchaseAmount = 200; //all railroads have a purchase amount of $200
     final private int mortgageValue = 100; //all railroads have a mortgage of $100
-
+    Boolean mortgageStatus = false;
     
     public RailroadTile(String name) {
         super(name);     
@@ -30,6 +30,11 @@ public class RailroadTile extends Tile{
     public void doAction(Player player, Board board) {
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         System.out.println("Landed on chance tile.");
+    }
+
+    @Override
+    public void setMortgageStatus(Boolean status) {
+        mortgageStatus = status;
     }
     
 }

@@ -9,7 +9,6 @@ class PropertyTile extends Tile {
     private final int houseCost, hotelCost, mortgageValue;
     
     int owner = -1; //the number of the player who owns the property (-1 means no one owns the property)
-    
     int numHouses, numhotels = 0;  //number of houses and hotels on the property is initially 0
     
     private boolean mortgageStatus = false;
@@ -61,9 +60,14 @@ class PropertyTile extends Tile {
     {
         return mortgageValue;
     }
+    
+    public void setMortgageStatus(Boolean b)
+    {
+        mortgageStatus = b;
+    }
     public int getTileID()
     {
-        return tileID;
+        return super.getTileID();
     }        
     
     @Override
@@ -78,7 +82,7 @@ class PropertyTile extends Tile {
             {
                 System.out.println(player.getName() + " does not have enought money to purchase this property.");
                 
-                player.mortgage(this);
+                player.mortgage(board);
             }
             else
             {
@@ -112,7 +116,9 @@ class PropertyTile extends Tile {
             while(moneyRemaining < purchasePrice)
             {
                 System.out.println("Sorry! You are broke!"); 
-                player.mortgage();
+                
+                System.out.println("Please pick a property to mortgage.");
+                player.mortgage(board);
             }
             if(owner != player.getIdNum())
             {

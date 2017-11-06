@@ -77,7 +77,7 @@ public class Player
         properties.add(property);
     }
     
-    public void mortgage(PropertyTile property)
+    public void mortgage(Board board)
     {
         Scanner scanner = new Scanner(System.in);
         
@@ -86,41 +86,22 @@ public class Player
 
         for(Tile property: properties)
         {
-            System.out.println(property.getName() + " mortgage Value: " + property.getMortgage() + " ID NUM: " + property.getTileID());
+            System.out.println(property.getName() + " mortgage Value: $" + property.getMortgage() + " ID NUM: " + property.getTileID());
         }
        
         System.out.println("What property would you like to mortgage? Please enter the ID number");
         
-        properties.remove(property);
-        
-        addMoney(property.getMortgage());
-    }
-    
-    public void mortgage(RailroadTile property)
-    {
-        System.out.println("Here are the properties you can mortgage");
-        //display player's properties 
-        properties.remove(property);
-        
-        addMoney(property.getMortgage());
-    }
-    
-    public void mortgage(UtilityTile property)
-    {
-        System.out.println("Here are the properties you can mortgage");
-        //display player's properties 
-
-        properties.remove(property);
-        
-        addMoney(property.getMortgage());
-        
-       
-        //user input for choice
+         //user input for choice
         int choice = scanner.nextInt();       
         
-        Tile tiles = Board.getTiles();
-        Tile currentProperty = tiles[choice];
+        board.getTile(choice);
+        Tile currentProperty = board.getTile(choice);
+        
         //set mortgage boolean on property to true.
-       //property.setMortgageStatus(true);
+        currentProperty.setMortgageStatus(true);
+        
+        addMoney(currentProperty.getMortgage());
+        System.out.println(getMoney());
+
     }
 }
