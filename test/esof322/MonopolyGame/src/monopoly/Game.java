@@ -11,6 +11,8 @@ public class Game {
     Board gameBoard;                   //instance of board
     final int timeLimit = 10;         //time limit in mins
     Boolean gameStatus = true;
+    public static int tileID = 0;
+
     //implement a timer
     Timer gameTimer = new Timer();
     TimerTask callGameOver = new TimerTask(){           //timer task that calls gameOver

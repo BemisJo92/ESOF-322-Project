@@ -59,6 +59,10 @@ class PropertyTile extends Tile {
     {
         return mortgageValue;
     }
+    public int getTileID()
+    {
+        return tileID;
+    }        
     
     @Override
     public void doAction(Player player, Board board)

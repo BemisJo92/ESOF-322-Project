@@ -2,6 +2,7 @@ package monopoly;
 
 import java.lang.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Player 
 {
@@ -66,13 +67,21 @@ public class Player
     
     public void mortgage()
     {
+        Scanner scanner = new Scanner(System.in);
+        
         System.out.println("Here are the properties you can mortgage");
         //display player's properties 
-        
-        
+        for(Tile property: properties)
+        {
+            System.out.println(property.getName() + " mortgage Value: " + property.getMortgage() + " ID NUM: " + property.getTileID());
+        }
+       
+        System.out.println("What property would you like to mortgage? Please enter the ID number");
         //user input for choice
-        System.out.println("");
+        int choice = scanner.nextInt();       
         
+        Tile tiles = Board.getTiles();
+        Tile currentProperty = tiles[choice];
         //set mortgage boolean on property to true.
        //property.setMortgageStatus(true);
        
