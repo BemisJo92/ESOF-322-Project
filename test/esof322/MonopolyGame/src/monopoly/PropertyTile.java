@@ -8,7 +8,7 @@ class PropertyTile extends Tile {
     private final int[] rents = new int[6]; //rent,rent1h,rent2h,rent3h,rent4h,rentHotel
     private final int houseCost, hotelCost, mortgageValue;
     
-    int owner = -1; //the number of the player who owns the property (-1 means no-one owns the property)
+    int owner = -1; //the number of the player who owns the property (-1 means no one owns the property)
     
     int numHouses, numhotels = 0;  //number of houses and hotels on the property is initially 0
     

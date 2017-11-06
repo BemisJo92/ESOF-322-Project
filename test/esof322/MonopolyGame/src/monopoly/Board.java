@@ -215,5 +215,10 @@ public class Board
     {
         return tiles.length;
     }
+    
+    public Tile[] getTiles()
+    {
+        return tiles;
+    }
 
 }
