@@ -17,6 +17,11 @@ public class MonopolyGUI extends javax.swing.JFrame {
     public MonopolyGUI() {
         initComponents();
     }
+    
+    public void displayText()   
+    {
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
