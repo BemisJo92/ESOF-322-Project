@@ -8,7 +8,9 @@ public class Player
 {
     int tilePosition;               //position on the board 0-3
     int id, die, money;
-    String name;
+    final String name;
+    boolean jailStatus = false;
+    int jailStayLength = 0;
     ArrayList<Tile> properties = new ArrayList<Tile>();
     boolean broke = false;
     boolean mortagageStatus = false;
@@ -39,8 +41,30 @@ public class Player
     
     public String getName()   
         {return name;}
+    public boolean getJailStatus()
+    {
+        return jailStatus;
+    }
     
+    public void setJailStatus(Boolean newStatus)
+    {
+        jailStatus = newStatus;
+    }
     
+    public int getJailStayLength()
+    {
+        return jailStayLength;
+    }
+    
+    public void resetJailStayLength()
+    {
+        jailStayLength = 0;
+    }
+    
+    public void incrementJailStay()
+    {
+        jailStayLength++;
+    }
     public int getIdNum()    
         {return id;}
   
@@ -61,6 +85,11 @@ public class Player
     
     public boolean isBroke()
         {return money <= 0;}
+    
+    public ArrayList getProperties()
+    {
+        return properties;
+    }
     
     public void addProperty(PropertyTile property)
     {
@@ -86,7 +115,7 @@ public class Player
 
         for(Tile property: properties)
         {
-            if(property.mortgageStatus == true) //fix    move mortgageStatus to Tile instead of subtile classes
+            if(property.getMortgageStatus() == false) // if property is not already mortgaged 
             {
                 System.out.println(property.getName() + " mortgage Value: $" + property.getMortgage() + " ID NUM: " + property.getTileID());
             }
@@ -95,7 +124,27 @@ public class Player
         System.out.println("What property would you like to mortgage? Please enter the ID number");
         
          //user input for choice
-        int choice = scanner.nextInt();       
+        int choice = scanner.nextInt();
+        
+        Boolean valid = false;
+        while(!valid)                   //check if player actually owns property
+        {         
+            
+            for(Tile property:properties)  
+            {
+                if (choice == property.getTileID())
+                {   
+                    valid = true;
+                    //break;              //dont waste time searching the rest of properties if you found it
+                }
+                
+            }
+            if(!valid)
+            {
+                System.out.println("That is an invalid choice, please choose a property you own:");
+                choice = scanner.nextInt();
+            }
+        }
         
         board.getTile(choice);
         Tile currentProperty = board.getTile(choice);
@@ -103,8 +152,9 @@ public class Player
         //set mortgage boolean on property to true.
         currentProperty.setMortgageStatus(true);
         
+        //give player the mortgage money
         addMoney(currentProperty.getMortgage());
-        System.out.println(getMoney());
+        System.out.println(name + " now has $" +getMoney());
 
     }
 }

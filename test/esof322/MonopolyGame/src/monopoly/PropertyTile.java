@@ -10,9 +10,7 @@ class PropertyTile extends Tile {
     
     int owner = -1; //the number of the player who owns the property (-1 means no one owns the property)
     int numHouses, numhotels = 0;  //number of houses and hotels on the property is initially 0
-    
-    private boolean mortgageStatus = false;
-    
+        
     
     //constructor
     public PropertyTile(String name, int purchasePrice, int rent, int rent1h, int rent2h, int rent3h, int rent4h, int rentHotel, int houseCost, int hotelCost, int mortgageValue) 
@@ -35,7 +33,7 @@ class PropertyTile extends Tile {
     {
         this.owner = owner;
     }
-    
+
     public int getPrice()
     {
         return purchasePrice;
@@ -60,11 +58,7 @@ class PropertyTile extends Tile {
     {
         return mortgageValue;
     }
-    
-    public void setMortgageStatus(Boolean b)
-    {
-        mortgageStatus = b;
-    }
+   
     public int getTileID()
     {
         return super.getTileID();
@@ -130,15 +124,14 @@ class PropertyTile extends Tile {
             int moneyRemaining = player.getMoney();
             while(moneyRemaining < purchasePrice)
             {
-                System.out.println("Sorry! You are broke!"); 
+                System.out.println("Sorry! You are broke! Please pick a property to mortgage."); 
                 
-                System.out.println("Please pick a property to mortgage.");
                 player.mortgage(board);
             }
             if(owner != player.getIdNum())
             {
                 int taxes = purchasePrice;
-                if(!mortgageStatus)
+                if(super.getMortgageStatus()==true)
                 {
                     taxes = 0;
                     System.out.println("This property is currently mortgaged, no taxes will be paid");

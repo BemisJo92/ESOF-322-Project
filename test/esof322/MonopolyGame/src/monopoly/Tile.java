@@ -6,6 +6,7 @@ public abstract class Tile
 {
     private final String name;
     private final int tileID;
+    private Boolean mortgageStatus = false;
     
     public Tile(String name)
     {
@@ -19,12 +20,18 @@ public abstract class Tile
     {
         return name;
     }
+    public Boolean getMortgageStatus()
+    {
+        return mortgageStatus;
+    }
+    public void setMortgageStatus(Boolean b)
+    {
+        mortgageStatus = b;
+    }
     
    
     public abstract int getMortgage();
-    
-    public abstract void setMortgageStatus(Boolean status);
-    
+        
     public int getTileID()
     {
         return tileID;

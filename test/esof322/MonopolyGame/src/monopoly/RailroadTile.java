@@ -31,10 +31,5 @@ public class RailroadTile extends Tile{
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         System.out.println("Landed on chance tile.");
     }
-
-    @Override
-    public void setMortgageStatus(Boolean status) {
-        mortgageStatus = status;
-    }
     
 }
