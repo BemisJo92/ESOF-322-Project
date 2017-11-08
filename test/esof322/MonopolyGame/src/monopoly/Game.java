@@ -73,10 +73,13 @@ public class Game {
                 if(die1 == die2 || gameBoard.getPlayer().getJailStayLength() >= 3)        //if the player rolls doubles or they have been in jail for 3 turns, then they are released
                 {
                     gameBoard.getPlayer().resetJailStayLength();        //reset the jail stay counter
+                    gameBoard.getPlayer().setJailStatus(false);         //remove jail status
                     gameBoard.movePlayer(gameBoard.getPlayer(), rollValue); //move the player
+                    
                 }else //player did not roll doubles this turn and hasnt been in jail long enough to be released.
                 {
                     gameBoard.getPlayer().incrementJailStay();
+                    System.out.println(gameBoard.getPlayer().getName() + " is stuck in jail for another turn");
                 }
             }
             else if(!gameBoard.getPlayer().isBroke())           //if the player is NOT broke
@@ -85,7 +88,7 @@ public class Game {
                 System.out.println("Die 2: " + die2);
                 gameBoard.movePlayer(gameBoard.getPlayer(), rollValue);
             }
-            else if(gameBoard.getPlayer().isBroke())            //if the player is broke
+            else if(gameBoard.getPlayer().isBroke())            //if the player IS broke
             {
                 System.out.println("Player is broke. This is a game over");
                 gameOver();
@@ -94,8 +97,6 @@ public class Game {
             gameBoard.nextTurn();
         }
         
-        
-
         
     }
     
