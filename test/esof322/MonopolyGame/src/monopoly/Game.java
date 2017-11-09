@@ -14,6 +14,7 @@ public class Game {
     final int timeLimit = 10;         //time limit in mins
     Boolean gameStatus = true;
     public static int tileIDTotal = 0;
+    MonopolyGUI gui = new MonopolyGUI();
 
     //implement a timer
     Timer gameTimer = new Timer();
@@ -60,6 +61,7 @@ public class Game {
     }
     public void startGame() throws InterruptedException //need to implement a timer here
     {        
+        gui.setup();
         System.out.println("---------------------");
         
         while(gameStatus)
