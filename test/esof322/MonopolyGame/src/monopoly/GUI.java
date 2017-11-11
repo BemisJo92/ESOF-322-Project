@@ -40,6 +40,8 @@ public class GUI{
         window.setVisible(true);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+        window.setTitle("Monopoly!");
+        
     }
     public static int[] getCoords(int player)
     {
