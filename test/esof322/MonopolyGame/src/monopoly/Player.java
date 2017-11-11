@@ -85,7 +85,10 @@ public class Player
         {properties.add(property);}
     
     public void addProperty(RailroadTile property)
-        {properties.add(property);}
+        {
+            properties.add(property);
+            numRailroadsOwned++;
+        }
     
     public void addProperty(UtilityTile property)
         {properties.add(property);}

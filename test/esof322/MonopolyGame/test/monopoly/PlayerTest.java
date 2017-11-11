@@ -126,11 +126,10 @@ public class PlayerTest
     public void testSetTile()
     {
         System.out.println("setTile");
-        int tile = 0;
-        Player instance = null;
+        int tile = 1;
+        Player instance = new Player(1, "Player1");
         instance.setTile(tile);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(tile, instance.getCurrentTile());
     }
 
     /**
@@ -140,12 +139,10 @@ public class PlayerTest
     public void testGetMoney()
     {
         System.out.println("getMoney");
-        Player instance = null;
-        int expResult = 0;
+        Player instance = new Player(1, "Player1");
+        int expResult = 1500;
         int result = instance.getMoney();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -155,11 +152,12 @@ public class PlayerTest
     public void testAddMoney()
     {
         System.out.println("addMoney");
-        int amount = 0;
-        Player instance = null;
+        int amount = 100;
+        Player instance = new Player(1, "Player1");
         instance.addMoney(amount);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int result = instance.getMoney();
+        int expResult = 1600;
+        assertEquals(expResult, result);
     }
 
     /**
@@ -169,11 +167,12 @@ public class PlayerTest
     public void testRemoveMoney()
     {
         System.out.println("removeMoney");
-        int amount = 0;
-        Player instance = null;
+        int amount = 100;
+        Player instance = new Player(1, "Player1");
         instance.removeMoney(amount);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int result = instance.getMoney();
+        int expResult = 1400;
+        assertEquals(expResult, result);
     }
 
     /**
@@ -183,27 +182,11 @@ public class PlayerTest
     public void testIsBroke()
     {
         System.out.println("isBroke");
-        Player instance = null;
-        boolean expResult = false;
+        Player instance = new Player(1, "Player1");
+        instance.removeMoney(1500);
+        boolean expResult = true;
         boolean result = instance.isBroke();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getProperties method, of class Player.
-     */
-    @Test
-    public void testGetProperties()
-    {
-        System.out.println("getProperties");
-        Player instance = null;
-        ArrayList expResult = null;
-        ArrayList result = instance.getProperties();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -213,11 +196,12 @@ public class PlayerTest
     public void testAddProperty_PropertyTile()
     {
         System.out.println("addProperty");
-        PropertyTile property = null;
-        Player instance = null;
+        PropertyTile property = new PropertyTile("Marvin Gardens",400,40, 280,24,130,360,850,1025,1200,150,150,140);
+        Player instance = new Player(1, "Player1");
         instance.addProperty(property);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int expResult = 1;
+        int result = instance.getProperties().size();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -227,11 +211,12 @@ public class PlayerTest
     public void testAddProperty_RailroadTile()
     {
         System.out.println("addProperty");
-        RailroadTile property = null;
-        Player instance = null;
+        RailroadTile property = new RailroadTile("B & O Railroad",240,40);
+        Player instance = new Player(1, "Player1");
         instance.addProperty(property);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int expResult = 1;
+        int result = instance.getProperties().size();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -241,25 +226,11 @@ public class PlayerTest
     public void testAddProperty_UtilityTile()
     {
         System.out.println("addProperty");
-        UtilityTile property = null;
-        Player instance = null;
+        UtilityTile property = new UtilityTile("Waterworks",360,40);
+        Player instance = new Player(1, "Player1");
         instance.addProperty(property);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int expResult = 1;
+        int result = instance.getProperties().size();
+        assertEquals(expResult, result);
     }
-
-    /**
-     * Test of mortgage method, of class Player.
-     */
-    @Test
-    public void testMortgage()
-    {
-        System.out.println("mortgage");
-        Board board = null;
-        Player instance = null;
-        instance.mortgage(board);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }

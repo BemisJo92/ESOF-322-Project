@@ -73,7 +73,6 @@ public class RailroadTile extends Tile
                     owner = player.getIdNum();
                     player.removeMoney(purchasePrice);
                     player.addProperty(this);
-                    player.numRailroadsOwned++;
                     System.out.println(player.getName() + " has " + player.getMoney() + " dollars remaining.");
                     break;
 
