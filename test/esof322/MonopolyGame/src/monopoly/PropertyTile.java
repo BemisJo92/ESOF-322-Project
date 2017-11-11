@@ -13,7 +13,7 @@ class PropertyTile extends Tile {
         
     
     //constructor
-    public PropertyTile(String name, 
+    public PropertyTile(String name,int xCoord, int yCoord, 
                         int purchasePrice, 
                         int rent, 
                         int rent1h, 
@@ -25,7 +25,7 @@ class PropertyTile extends Tile {
                         int hotelCost, 
                         int mortgageValue) 
     {
-        super(name);
+        super(name, xCoord, yCoord);
         this.name = name;
         this.purchasePrice = purchasePrice;
         this.rents[0] = rent;

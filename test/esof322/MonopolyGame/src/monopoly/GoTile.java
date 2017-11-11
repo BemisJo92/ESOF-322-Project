@@ -5,9 +5,9 @@ package monopoly;
 public class GoTile extends Tile
 {   
         private final int goMoney = 200;    //amount of money rewarded for passing go
-        public GoTile(String name)
+        public GoTile(String name, int xCoord, int yCoord)
         {
-            super(name); 
+            super(name, xCoord, yCoord); 
         }
         
         public void doAction(Player player, Board board)

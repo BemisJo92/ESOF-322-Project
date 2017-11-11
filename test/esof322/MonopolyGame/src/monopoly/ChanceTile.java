@@ -8,8 +8,8 @@ package monopoly;
 
 public class ChanceTile extends Tile{
 
-    public ChanceTile(String name) {
-        super(name);
+    public ChanceTile(String name, int xCoord, int yCoord) {
+        super(name, xCoord, yCoord);
     }    
 
     @Override

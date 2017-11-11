@@ -3,8 +3,8 @@ package monopoly;
 
 public class FreeParkingTile extends Tile {
 
-    public FreeParkingTile(String name) {
-        super(name);
+    public FreeParkingTile(String name, int xCoord, int yCoord) {
+        super(name, xCoord, yCoord);
     }
 
     @Override

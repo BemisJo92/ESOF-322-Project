@@ -4,8 +4,8 @@ package monopoly;
 
 public class IncomeTaxTile extends Tile{
     private final int incomeTaxAmount = 200;
-    public IncomeTaxTile(String name) {
-        super(name);
+    public IncomeTaxTile(String name, int xCoord, int yCoord) {
+        super(name, xCoord, yCoord);
     }
 
     @Override

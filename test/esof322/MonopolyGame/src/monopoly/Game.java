@@ -15,8 +15,7 @@ public class Game {
     final int timeLimit = 10;         //time limit in mins
     Boolean gameStatus = true;
     public static int tileIDTotal = 0;
-    MonopolyGUI gui = new MonopolyGUI();
-    GUI testGUI = new GUI();
+    GUI gui = new GUI();
 
     //implement a timer
     Timer gameTimer = new Timer();
@@ -63,8 +62,9 @@ public class Game {
     }
     public void startGame() throws InterruptedException //need to implement a timer here
     {        
-        //gui.setup();
-        testGUI.setup();
+
+        gui.setup();
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("---------------------");
         
@@ -80,7 +80,7 @@ public class Game {
                 {
                     gameBoard.getPlayer().resetJailStayLength();        //reset the jail stay counter
                     gameBoard.getPlayer().setJailStatus(false);         //remove jail status
-                    gameBoard.movePlayer(gameBoard.getPlayer(), rollValue); //move the player
+                    gameBoard.movePlayer(gameBoard.getPlayer(), rollValue,gui); //move the player
                     
                 }else //player did not roll doubles this turn and hasnt been in jail long enough to be released.
                 {
@@ -92,7 +92,7 @@ public class Game {
             {
                 System.out.println("Die 1: " + die1);
                 System.out.println("Die 2: " + die2);
-                gameBoard.movePlayer(gameBoard.getPlayer(), rollValue);
+                gameBoard.movePlayer(gameBoard.getPlayer(), rollValue,gui);
             }
             else if(gameBoard.getPlayer().isBroke())            //if the player IS broke
             {

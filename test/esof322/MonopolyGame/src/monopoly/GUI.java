@@ -21,17 +21,17 @@ public class GUI{
     public void setup()
     {
         //set origional player coords
-        p1Coords[0] =0;
-        p1Coords[1] = 0;
+        p1Coords[0] =490;
+        p1Coords[1] = 490;
         
-        p2Coords[0] =10;
-        p2Coords[1] = 10;
+        p2Coords[0] =490;
+        p2Coords[1] = 480;
         
-        p3Coords[0] =20;
-        p3Coords[1] = 20;
+        p3Coords[0] =490;
+        p3Coords[1] = 470;
         
-        p4Coords[0] =30;
-        p4Coords[1] = 30;
+        p4Coords[0] =490;
+        p4Coords[1] = 460;
         
         //update gui
         window = new JFrame();

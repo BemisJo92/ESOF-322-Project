@@ -7,10 +7,14 @@ public abstract class Tile
     private final String name;
     private final int tileID;
     private Boolean mortgageStatus = false;
+    private final int xCoord;
+    private final int yCoord;
     
-    public Tile(String name)
+    public Tile(String name, int xCoord, int yCoord)
     {
         this.name = name;
+        this.xCoord = xCoord;
+        this.yCoord = yCoord;
         
         tileID = Game.tileIDTotal;
         Game.tileIDTotal++;
@@ -29,7 +33,14 @@ public abstract class Tile
         
     public int getTileID()
         {return tileID;}
-    
+    public int getX()
+    {   
+        return xCoord;
+    }
+    public int getY()
+    {
+        return yCoord;
+    }
     public abstract void doAction(Player player, Board board);  //keep me abstract call to other classes extending tile??
  
 }
