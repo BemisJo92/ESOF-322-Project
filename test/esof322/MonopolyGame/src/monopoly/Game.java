@@ -140,4 +140,9 @@ public class Game {
     {
         return gameBoard;
     }   
+    
+    public boolean getGameStatus()
+    {
+        return gameStatus;
+    }
 }
