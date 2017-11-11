@@ -5,20 +5,33 @@
  */
 package monopoly;
 
+import java.awt.List;
+import java.awt.Shape;
+import java.util.ArrayList;
+import java.awt.Graphics;
+
 /**
  *
  * @author Logan
  */
 public class MonopolyGUI extends javax.swing.JFrame {
 
-    /**
+     /**
      * Creates new form NewJFrame
      */
     public MonopolyGUI() {
-        initComponents();
     }
     
+    public void drawPlayers(Graphics g)
+    {
+        
+    }
     public void displayText()   
+    {
+        
+    }
+    
+    public void movePlayer(int tile)
     {
         
     }
@@ -70,7 +83,7 @@ public class MonopolyGUI extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/monopoly/monopoly board.jpg"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(10, -100, 1490, 1490);
+        jLabel1.setBounds(10, -100, 1250, 1510);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,7 +135,7 @@ public class MonopolyGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MonopolyGUI().setVisible(true);
+                new MonopolyGUI().setVisible(true);             
             }
         });
     }
