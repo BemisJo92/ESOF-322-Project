@@ -101,8 +101,6 @@ public class Game {
             System.out.printf("\nNext players turn -----------------------------------------------------\n\n");
             gameBoard.nextTurn();
         }
-        
-        
     }
     
     public void gameOver() throws InterruptedException  //determine winner and exit
@@ -135,8 +133,5 @@ public class Game {
     public Board getBoard()
     {
         return gameBoard;
-    }
-    
-    
-    
+    }   
 }
