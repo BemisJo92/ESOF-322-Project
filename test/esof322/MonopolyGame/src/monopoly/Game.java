@@ -65,6 +65,7 @@ public class Game {
     {        
         //gui.setup();
         testGUI.setup();
+        Scanner scanner = new Scanner(System.in);
         System.out.println("---------------------");
         
         while(gameStatus)
@@ -97,6 +98,11 @@ public class Game {
             {
                 System.out.println("Player is broke. This is game over");
                 gameOver();
+            }
+            System.out.println(gameBoard.getPlayer().getName() + "'s turn is over, press 7 to proceed");
+            while(scanner.nextInt() != 7)
+            {
+                Thread.sleep(100);
             }
             System.out.printf("\nNext players turn -----------------------------------------------------\n\n");
             gameBoard.nextTurn();
