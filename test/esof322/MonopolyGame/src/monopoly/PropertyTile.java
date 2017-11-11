@@ -71,10 +71,10 @@ class PropertyTile extends Tile {
         if(owner == -1)   //if no one owns the house
         {
             int choice = 0;
-            int remainingMoney = player.getMoney();
-            if(remainingMoney < purchasePrice)
+            
+            if(player.getMoney() < purchasePrice)
             {
-                System.out.println(player.getName() + " does not have enought money to purchase this property.");
+                System.out.println(player.getName() + " does not have enough money to purchase this property.");
                 System.out.println("Do you want to mortgage a property2"
                         + "? Enter 1 for yes and 0 for no.");
                 choice = 0;
