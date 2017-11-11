@@ -71,6 +71,7 @@ class PropertyTile extends Tile {
             if(player.getMoney() < purchasePrice)
             {
                 System.out.println(player.getName() + " does not have enough money to purchase this property.");
+                System.out.println("You need $" + (purchasePrice - player.getMoney()) + " more dollars.");
                 System.out.println("Do you want to mortgage a property"
                         + "? Enter 1 for yes and 0 for no.");
                 choice = 0;

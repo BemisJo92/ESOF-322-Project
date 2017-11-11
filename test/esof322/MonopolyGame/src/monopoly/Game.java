@@ -93,10 +93,10 @@ public class Game {
             }
             else if(gameBoard.getPlayer().isBroke())            //if the player IS broke
             {
-                System.out.println("Player is broke. This is a game over");
+                System.out.println("Player is broke. This is game over");
                 gameOver();
             }
-            System.out.println("Next players turn -----------------------------------------------------");
+            System.out.printf("\nNext players turn -----------------------------------------------------\n\n");
             gameBoard.nextTurn();
         }
         
