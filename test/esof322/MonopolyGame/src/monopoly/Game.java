@@ -2,6 +2,7 @@
 package monopoly;
 
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Date;
 import java.util.Timer;
@@ -108,9 +109,16 @@ public class Game {
         System.out.println("Here are the money and property stats: ");
         for(Player player: gameBoard.getPlayers())
         {
-            System.out.println(player.name + ":");
+            System.out.println(player.getName() + ":");
             System.out.println("Money : $" + player.getMoney());
             System.out.println("");
+            
+            //Acquire all properties of player in a list
+            ArrayList<Tile> properties = player.getProperties();
+            
+            //Print out all properties of player at Game Over
+            for(Tile t: properties)
+                {System.out.println(t.getName());}
         }
         
         
