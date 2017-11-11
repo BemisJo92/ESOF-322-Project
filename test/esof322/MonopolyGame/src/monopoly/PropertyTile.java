@@ -126,7 +126,11 @@ class PropertyTile extends Tile {
             {
                 System.out.println("Sorry! You are broke! Please pick a property to mortgage.");            //bug: stuck mortgaging even with enough money to buy property
                 
+                
                 player.mortgage(board);
+                
+                //Update money of player after mortgaging
+                moneyRemaining = player.getMoney();
             }
             if(owner != player.getIdNum())
             {
