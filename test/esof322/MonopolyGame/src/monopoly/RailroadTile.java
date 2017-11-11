@@ -12,19 +12,14 @@ public class RailroadTile extends Tile{
     final private int mortgageValue = 100; //all railroads have a mortgage of $100
     Boolean mortgageStatus = false;
     
-    public RailroadTile(String name) {
-        super(name);     
-    }
+    public RailroadTile(String name)
+        {super(name);}
     
     public int getRent(int i)           //return approperate value of rent
-    {
-        return rent[i];
-    }
+        {return rent[i];}
     
     public int getMortgage()
-    {
-        return mortgageValue;
-    }
+        {return mortgageValue;}
 
     @Override
     public void doAction(Player player, Board board) {

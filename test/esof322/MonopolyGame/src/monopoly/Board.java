@@ -172,7 +172,7 @@ public class Board
             int nextTile = currentTile + rollValue;
             player.setTile(nextTile);
         }
-        System.out.println("Current tile is " + player.getCurrentTile());
+        System.out.println(player.getName() + " is on tile " + player.getCurrentTile());
         System.out.println(player.getName() + "'s money is " + player.getMoney());
         Tile t = tiles[player.getCurrentTile()];
         t.doAction(player, this);
@@ -181,44 +181,33 @@ public class Board
     
 
     public Player[] getPlayers()
-    {
-        return players;
-    }
+        {return players;}
 
     public Player getRichestPlayer()
     {
         Player richest = null;
+        
         for(Player player:players)
-        {
-            if(richest == null || richest.getMoney() < player.getMoney())
-            {
-                richest = player;
-            }
-        }
+            
+            {if(richest == null || richest.getMoney() < player.getMoney())
+                {richest = player;}}
+        
         return richest;
     }
     
     public void nextTurn()
     {
         if(++whosTurn >= players.length)
-        {
-            whosTurn = 0;
-        }
-    }
-
-    public Player getPlayer()    //get the player based on who's turn it is
-    {
-        return players[whosTurn];
-    }
-
-    public int getTotalTiles()
-    {
-        return tiles.length;
+            {whosTurn = 0;}
     }
     
+    public Player getPlayer()    //get the player based on who's turn it is
+        {return players[whosTurn];}
+
+    public int getTotalTiles()
+        {return tiles.length;}
+    
     public Tile getTile(int i)
-    {
-        return tiles[i];
-    }
+        {return tiles[i];}
 
 }

@@ -17,25 +17,18 @@ public abstract class Tile
     }
     
     public String getName()
-    {
-        return name;
-    }
-    public Boolean getMortgageStatus()
-    {
-        return mortgageStatus;
-    }
-    public void setMortgageStatus(Boolean b)
-    {
-        mortgageStatus = b;
-    }
+        {return name;}
     
-   
+    public Boolean getMortgageStatus()
+        {return mortgageStatus;}
+    
+    public void setMortgageStatus(Boolean b)
+        {mortgageStatus = b;}
+    
     public abstract int getMortgage();
         
     public int getTileID()
-    {
-        return tileID;
-    }
+        {return tileID;}
     
     public abstract void doAction(Player player, Board board);  //keep me abstract call to other classes extending tile??
  

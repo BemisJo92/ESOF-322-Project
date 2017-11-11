@@ -41,30 +41,22 @@ public class Player
     
     public String getName()   
         {return name;}
+    
     public boolean getJailStatus()
-    {
-        return jailStatus;
-    }
+        {return jailStatus;}
     
     public void setJailStatus(Boolean newStatus)
-    {
-        jailStatus = newStatus;
-    }
+        {jailStatus = newStatus;}
     
     public int getJailStayLength()
-    {
-        return jailStayLength;
-    }
+        {return jailStayLength;}
     
     public void resetJailStayLength()
-    {
-        jailStayLength = 0;
-    }
+        {jailStayLength = 0;}
     
     public void incrementJailStay()
-    {
-        jailStayLength++;
-    }
+        {jailStayLength++;}
+    
     public int getIdNum()    
         {return id;}
   
@@ -87,24 +79,16 @@ public class Player
         {return money <= 0;}
     
     public ArrayList getProperties()
-    {
-        return properties;
-    }
+        {return properties;}
     
     public void addProperty(PropertyTile property)
-    {
-        properties.add(property);
-    }
+        {properties.add(property);}
     
     public void addProperty(RailroadTile property)
-    {
-        properties.add(property);
-    }
+        {properties.add(property);}
     
     public void addProperty(UtilityTile property)
-    {
-        properties.add(property);
-    }
+        {properties.add(property);}
     
     public void mortgage(Board board)
     {

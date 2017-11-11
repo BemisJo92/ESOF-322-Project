@@ -13,7 +13,17 @@ class PropertyTile extends Tile {
         
     
     //constructor
-    public PropertyTile(String name, int purchasePrice, int rent, int rent1h, int rent2h, int rent3h, int rent4h, int rentHotel, int houseCost, int hotelCost, int mortgageValue) 
+    public PropertyTile(String name, 
+                        int purchasePrice, 
+                        int rent, 
+                        int rent1h, 
+                        int rent2h, 
+                        int rent3h, 
+                        int rent4h, 
+                        int rentHotel, 
+                        int houseCost, 
+                        int hotelCost, 
+                        int mortgageValue) 
     {
         super(name);
         this.name = name;
@@ -30,39 +40,25 @@ class PropertyTile extends Tile {
     }
     
     public void setOwner(int owner)
-    {
-        this.owner = owner;
-    }
+        {this.owner = owner;}
 
     public int getPrice()
-    {
-        return purchasePrice;
-    }
+        {return purchasePrice;}
     
     public int getRent(int i) //return rent
-    {
-        return rents[i];
-    }
+        {return rents[i];}
     
     public int getHouseCost()
-    {
-        return houseCost;
-    }
+        {return houseCost;}
     
     public int getHotelCost()
-    {
-        return hotelCost;
-    }
+        {return hotelCost;}
     
     public int getMortgage()
-    {
-        return mortgageValue;
-    }
+        {return mortgageValue;}
    
     public int getTileID()
-    {
-        return super.getTileID();
-    }        
+        {return super.getTileID();}        
     
     @Override
     public void doAction(Player player, Board board)
@@ -75,7 +71,7 @@ class PropertyTile extends Tile {
             if(player.getMoney() < purchasePrice)
             {
                 System.out.println(player.getName() + " does not have enough money to purchase this property.");
-                System.out.println("Do you want to mortgage a property2"
+                System.out.println("Do you want to mortgage a property"
                         + "? Enter 1 for yes and 0 for no.");
                 choice = 0;
                 choice = scanner.nextInt();
@@ -99,6 +95,7 @@ class PropertyTile extends Tile {
             System.out.println(player.getName() + ", would you like to purchase " + getName() + "?");
             System.out.println("Press 1 for Yes and 0 for No");
             choice = scanner.nextInt();
+            
             switch(choice)
             {
                 case 0:

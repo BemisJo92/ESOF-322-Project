@@ -8,14 +8,11 @@ public class UtilityTile extends Tile{
     private int mortgageValue = 75; //all utility tiles have a mortgage of $75
     private Boolean mortgageStatus = false;
     
-    public UtilityTile(String name) {
-        super(name);
-    }
+    public UtilityTile(String name)
+        {super(name);}
     
     public int getMortgage()
-    {
-        return mortgageValue;
-    }
+        {return mortgageValue;}
 
     @Override
     public void doAction(Player player, Board board) {
@@ -29,8 +26,7 @@ public class UtilityTile extends Tile{
     }
 
     @Override
-    public void setMortgageStatus(Boolean status) {
-        mortgageStatus = status;
-    }
+    public void setMortgageStatus(Boolean status)
+        {mortgageStatus = status;}
     
 }
