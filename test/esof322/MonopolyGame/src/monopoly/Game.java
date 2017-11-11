@@ -111,7 +111,7 @@ public class Game {
         {
             System.out.println(player.getName() + ":");
             System.out.println("Money : $" + player.getMoney());
-            System.out.println("");
+            System.out.printf("\n\nProperties Owned:\n");
             
             //Acquire all properties of player in a list
             ArrayList<Tile> properties = player.getProperties();
@@ -119,6 +119,8 @@ public class Game {
             //Print out all properties of player at Game Over
             for(Tile t: properties)
                 {System.out.println(t.getName());}
+            
+            System.out.printf("\n");
         }
         
         
