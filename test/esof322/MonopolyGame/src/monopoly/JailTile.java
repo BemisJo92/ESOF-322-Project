@@ -4,9 +4,9 @@ package monopoly;
 public class JailTile extends Tile
     {
                 
-        public JailTile(String name)
+        public JailTile(String name, int xCoord, int yCoord)
         {
-            super(name);
+            super(name, xCoord, yCoord);
         }
         
         public void doAction(Player player, Board board)

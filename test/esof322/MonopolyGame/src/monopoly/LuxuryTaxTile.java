@@ -3,8 +3,8 @@ package monopoly;
 
 public class LuxuryTaxTile extends Tile {
     private final int luxuryTaxAmount = 100;
-    public LuxuryTaxTile(String name) {
-        super(name);
+    public LuxuryTaxTile(String name, int xCoord, int yCoord) {
+        super(name, xCoord, yCoord);
     }
 
     @Override

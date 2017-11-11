@@ -4,8 +4,8 @@ package monopoly;
 
 public class CommunityChestTile extends Tile {
 
-    public CommunityChestTile(String name) {
-        super(name);
+    public CommunityChestTile(String name, int xCoord, int yCoord) {
+        super(name, xCoord, yCoord);
     }
 
     @Override

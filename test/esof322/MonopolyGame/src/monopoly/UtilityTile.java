@@ -8,8 +8,8 @@ public class UtilityTile extends Tile{
     private int mortgageValue = 75; //all utility tiles have a mortgage of $75
     private Boolean mortgageStatus = false;
     
-    public UtilityTile(String name)
-        {super(name);}
+    public UtilityTile(String name, int xCoord, int yCoord)
+        {super(name, xCoord, yCoord);}
     
     public int getMortgage()
         {return mortgageValue;}

@@ -12,8 +12,8 @@ public class RailroadTile extends Tile{
     final private int mortgageValue = 100; //all railroads have a mortgage of $100
     Boolean mortgageStatus = false;
     
-    public RailroadTile(String name)
-        {super(name);}
+    public RailroadTile(String name, int xCoord, int yCoord)
+        {super(name, xCoord, yCoord);}
     
     public int getRent(int i)           //return approperate value of rent
         {return rent[i];}
