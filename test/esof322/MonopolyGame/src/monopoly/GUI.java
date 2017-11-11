@@ -35,9 +35,10 @@ public class GUI{
         
         //update gui
         window = new JFrame();
-        window.setBounds(0,0,1500,1500);
+        window.setBounds(0,0,1200,1200);
         window.getContentPane().add(new Canvas());
         window.setVisible(true);
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
     }
     public static int[] getCoords(int player)
@@ -83,9 +84,11 @@ public class GUI{
         //update GUI
         window.setVisible(false);
         JFrame newWindow = new JFrame();
-        newWindow.setBounds(0,0,1500,1500);
+        newWindow.setBounds(0,0,1200,1200);
         newWindow.getContentPane().add(new Canvas());
         newWindow.setVisible(true);
+        newWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
     }
     
 }
