@@ -83,8 +83,8 @@ public class GUI{
                 p4Coords[1] = y;
                 break;
         }
-        //update GUI
         
+        //update GUI
         window.setVisible(false);
         JFrame newWindow = new JFrame("Monopoly");
         newWindow.setBounds(0,0,600,600);

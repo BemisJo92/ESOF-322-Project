@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 public class Game {
     Board gameBoard;                   //instance of board
-    final int timeLimit = 10;         //time limit in mins
+    final int timeLimit = 1;         //time limit in mins
     Boolean gameStatus = true;
     public static int tileIDTotal = 0;
     GUI gui = new GUI();
