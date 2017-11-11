@@ -120,17 +120,13 @@ class PropertyTile extends Tile {
             }
         }
         else
-        {
-            int moneyRemaining = player.getMoney();
-            while(moneyRemaining < purchasePrice)
+        {          
+            while(player.getMoney() < purchasePrice)
             {
                 System.out.println("Sorry! You are broke! Please pick a property to mortgage.");            //bug: stuck mortgaging even with enough money to buy property
                 
                 
-                player.mortgage(board);
-                
-                //Update money of player after mortgaging
-                moneyRemaining = player.getMoney();
+                player.mortgage(board);                
             }
             if(owner != player.getIdNum())
             {
