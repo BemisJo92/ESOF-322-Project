@@ -35,7 +35,7 @@ public class GUI{
         
         //update gui
         window = new JFrame();
-        window.setBounds(0,0,1200,1200);
+        window.setBounds(0,0,600,600);
         window.getContentPane().add(new Canvas());
         window.setVisible(true);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -84,7 +84,7 @@ public class GUI{
         //update GUI
         window.setVisible(false);
         JFrame newWindow = new JFrame();
-        newWindow.setBounds(0,0,1200,1200);
+        newWindow.setBounds(0,0,600,600);
         newWindow.getContentPane().add(new Canvas());
         newWindow.setVisible(true);
         newWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
