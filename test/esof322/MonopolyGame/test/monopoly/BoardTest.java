@@ -64,11 +64,62 @@ public class BoardTest
     {
         System.out.println("movePlayer");
         Player player = new Player(1, "Player1");
-        int rollValue = 1;
+        int rollValue = 2;
         GUI g = new GUI();
         Board instance = new Board(1);
         instance.movePlayer(player, rollValue, g);
-        int expResult = 1;
+        int expResult = 2;
+        int result = player.getCurrentTile();
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of movePlayer method, of class Board.
+     */
+    @Test
+    public void testMovePlayer2()
+    {
+        System.out.println("movePlayer");
+        Player player = new Player(1, "Player1");
+        int rollValue = 4;
+        GUI g = new GUI();
+        Board instance = new Board(1);
+        instance.movePlayer(player, rollValue, g);
+        int expResult = 4;
+        int result = player.getCurrentTile();
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of movePlayer method, of class Board.
+     */
+    @Test
+    public void testMovePlayer3()
+    {
+        System.out.println("movePlayer");
+        Player player = new Player(1, "Player1");
+        int rollValue = 7;
+        GUI g = new GUI();
+        Board instance = new Board(1);
+        instance.movePlayer(player, rollValue, g);
+        int expResult = 7;
+        int result = player.getCurrentTile();
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of movePlayer method, of class Board.
+     */
+    @Test
+    public void testMovePlayer4()
+    {
+        System.out.println("movePlayer");
+        Player player = new Player(1, "Player1");
+        int rollValue = 10;
+        GUI g = new GUI();
+        Board instance = new Board(1);
+        instance.movePlayer(player, rollValue, g);
+        int expResult = 10;
         int result = player.getCurrentTile();
         assertEquals(expResult, result);
     }
@@ -109,9 +160,9 @@ public class BoardTest
         System.out.println("getTile");
         int i = 0;
         Board instance = new Board(1);
-        PropertyTile tile = new PropertyTile("Boardwalk",440,400, 400,50,200,600,1400,1700,2000,200,200,200);
-        Tile expResult = tile;
-        Tile result = instance.getTile(39);
+        String expResult = "Boardwalk";
+        String result = instance.getTile(39).getName();
+        System.out.println(instance.getTile(39).getName());
         assertEquals(expResult, result);
     }
     
