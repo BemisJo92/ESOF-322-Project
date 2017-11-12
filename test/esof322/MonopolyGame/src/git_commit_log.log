@@ -1,0 +1,542 @@
+49436c7 - Hedwigg, 32 minutes ago : fixed gameOver() in game to show the richest player at the end of the game. -Joel
+
+
+e095dfc - Hedwigg, 44 minutes ago : changed instantion of GUI so it is now in game.startGame();
+
+
+01befda - Hedwigg, 80 minutes ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+6332240 - Hedwigg, 82 minutes ago : commiting to pull andys
+
+
+e19b9fb - John Bemis, 83 minutes ago : Fixed BoardTest class. Took out unnecessary line in GUI
+
+
+efef1a4 - Hedwigg, 22 hours ago : merge
+
+
+e85efe4 - John Bemis, 22 hours ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+5cba9bc - John Bemis, 22 hours ago : Added a BoardTest class. Will fix later
+
+
+2da3011 - Hedwigg, 22 hours ago : Gametest.java
+
+
+beeae73 - Hedwigg, 22 hours ago : added chanceTileTest.java
+
+
+883f3ad - Hedwigg, 22 hours ago : Merge branch 'joel'
+
+
+acd9c2c - Hedwigg, 22 hours ago : Random tiny changes
+
+
+2836a18 - John Bemis, 23 hours ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+e4b0720 - John Bemis, 23 hours ago : Finished PlayerTest class
+
+
+4f01d74 - Hedwigg, 23 hours ago : Added Ian's better more HD picture for the board.
+
+
+a48266f - Hedwigg, 23 hours ago : Merge branch 'joel'
+
+
+4d1a4eb - Hedwigg, 23 hours ago : Tried to fix instances of GUI, going to leave it for now though.
+
+
+1928fd0 - John Bemis, 23 hours ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+137cc12 - John Bemis, 23 hours ago : Added PlayerTest class
+
+
+cd7cb31 - Hedwigg, 23 hours ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+752d4c9 - Hedwigg, 23 hours ago : Work with moveplayer and GUI moving a player's token.
+
+
+cf44e8a - John Bemis, 24 hours ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+cd18c79 - John Bemis, 24 hours ago : Added a pause in between players turns
+
+
+7b0bd84 - Ian Hecker, 24 hours ago : Added new GUI image
+
+
+416af33 - John Bemis, 24 hours ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+271134f - John Bemis, 24 hours ago : Changed railroad and utility tiles. Railroad now charges rent based on how many the owner has
+
+
+28f4dc8 - Ian Hecker, 24 hours ago : Added title to GUI jframe
+
+
+c743df0 - Ian Hecker, 24 hours ago : Added new image for Monopoly Board
+
+
+8379a6b - Hedwigg, 24 hours ago : oups still in master, just changed window size.
+
+
+8874e11 - Hedwigg, 25 hours ago : picture is now 500x500px
+
+
+4cafb85 - Hedwigg, 25 hours ago : picture changes
+
+
+e31f41a - Hedwigg, 25 hours ago : Changes to new GUI
+
+
+1efe865 - Hedwigg, 25 hours ago : Merge branch 'joel'
+
+
+c15ab48 - Hedwigg, 25 hours ago : Completely different GUI
+
+
+1287274 - Ian Hecker, 25 hours ago : Added XML documentation file above monopoly folder
+
+
+8305d47 - Ian Hecker, 25 hours ago : Added small tweaks to Game.java in print outs
+
+
+adbb241 - Ian Hecker, 26 hours ago : Fixed printout of properties in previous commit
+
+
+5020b65 - Ian Hecker, 26 hours ago : Added Print out of all properties at Game Over
+
+
+b112518 - Ian Hecker, 26 hours ago : Makin that code beautiful
+
+
+f33fbf6 - Ian Hecker, 26 hours ago : Organized methods in PropertyTile.java
+
+
+a0a734d - Ian Hecker, 26 hours ago : Fixed bug in mortgaging loop
+
+
+22d775d - Ian Hecker, 26 hours ago : Fixed bug of player stuck in mortgaging loop
+
+
+38264af - John Bemis, 3 days ago : Implemented GUI into Game.java
+
+
+dd7d612 - Hedwigg, 5 days ago : Accidently messed with MonopolyGUI Oups
+
+
+bf29339 - Hedwigg, 5 days ago : fixed conflicts with jail tile procedure Joel
+
+
+0204f3f - Hedwigg, 5 days ago : changed the way mortgaging works. Also added logic in Game for handling a player in jail.
+
+
+277ff92 - Hedwigg, 7 days ago : PropertyTile changes
+
+
+a13daff - Hedwigg, 7 days ago : more mortgage work
+
+
+9b79489 - BemisJo92, 7 days ago : changed the way mortgaging works in propertytile
+
+
+2441b6a - Hedwigg, 7 days ago : huge changes to tile and subtiles
+
+
+17a23f6 - Hedwigg, 7 days ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+270733b - Hedwigg, 7 days ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+eb6961b - BemisJo92, 7 days ago : Fixed background picture in GUI
+
+
+6ddb044 - Hedwigg, 7 days ago : mortgage changes
+
+
+1bd8c3c - Logan Davis, 7 days ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+72d3ce2 - Logan Davis, 7 days ago : add monopoly board picture to folder
+
+
+cdc7cd2 - BemisJo92, 7 days ago : Added get method for Tiles[]
+
+
+87245e5 - Logan Davis, 7 days ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+2c17b43 - Logan Davis, 7 days ago : Merge branch 'GUI' Inital GUi desgin on game start
+
+
+54559d7 - Logan Davis, 7 days ago : Intial GUI Design (Start of game)
+
+
+6d55d28 - Ian Hecker, 7 days ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+ba51e74 - Ian Hecker, 7 days ago : Adding corrected Mortgage methods
+
+
+d8eca56 - BemisJo92, 7 days ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+904e02e - Hedwigg, 7 days ago : Merge branch 'joel'
+
+
+18bbd07 - Ian Hecker, 7 days ago : Merge branch 'master2'
+
+
+5b894a5 - BemisJo92, 7 days ago : Added the scenario if the player that owns a property is currently mortgaging it. Fixed where the owner of a property not getting the money that the player pays.
+
+
+019200e - Hedwigg, 7 days ago : changes to player for merge from Ian
+
+
+55ea8fd - Ian Hecker, 7 days ago : Adding mortgage methods & Property array in Player
+
+
+d769147 - BemisJo92, 7 days ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+b35800b - Hedwigg, 7 days ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+1801c1e - BemisJo92, 7 days ago : stuff and things
+
+
+e0cabc8 - Hedwigg, 7 days ago : changes to tiles and player for mortgaging
+
+
+cf3846c - Ian Hecker, 7 days ago : Added Price and Mortgage value for Utilities
+
+
+f4c4d07 - BemisJo92, 7 days ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+c35ce2c - BemisJo92, 7 days ago : Changed output when players buy properties. Fixed taxes. Fixed passing Go
+
+
+b2ff6df - Hedwigg, 7 days ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+860294a - Hedwigg, 7 days ago : Changes to utility tile in preporation for handling purchasing
+
+
+d04e389 - Ian Hecker, 7 days ago : Added print out of remaining money of player
+
+
+ff18fe1 - Hedwigg, 7 days ago : Merge branch 'joel'
+
+
+742f223 - BemisJo92, 7 days ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+1925945 - BemisJo92, 7 days ago : Fixed the scanner. In the process of fixing passing Go
+
+
+4a7fea4 - Hedwigg, 7 days ago : idk
+
+
+554afb2 - Hedwigg, 7 days ago : Merge branch 'joel'
+
+
+005be6a - Hedwigg, 7 days ago : remove money for income & luxury tax fixed error throwing for free parking tile
+
+
+89f4dc6 - BemisJo92, 7 days ago : Merge branch 'andy'
+
+
+e12ed2b - Hedwigg, 7 days ago : Merge branch 'joel'
+
+
+384dce5 - BemisJo92, 7 days ago : Fixed the removal of money in Game.java and started fixing the scanner in PropertyTile.java
+
+
+8812452 - Hedwigg, 7 days ago : fixed throwing errors in tile subclasses that we have not implemented yet
+
+
+56dccd5 - BemisJo92, 7 days ago : Fixed PropertyTile.java
+
+
+196dd02 - BemisJo92, 7 days ago : Merge branch 'andy'
+
+
+a94f26f - BemisJo92, 7 days ago : Fixed movePlayer method
+
+
+9d898b3 - Hedwigg, 7 days ago : Merge branch 'Tile'
+
+
+15f64d1 - Hedwigg, 7 days ago : Timer changes to Game
+
+
+50161cb - Ian Hecker, 7 days ago : Merge branch 'player' with 'master'
+
+
+df1501c - Ian Hecker, 7 days ago : Deleted Money.java & updated Player.java
+
+
+0619f14 - Hedwigg, 7 days ago : Merge branch 'Tile' and fixed conflict
+
+
+a3e43c5 - BemisJo92, 7 days ago : Edited random things
+
+
+0baadcb - Hedwigg, 7 days ago : Added the last of the tile subclasses. Fixed some Tile instance creations in Board.java -Joel
+
+
+ff2edac - BemisJo92, 7 days ago : Added movePlayer methods, fixed PropertyTile and Tile classes
+
+
+8e469b2 - Hedwigg, 7 days ago : one line change. Forgot I was in master.
+
+
+a74c29e - Hedwigg, 10 days ago : small changes to gotojail.java and board.java
+
+
+03c183e - Hedwigg, 10 days ago : Lots of changes: Moved tile subclasses to their own files. Finished creating each instance of tile in the board class. Changed how GoTile works. removed magic # for $200 Changed how propertyTile works
+
+
+b64da7f - Logan Davis, 11 days ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+c6cd9e8 - Logan Davis, 11 days ago : Gui development
+
+
+2b9328a - Hedwigg, 11 days ago : Merge branch 'Board'
+
+
+4add52f - Hedwigg, 11 days ago : Start to Board.java
+
+
+7137ab2 - John Bemis, 11 days ago : Edited whether or not the player is in jail.
+
+
+7830040 - John Bemis, 11 days ago : Merge branch 'tile'
+
+
+36b32ff - John Bemis, 11 days ago : Added Community Chest and Free Parking
+
+
+10597c8 - John Bemis, 11 days ago : Merge branch 'tile'
+
+
+e79e91c - John Bemis, 11 days ago : Fixed merge conflicts
+
+
+5233518 - John Bemis, 11 days ago : Finished tile class. Will fix once other classes are complete.
+
+
+6e03256 - John Bemis, 11 days ago : Added multiple methods and classes to Tile class
+
+
+ff5ffa5 - Hedwigg, 11 days ago : Basic start to Game.java including a game timer.
+
+
+54f2ac1 - John Bemis, 11 days ago : Fixed money class and added substance to Player class
+
+
+e3a6b8c - John Bemis, 11 days ago : Added money class and functionality for money class
+
+
+10bd3f2 - John Bemis, 12 days ago : added comment for testing purposes
+
+
+f125df7 - John Bemis, 12 days ago : added GUI JFrame
+
+
+e4f1b60 - John Bemis, 12 days ago : modified tile.java
+
+
+6fd3d91 - Logan Davis, 12 days ago : Added player class
+
+
+f2e44ab - Logan Davis, 12 days ago : Test GUI in game class
+
+
+058f32e - Logan Davis, 12 days ago : Package monopoly and imports
+
+
+1e789ca - John Bemis, 12 days ago : added package monopoly for tile
+
+
+d9d22ca - John Bemis, 12 days ago : Merge origin/master
+
+
+748832b - John Bemis, 12 days ago : changed players to player
+
+
+a91cdf4 - Hedwigg, 12 days ago : fixing classes
+
+
+68075ac - Hedwigg, 12 days ago : Fixed starting classes
+
+
+7db1616 - Logan Davis, 12 days ago : Logan comment test
+
+
+0facffe - John Bemis, 12 days ago : removed pa3
+
+
+878e3e7 - John Bemis, 12 days ago : removed spacing
+
+
+2cebed0 - Hedwigg, 12 days ago : test comment
+
+
+166f0e2 - John Bemis, 12 days ago : Added .gitignore
+
+
+103728c - John Bemis, 12 days ago : Merge branches 'master' and 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+edc9fc2 - John Bemis, 12 days ago : Added a new project for testing purposes
+
+
+021b260 - Hedwigg, 12 days ago : ignore fixes
+
+
+b921728 - Hedwigg, 12 days ago : basic project and class setup
+
+
+dd41d74 - Hedwigg, 12 days ago : basic project and class file creation.
+
+
+1c1aa39 - John Bemis, 6 weeks ago : Zipped all the components up
+
+
+4a42a96 - Logan Davis, 6 weeks ago : Added overview, Final working code for project
+
+
+d030f0c - Bemis, 6 weeks ago : Added toString, testToString, equals, and testEquals methods
+
+
+36d8195 - Ian Hecker, 6 weeks ago : Adding changes to Vector3D and Vector3DTest
+
+
+65c10a8 - Bemis, 6 weeks ago : Added a test for negate
+
+
+e06f8d7 - Hedwigg, 6 weeks ago : small changes for compatability of the last merge. testNegate is failing.
+
+
+3470071 - Hedwigg, 6 weeks ago : merge logan & andy's work with ian and joel's work.
+
+
+ca4af0b - BemisJo92, 6 weeks ago : Added Logan/Andy version of classes and tests
+
+
+b478ad9 - Ian Hecker, 6 weeks ago : Merge branch 'ian_joel'
+
+
+36c54c7 - Ian Hecker, 6 weeks ago : Adding Joel's and Ian's files to our Ian_Joel branch
+
+
+8b6a887 - Hedwigg, 6 weeks ago : compiling to merge
+
+
+6b76714 - BemisJo92, 6 weeks ago : Fixed Immutable issues, methods return new instances
+
+
+16aa590 - Logan Davis, 6 weeks ago : Fixed conflicts
+
+
+7b4ba15 - Logan Davis, 6 weeks ago : Merge branch 'logan'
+
+
+f4e61ab - Logan Davis, 6 weeks ago : Merge branch 'master' into logan
+
+
+bc3420f - BemisJo92, 6 weeks ago : Merge branch 'master' into andy
+
+
+98f89f0 - Logan Davis, 6 weeks ago : Testing
+
+
+e17d9d4 - BemisJo92, 6 weeks ago : Updating to master branch
+
+
+4a9b163 - Logan Davis, 6 weeks ago : Added the test methods for ADD and SUBTRACT
+
+
+0a22152 - Logan Davis, 6 weeks ago : Added the methods of ADD and SUBTRACT
+
+
+3e3c472 - BemisJo92, 6 weeks ago : Added test functions in JUnit
+
+
+d7bd1f6 - BemisJo92, 6 weeks ago : Added dot method
+
+
+d1050a7 - Logan Davis, 6 weeks ago : Vector3D first commit
+
+
+80b106f - Logan Davis, 6 weeks ago : First Personal Commit constructor and variable declaration
+
+
+3d47ce3 - BemisJo92, 6 weeks ago : Added constructor for Vector3D
+
+
+f4e148d - BemisJo92, 6 weeks ago : Added negate method
+
+
+ee05f19 - Ian Hecker, 6 weeks ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+5d8700f - Ian Hecker, 6 weeks ago : Adding basic files to src on git
+
+
+9179a10 - Hedwigg, 6 weeks ago : starting point for sure
+
+
+c81718e - Ian Hecker, 6 weeks ago : Adding new Vector3D.java and Vector3DTest.java files to Master branch
+
+
+5e066bd - Hedwigg, 6 weeks ago : reset for local projects, github java files
+
+
+0553c6b - Hedwigg, 6 weeks ago : jjljlk;
+
+
+0f86037 - Hedwigg, 6 weeks ago : starting point
+
+
+230570f - BemisJo92, 6 weeks ago : Wiped Team17 folder
+
+
+f1b5713 - Logan Davis, 6 weeks ago : reset
+
+
+36fff35 - BemisJo92, 6 weeks ago : Project file changed Classpath file changed
+
+
+4b567cf - Logan Davis, 6 weeks ago : new Vector3DTest java file
+
+
+98756f5 - Logan Davis, 6 weeks ago : First eclipse push
+
+
+6d68329 - Logan Davis, 6 weeks ago : java file test
+
+
+9004bc7 - Logan Davis, 6 weeks ago : removal of LoganTest folder
+
+
+0efa3db - Logan Davis, 6 weeks ago : Merge branch 'master' of https://github.com/MSU-ESOF322/Team17
+
+
+f292282 - Logan Davis, 6 weeks ago : logan test folder
+
+
+8e928b7 - Hedwigg, 6 weeks ago : placeholders
+
+
+d90e8d5 - Hedwigg, 6 weeks ago : testing github
+
