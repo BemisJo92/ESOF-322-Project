@@ -15,7 +15,7 @@ public class Game {
     final int timeLimit = 10;         //time limit in mins
     Boolean gameStatus = true;
     public static int tileIDTotal = 0;
-    GUI gui = new GUI();
+    GUI gui;
 
     //implement a timer
     Timer gameTimer = new Timer();
@@ -62,7 +62,7 @@ public class Game {
     }
     public void startGame() throws InterruptedException //need to implement a timer here
     {        
-
+        gui = new GUI();
         gui.setup();
 
         Scanner scanner = new Scanner(System.in);
