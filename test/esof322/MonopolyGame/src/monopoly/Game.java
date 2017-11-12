@@ -127,6 +127,9 @@ public class Game {
                 {System.out.println(t.getName());}
             
             System.out.printf("\n");
+            
+            Player winner = gameBoard.getRichestPlayer();
+            System.out.println("And the winner is: " + winner.getName());
         }
         
         
