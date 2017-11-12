@@ -85,7 +85,7 @@ public class GUI{
         }
         
         //update GUI
-        window.setVisible(false);
+        //window.setVisible(false);
         JFrame newWindow = new JFrame("Monopoly");
         newWindow.setBounds(0,0,600,600);
         newWindow.getContentPane().add(new Canvas());
