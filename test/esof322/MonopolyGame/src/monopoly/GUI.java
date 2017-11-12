@@ -132,4 +132,3 @@ class Canvas extends JComponent{
     
 
 }
-
