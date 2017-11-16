@@ -3,9 +3,11 @@ package monopoly;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
+import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,6 +16,11 @@ import javax.swing.JPanel;
 public class GUI extends JPanel{
     
     JFrame window;  //orig window
+    JPanel buttonWindow;   //button window
+    JButton b0;
+    JButton b1;
+    JButton b7;
+    
     static int[] p1Coords = new int[2];
     static int[] p2Coords = new int[2];
     static int[] p3Coords = new int[2];
@@ -44,6 +51,24 @@ public class GUI extends JPanel{
         
         window.setTitle("Monopoly!");
         
+       
+        
+        buttonWindow = new JPanel();
+        buttonWindow.setLocation(600,0);
+        buttonWindow.setBackground(Color.gray);
+        buttonWindow.setVisible(true);
+        //buttonWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        b0 = new JButton("0");
+        b1 = new JButton("1");
+        b7 = new JButton("7");
+        buttonWindow.add(b0);
+        buttonWindow.add(b1);
+        buttonWindow.add(b7);
+        
+        window.add(buttonWindow);
+        
+        
+                       
     }
     public static int[] getCoords(int player)
     {
@@ -131,7 +156,7 @@ class Canvas extends JComponent{
              throw new RuntimeException(e);
         }
         g.drawImage(backgroundImage, WIDTH, WIDTH, this);   //background image
-       
+               
         g.setColor(Color.blue);
         g.fillOval(p1X, p1Y, iconWidth, iconHeight); //p1
         g.setColor(Color.red);
