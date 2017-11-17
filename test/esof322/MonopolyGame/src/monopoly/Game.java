@@ -15,7 +15,7 @@ public class Game {
     final int timeLimit = 10;         //time limit in mins
     Boolean gameStatus = true;
     public static int tileIDTotal = 0;
-    GUI gui;
+    static GUI gui;
 
     //implement a timer
     Timer gameTimer = new Timer();
@@ -44,15 +44,20 @@ public class Game {
     
     public static void main(String[] args) throws InterruptedException  //driver method
     {
+        
         System.out.println("Monopoly Game Start");
         Scanner scanner = new Scanner(System.in);
         int totalPlayers = 0;
+        gui = new GUI();
+        gui.setup();
         while(totalPlayers <2 || totalPlayers > 4)
-        {
+        {  
+            gui.display("How many players? (2-4)");
             System.out.println("How many players? (2-4)");
             totalPlayers = scanner.nextInt();
             if(totalPlayers < 2 || totalPlayers > 4)
-            {
+            {   
+                gui.display("Please enter a valid player count.");
                 System.out.println("Please enter a valid player count.");
             }
         }
@@ -62,8 +67,7 @@ public class Game {
     }
     public void startGame() throws InterruptedException //need to implement a timer here
     {        
-        gui = new GUI();
-        gui.setup();
+        
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("---------------------");

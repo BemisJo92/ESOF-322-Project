@@ -5,21 +5,28 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.text.DefaultCaret;
 
 
 public class GUI extends JPanel{
     
     JFrame window;  //orig window
-    JPanel buttonWindow;   //button window
+    JFrame txtWindow; //text display window
+    JPanel buttonPanel;   //button panel
+    JTextArea textArea; //text display
     JButton b0;
     JButton b1;
     JButton b7;
+    int lineCounter;
     
     static int[] p1Coords = new int[2];
     static int[] p2Coords = new int[2];
@@ -28,7 +35,7 @@ public class GUI extends JPanel{
     
     public void setup()
     {
-        
+        lineCounter = 0;
         //set origional player coords
         p1Coords[0] =490;
         p1Coords[1] = 490;
@@ -53,19 +60,58 @@ public class GUI extends JPanel{
         
        
         
-        buttonWindow = new JPanel();
-        buttonWindow.setLocation(600,0);
-        buttonWindow.setBackground(Color.gray);
-        buttonWindow.setVisible(true);
-        //buttonWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        b0 = new JButton("0");
-        b1 = new JButton("1");
-        b7 = new JButton("7");
-        buttonWindow.add(b0);
-        buttonWindow.add(b1);
-        buttonWindow.add(b7);
+        buttonPanel = new JPanel();
+        buttonPanel.setLocation(600,0);
+        buttonPanel.setBackground(Color.gray);
+        buttonPanel.setVisible(true);
+        //buttonPanel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        b0 = new JButton("No/0");
+        b1 = new JButton("Yes/1");
+        b7 = new JButton("Proceed/7");
+        buttonPanel.add(b0);
+        buttonPanel.add(b1);
+        buttonPanel.add(b7);
+        window.add(buttonPanel);
         
-        window.add(buttonWindow);
+        txtWindow = new JFrame();
+        txtWindow.setBounds(600,600,300,300);
+        txtWindow.getContentPane();
+        txtWindow.setVisible(true);
+        txtWindow.setTitle("TextOutput");
+        
+        textArea = new JTextArea(5,10);
+        textArea.setLocation(800,800);
+        textArea.setBackground(Color.yellow);
+        txtWindow.add(textArea);
+        textArea.setVisible(true);
+        textArea.append("Welcome!");
+        DefaultCaret caret = (DefaultCaret)textArea.getCaret();
+        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+
+        
+        
+        b0.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e)
+            {
+               //something to do when b0 is pressed 
+                System.out.println("Button 0 pressed");
+            }
+        });
+        
+        b1.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e)
+            {
+               //something to do when b0 is pressed 
+                System.out.println("Button 1 pressed");
+            }
+        });
+        b7.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e)
+            {
+               //something to do when b0 is pressed 
+                System.out.println("Button 7 pressed");
+            }
+        });
         
         
                        
@@ -117,7 +163,16 @@ public class GUI extends JPanel{
     
     public void display(String s)     //call instead of println's in rest of program to output text to gui.
     {
-        
+        if(lineCounter > 20)    //if text area is too large,erase it
+        {
+            textArea.selectAll();
+            textArea.replaceSelection("");
+            lineCounter = 0;
+        }
+        //append data
+        textArea.append("\n");
+        textArea.append(s);
+        lineCounter +=2;
     }
     
 }
