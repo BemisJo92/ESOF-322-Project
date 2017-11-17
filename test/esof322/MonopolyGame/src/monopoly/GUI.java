@@ -74,14 +74,15 @@ public class GUI extends JPanel{
         window.add(buttonPanel);
         
         txtWindow = new JFrame();
-        txtWindow.setBounds(600,600,300,300);
+        txtWindow.setBounds(0,600,300,300);
         txtWindow.getContentPane();
         txtWindow.setVisible(true);
         txtWindow.setTitle("TextOutput");
+        txtWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         
         textArea = new JTextArea(5,10);
         textArea.setLocation(800,800);
-        textArea.setBackground(Color.yellow);
         txtWindow.add(textArea);
         textArea.setVisible(true);
         textArea.append("Welcome!");
