@@ -5,7 +5,7 @@ package monopoly;
 public class GoToJailTile extends Tile
     {
 
-        
+        GUI gui;
         public GoToJailTile(String name, int xCoord, int yCoord)
         {
             super(name, xCoord, yCoord);
@@ -14,7 +14,8 @@ public class GoToJailTile extends Tile
         
         public void doAction(Player player, Board board)
         {
-            System.out.println(player.getName() + " must go to Jail.");
+            gui = board.getGui();
+            gui.display(player.getName() + " must go to Jail.");
             //move player to jail here and set jailStatus to True
             player.setJailStatus(true);
             board.moveToJail(player);

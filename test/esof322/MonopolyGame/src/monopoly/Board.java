@@ -8,10 +8,12 @@ public class Board
     Tile[] tiles = new Tile[40];
     int jailTile = 10;
     int passGoMoney = 200;
+    GUI gui;
     
     
-    public Board(int totalPlayers)
+    public Board(int totalPlayers,GUI g)
     {
+        this.gui = g;
         players = new Player[totalPlayers];         //array of # of players
         for(int i = 0; i < players.length; i++)     //create 'totalPlayers' new players
         {
@@ -160,7 +162,7 @@ public class Board
         int currentTile = player.getCurrentTile();
         if(currentTile + rollValue >= 39)
         {
-            System.out.println(player.getName() + " passed Go");
+            g.display(player.getName() + " passed Go");
             //pass or land on Go
             int remainingTiles = (currentTile + rollValue) - 39;
             player.setTile(remainingTiles);
@@ -172,8 +174,8 @@ public class Board
             int nextTile = currentTile + rollValue;
             player.setTile(nextTile);
         }
-        System.out.println(player.getName() + " is on tile " + player.getCurrentTile());
-        System.out.println(player.getName() + "'s money is " + player.getMoney());
+        g.display(player.getName() + " is on tile " + player.getCurrentTile());
+        g.display(player.getName() + "'s money is " + player.getMoney());
         Tile t = tiles[player.getCurrentTile()];
         
         g.movePlayer(player.getIdNum(), t.getX(), t.getY());
@@ -212,5 +214,10 @@ public class Board
     
     public Tile getTile(int i)
         {return tiles[i];}
+    
+    public GUI getGui()
+    {
+        return gui;
+    }
 
 }

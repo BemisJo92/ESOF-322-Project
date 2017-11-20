@@ -22,7 +22,7 @@ public class Game {
     TimerTask callGameOver = new TimerTask(){           //timer task that calls gameOver
         public void run()  //call game over method 
         {
-            System.out.println("The time limit has been reached. The game is now over!");
+            gui.display("The time limit has been reached. The game is now over!");
            
             try {               //try catch for Thread.sleep in gameOver()
                 gameOver();
@@ -39,7 +39,7 @@ public class Game {
     
     public Game(int totalPlayers)
     {
-        gameBoard = new Board(totalPlayers);
+        gameBoard = new Board(totalPlayers, gui);
     }
     
     public static void main(String[] args) throws InterruptedException  //driver method
@@ -53,12 +53,12 @@ public class Game {
         while(totalPlayers <2 || totalPlayers > 4)
         {  
             gui.display("How many players? (2-4)");
-            System.out.println("How many players? (2-4)");
+            //System.out.println("How many players? (2-4)");
             totalPlayers = scanner.nextInt();
             if(totalPlayers < 2 || totalPlayers > 4)
             {   
                 gui.display("Please enter a valid player count.");
-                System.out.println("Please enter a valid player count.");
+                //System.out.println("Please enter a valid player count.");
             }
         }
         //scanner.close();    
@@ -70,7 +70,7 @@ public class Game {
         
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("---------------------");
+        gui.display("---------------------");
         
         while(gameStatus)
         {
@@ -89,26 +89,26 @@ public class Game {
                 }else //player did not roll doubles this turn and hasnt been in jail long enough to be released.
                 {
                     gameBoard.getPlayer().incrementJailStay();
-                    System.out.println(gameBoard.getPlayer().getName() + " is stuck in jail for another turn");
+                    gui.display(gameBoard.getPlayer().getName() + " is stuck in jail for another turn");
                 }
             }
             else if(!gameBoard.getPlayer().isBroke())           //if the player is NOT broke
             {
-                System.out.println("Die 1: " + die1);
-                System.out.println("Die 2: " + die2);
+                gui.display("Die 1: " + die1);
+                gui.display("Die 2: " + die2);
                 gameBoard.movePlayer(gameBoard.getPlayer(), rollValue,gui);
             }
             else if(gameBoard.getPlayer().isBroke())            //if the player IS broke
             {
-                System.out.println("Player is broke. This is game over");
+                gui.display("Player is broke. This is game over");
                 gameOver();
             }
-            System.out.println(gameBoard.getPlayer().getName() + "'s turn is over, press 7 to proceed");
+            gui.display(gameBoard.getPlayer().getName() + "'s turn is over, press 7 to proceed");
             while(scanner.nextInt() != 7)
             {
                 Thread.sleep(100);
             }
-            System.out.printf("\nNext players turn -----------------------------------------------------\n\n");
+            gui.display("\nNext players turn -----------------------------------------------------\n\n");
             gameBoard.nextTurn();
         }
     }
@@ -116,29 +116,28 @@ public class Game {
     public void gameOver() throws InterruptedException  //determine winner and exit
     {
         gameStatus = false;
-        System.out.println("Here are the money and property stats: ");
+        gui.display("Here are the money and property stats: ");
         for(Player player: gameBoard.getPlayers())
         {
-            System.out.println(player.getName() + ":");
-            System.out.println("Money : $" + player.getMoney());
-            System.out.printf("\n\nProperties Owned:\n");
+            gui.display(player.getName() + ":" + " Money:  $" + player.getMoney());
+            gui.display("\n\nProperties Owned:\n");
             
             //Acquire all properties of player in a list
             ArrayList<Tile> properties = player.getProperties();
             
             //Print out all properties of player at Game Over
             for(Tile t: properties)
-                {System.out.println(t.getName());}
+                {gui.display(t.getName());}
             
-            System.out.printf("\n");
+            gui.display("\n");
             
             Player winner = gameBoard.getRichestPlayer();
-            System.out.println("And the winner is: " + winner.getName());
+            gui.display("And the winner is: " + winner.getName());
         }
         
         
         Thread.sleep(100);
-        System.out.println("Program will now exit");
+        gui.display("Program will now exit");
         Thread.sleep(100);
         System.exit(0);
     }

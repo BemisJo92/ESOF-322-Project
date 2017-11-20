@@ -3,14 +3,16 @@ package monopoly;
 
 public class LuxuryTaxTile extends Tile {
     private final int luxuryTaxAmount = 100;
+    GUI gui;
     public LuxuryTaxTile(String name, int xCoord, int yCoord) {
         super(name, xCoord, yCoord);
     }
 
     @Override
     public void doAction(Player player, Board board) {
+        gui = board.getGui();
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        System.out.println("Landed on Luxury Tile");
+        gui.display("Landed on Luxury Tile");
         player.removeMoney(luxuryTaxAmount);
     }
 

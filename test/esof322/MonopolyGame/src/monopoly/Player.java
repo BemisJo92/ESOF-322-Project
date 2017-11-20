@@ -23,6 +23,7 @@ public class Player
     int numYellowOwned = 0;
     int numGreenOwned = 0;
     int numDarkBlueOwned = 0;
+    GUI gui;
     
     public Player(int idNum, String name)
     {
@@ -95,20 +96,21 @@ public class Player
     
     public void mortgage(Board board)
     {
+        gui = board.getGui();
         Scanner scanner = new Scanner(System.in);
         
-        System.out.println("Here are the properties you can mortgage");
+        gui.display("Here are the properties you can mortgage");
         //display player's properties 
 
         for(Tile property: properties)
         {
             if(property.getMortgageStatus() == false) // if property is not already mortgaged 
             {
-                System.out.println(property.getName() + " mortgage Value: $" + property.getMortgage() + " ID NUM: " + property.getTileID());
+                gui.display(property.getName() + " mortgage Value: $" + property.getMortgage() + " ID NUM: " + property.getTileID());
             }
         }
        
-        System.out.println("What property would you like to mortgage? Please enter the ID number");
+        gui.display("What property would you like to mortgage? Please enter the ID number");
         
          //user input for choice
         int choice = scanner.nextInt();
@@ -128,7 +130,7 @@ public class Player
             }
             if(!valid)
             {
-                System.out.println("That is an invalid choice, please choose a property you own:");
+                gui.display("That is an invalid choice, please choose a property you own:");
                 choice = scanner.nextInt();
             }
         }
@@ -141,7 +143,7 @@ public class Player
         
         //give player the mortgage money
         addMoney(currentProperty.getMortgage());
-        System.out.println(name + " now has $" +getMoney());
+        gui.display(name + " now has $" +getMoney());
 
     }
 }

@@ -3,7 +3,7 @@ package monopoly;
 
 public class JailTile extends Tile
     {
-                
+        GUI gui;
         public JailTile(String name, int xCoord, int yCoord)
         {
             super(name, xCoord, yCoord);
@@ -11,12 +11,13 @@ public class JailTile extends Tile
         
         public void doAction(Player player, Board board)
         {
+            gui = board.getGui();
             if(player.getJailStatus())
             {
-                System.out.println("**Player is in jail**");
+                gui.display("**Player is in jail**");
             }else
             {
-                System.out.println("Player is just visiting jail");
+                gui.display("Player is just visiting jail");
             }
         }
 

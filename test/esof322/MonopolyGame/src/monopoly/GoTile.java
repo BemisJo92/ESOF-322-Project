@@ -5,6 +5,7 @@ package monopoly;
 public class GoTile extends Tile
 {   
         private final int goMoney = 200;    //amount of money rewarded for passing go
+        GUI gui;
         public GoTile(String name, int xCoord, int yCoord)
         {
             super(name, xCoord, yCoord); 
@@ -12,7 +13,8 @@ public class GoTile extends Tile
         
         public void doAction(Player player, Board board)
         {
-            System.out.println(player.getName() + " is at Go." + player.getName() + " is receiving $200.");
+            gui = board.getGui();
+            gui.display(player.getName() + " is at Go." + player.getName() + " is receiving $200.");
             player.addMoney(goMoney);
         }
 
