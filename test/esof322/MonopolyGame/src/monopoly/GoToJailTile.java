@@ -15,10 +15,19 @@ public class GoToJailTile extends Tile
         public void doAction(Player player, Board board)
         {
             gui = board.getGui();
-            gui.display(player.getName() + " must go to Jail.");
-            //move player to jail here and set jailStatus to True
-            player.setJailStatus(true);
-            board.moveToJail(player);
+            if(player.getOutOfJailCards > 0)    //if a player has a get out of jail free card. dont move player to jail and decrement their # of said cards
+            {
+                gui.display(player.getName() + " has a 'Get out of jail free card' and does not have to go to jail");
+                player.useGetOutOfJailFreeCard();
+                
+            }else
+            {
+                gui.display(player.getName() + " must go to Jail.");
+                //move player to jail here and set jailStatus to True
+                player.setJailStatus(true);
+                board.moveToJail(player);  
+            }
+            
         }
 
     @Override

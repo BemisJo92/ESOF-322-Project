@@ -59,6 +59,11 @@ public class Player
     public void resetJailStayLength()
         {jailStayLength = 0;}
     
+    public void useGetOutOfJailFreeCard()
+    {
+         getOutOfJailCards--;
+    }
+    
     public void incrementJailStay()
         {jailStayLength++;}
     
