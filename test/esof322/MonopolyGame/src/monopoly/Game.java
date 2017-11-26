@@ -78,7 +78,7 @@ public class Game {
             int die1 = gameBoard.getPlayer().rollDie();
             int die2 = gameBoard.getPlayer().rollDie();
             int rollValue = die1 +die2;
-            
+                
             if(gameBoard.getPlayer().getJailStatus() == true)   //if player is in jail for their turn
             {
                 if(die1 == die2 || gameBoard.getPlayer().getJailStayLength() >= 3)        //if the player rolls doubles or they have been in jail for 3 turns, then they are released

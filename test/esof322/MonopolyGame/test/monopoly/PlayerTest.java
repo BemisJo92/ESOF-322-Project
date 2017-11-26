@@ -233,4 +233,15 @@ public class PlayerTest
         int result = instance.getProperties().size();
         assertEquals(expResult, result);
     }
+    /**
+     * Test of rollDie method, of class Player.
+     * Test to make sure roll die provides a value that is between 1 and 6 inclusive like a real life die.
+     */
+    @Test
+    public void testRollDice()
+    {
+        Player instance = new Player(1, "Test Player Roll dice");
+        int actual = instance.rollDie();
+        assertTrue(actual <= 6 && actual >=1);
+    }
 }
