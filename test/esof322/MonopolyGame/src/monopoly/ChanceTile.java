@@ -30,6 +30,8 @@ public class ChanceTile extends Tile{
             //move player to that tile
             Tile t = board.getTile(card.getToTileNum());            
             gui.movePlayer(player.getIdNum(), t.getX(), t.getY());
+            player.setTile(card.getToTileNum());
+            
             
         }
         //no move needed

@@ -6,10 +6,13 @@ public class Board
     int totalPlayers = 0;
     Player[] players;
     Tile[] tiles = new Tile[40];
-    ChanceCard[] chanceCards = new ChanceCard[10];
+
     int jailTile = 10;
     int passGoMoney = 200;
-    int numChanceCards = 4;
+    int numChanceCards = 5;
+    int numCommunityChestCards = 5;
+    ChanceCard[] chanceCards = new ChanceCard[numChanceCards];
+    CommunityChestCard[] communityChestCards = new CommunityChestCard[numCommunityChestCards];
     GUI gui;
     
     
@@ -21,29 +24,8 @@ public class Board
         {
             players[i] = new Player(i , "Player " + (i + 1));
         }
-        
-        for(int i = 0; i <= numChanceCards; i++)
-        {
-            switch(i)
-            {
-                case 0:
-                    chanceCards[i] = new ChanceCard("GO TO JAIL", 10, 0);
-                    break;
-                case 1:
-                    chanceCards[i] = new ChanceCard("Tax Rebate: Collect $100", -1, 100);
-                    break;
-                case 2:
-                    chanceCards[i] = new ChanceCard("Get out of jail free card!", -1, 0);
-                    break;
-                case 3:
-                    chanceCards[i] = new ChanceCard("Win the lottery: Collect $500", -1, 500);
-                    break;
-                case 4:
-                    chanceCards[i] = new ChanceCard("Proceed to 'GO' and collect $200", 0, 0);
-                    break;
-                    
-            }
-        }
+       
+        createCards(numChanceCards, numCommunityChestCards);
         
         for(int tilePos = 0; tilePos < tiles.length; tilePos++)
         {
@@ -256,4 +238,60 @@ public class Board
     {
         return chanceCards;
     }
+    public int getNumCommunityChestCards()
+    {
+        return numCommunityChestCards;
+    }
+    public CommunityChestCard[] getCommunityChestCards()
+    {
+        return communityChestCards;
+    }
+    
+    private void createCards(int numChance, int numCChest)
+        {
+            for(int i = 0; i <= numChance; i++)
+            {
+                switch(i)
+                {
+                    case 0:
+                        chanceCards[i] = new ChanceCard("GO TO JAIL", 10, 0);
+                        break;
+                    case 1:
+                        chanceCards[i] = new ChanceCard("Tax Rebate: Collect $100", -1, 100);
+                        break;
+                    case 2:
+                        chanceCards[i] = new ChanceCard("Get out of jail free card!", -1, 0);
+                        break;
+                    case 3:
+                        chanceCards[i] = new ChanceCard("Win the lottery: Collect $500", -1, 500);
+                        break;
+                    case 4:
+                        chanceCards[i] = new ChanceCard("Proceed to 'GO' and collect $200", 0, 0);
+                        break;
+
+                }
+            }
+            for(int i = 0; i <= numCChest; i++)
+            {
+                switch(i)
+                {
+                    case 0:
+                        chanceCards[i] = new ChanceCard("Winner winner chicken dinner: Collect $100", -1, 100);
+                        break;
+                    case 1:
+                        chanceCards[i] = new ChanceCard("Lotto Winner: Collect $200", -1, 200);
+                        break;
+                    case 2:
+                        chanceCards[i] = new ChanceCard("Workers compensation: Collect $300", -1, 300);
+                        break;
+                    case 3:
+                        chanceCards[i] = new ChanceCard("Christmas bonus at work! : Collect $400", -1, 400);
+                        break;
+                    case 4:
+                        chanceCards[i] = new ChanceCard("Won a law suit!: Collect $500", -1, 500);
+                        break;
+
+                }
+            }
+        }
 }

@@ -199,4 +199,29 @@ public class BoardTest
         System.out.println(instance.getTile(39).getName());
         assertEquals(expResult, result);
     }
+    
+    @Test
+    //tests the creation of the chance cards
+    public void testChanceCardsCreation()
+    {
+        GUI g = new GUI();
+        Board instance = new Board(1,g);
+        
+        int actual = instance.getChanceCards().length;
+        int expected = instance.getNumChanceCards();    
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+    //tests the creation of community chest cards
+    public void testCommunityChestCardsCreation()
+    {
+        GUI g = new GUI();
+        Board instance = new Board(1,g);
+        
+        int actual = instance.getCommunityChestCards().length;
+        int expected = instance.getNumCommunityChestCards();    
+        assertEquals(expected, actual);
+    }
 }
+
