@@ -6,8 +6,10 @@ public class Board
     int totalPlayers = 0;
     Player[] players;
     Tile[] tiles = new Tile[40];
+    ChanceCard[] chanceCards = new ChanceCard[10];
     int jailTile = 10;
     int passGoMoney = 200;
+    int numChanceCards = 4;
     GUI gui;
     
     
@@ -18,6 +20,29 @@ public class Board
         for(int i = 0; i < players.length; i++)     //create 'totalPlayers' new players
         {
             players[i] = new Player(i , "Player " + (i + 1));
+        }
+        
+        for(int i = 0; i <= numChanceCards; i++)
+        {
+            switch(i)
+            {
+                case 0:
+                    chanceCards[i] = new ChanceCard("GO TO JAIL", 10, 0);
+                    break;
+                case 1:
+                    chanceCards[i] = new ChanceCard("Tax Rebate: Collect $100", -1, 100);
+                    break;
+                case 2:
+                    chanceCards[i] = new ChanceCard("Get out of jail free card!", -1, 0);
+                    break;
+                case 3:
+                    chanceCards[i] = new ChanceCard("Win the lottery: Collect $500", -1, 500);
+                    break;
+                case 4:
+                    chanceCards[i] = new ChanceCard("Proceed to 'GO' and collect $200", 0, 0);
+                    break;
+                    
+            }
         }
         
         for(int tilePos = 0; tilePos < tiles.length; tilePos++)
@@ -147,7 +172,10 @@ public class Board
             }
         }
     }
-    
+    public void drawChanceCard(Player player)
+    {
+        
+    }
     public void moveToJail(Player player)
     {
         player.setTile(jailTile);
@@ -219,5 +247,13 @@ public class Board
     {
         return gui;
     }
-
+    
+    public int getNumChanceCards()
+    {
+        return numChanceCards;
+    }
+    public ChanceCard[] getChanceCards()
+    {
+        return chanceCards;
+    }
 }

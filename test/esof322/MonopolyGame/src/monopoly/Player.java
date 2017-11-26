@@ -14,6 +14,7 @@ public class Player
     ArrayList<Tile> properties = new ArrayList<Tile>();
     boolean broke = false;
     boolean mortagageStatus = false;
+    int getOutOfJailCards = 0;
     int numRailroadsOwned = 0;
     int numBrownOwned = 0;
     int numLightBlueOwned = 0;
@@ -39,6 +40,9 @@ public class Player
         die = (int) (Math.random() * 6) + 1;
         return die;
     }
+    
+    public void addJailFreeCard()
+    {getOutOfJailCards++;}        
     
     public String getName()   
         {return name;}

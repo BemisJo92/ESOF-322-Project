@@ -15,6 +15,7 @@ public class Game {
     final int timeLimit = 10;         //time limit in mins
     Boolean gameStatus = true;
     public static int tileIDTotal = 0;
+    public static int cardIDTotal = 0;
     static GUI gui;
 
     //implement a timer
