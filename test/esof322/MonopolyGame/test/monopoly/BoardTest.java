@@ -48,6 +48,27 @@ public class BoardTest
     *I threw in a try-catch block just to catch that one error, and the test ran fine with it.
     */
 
+    @Test
+    public void testGetPlayers1()    //test get players with 1 player
+    {
+        GUI g = new GUI();
+        Board instance = new Board(1,g);
+        Player[] array = instance.getPlayers();
+        int actual = array.length;
+        int expected = 1;
+        assertEquals(expected,actual);
+    }
+    
+    @Test
+    public void testGetPlayers4()
+    {
+        GUI g = new GUI();
+        Board instance = new Board(4,g);
+        Player[] array = instance.getPlayers();
+        int actual = array.length;
+        int expected = 4;
+        assertEquals(expected,actual);
+    }
     /**
      * Test of moveToJail method, of class Board.
      */

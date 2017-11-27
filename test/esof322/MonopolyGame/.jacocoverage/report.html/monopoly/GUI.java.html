@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>GUI.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;MonopolyGame&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">monopoly</a> &gt; <span class="el_source">GUI.java</span></div><h1>GUI.java</h1><pre class="source lang-java linenums">
+package monopoly;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.text.DefaultCaret;
+
+
+<span class="fc" id="L20">public class GUI extends JPanel{</span>
+    
+    JFrame window;  //orig window
+    JFrame txtWindow; //text display window
+    JPanel buttonPanel;   //button panel
+    JTextArea textArea; //text display
+    JButton b0;
+    JButton b1;
+    JButton b7;
+    int lineCounter;
+    
+<span class="fc" id="L31">    static int[] p1Coords = new int[2];</span>
+<span class="fc" id="L32">    static int[] p2Coords = new int[2];</span>
+<span class="fc" id="L33">    static int[] p3Coords = new int[2];</span>
+<span class="fc" id="L34">    static int[] p4Coords = new int[2];</span>
+    
+    public void setup()
+    {
+<span class="fc" id="L38">        lineCounter = 0;</span>
+        //set origional player coords
+<span class="fc" id="L40">        p1Coords[0] =490;</span>
+<span class="fc" id="L41">        p1Coords[1] = 490;</span>
+        
+<span class="fc" id="L43">        p2Coords[0] =490;</span>
+<span class="fc" id="L44">        p2Coords[1] = 480;</span>
+        
+<span class="fc" id="L46">        p3Coords[0] =490;</span>
+<span class="fc" id="L47">        p3Coords[1] = 470;</span>
+        
+<span class="fc" id="L49">        p4Coords[0] =490;</span>
+<span class="fc" id="L50">        p4Coords[1] = 460;</span>
+        
+        //update gui
+<span class="fc" id="L53">        window = new JFrame();</span>
+<span class="fc" id="L54">        window.setBounds(0,0,600,600);</span>
+<span class="fc" id="L55">        window.getContentPane().add(new Canvas());</span>
+<span class="fc" id="L56">        window.setVisible(true);</span>
+<span class="fc" id="L57">        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+        
+<span class="fc" id="L59">        window.setTitle(&quot;Monopoly!&quot;);</span>
+        
+       
+        
+<span class="fc" id="L63">        buttonPanel = new JPanel();</span>
+<span class="fc" id="L64">        buttonPanel.setLocation(600,0);</span>
+<span class="fc" id="L65">        buttonPanel.setBackground(Color.gray);</span>
+<span class="fc" id="L66">        buttonPanel.setVisible(true);</span>
+        //buttonPanel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+<span class="fc" id="L68">        b0 = new JButton(&quot;No/0&quot;);</span>
+<span class="fc" id="L69">        b1 = new JButton(&quot;Yes/1&quot;);</span>
+<span class="fc" id="L70">        b7 = new JButton(&quot;Proceed/7&quot;);</span>
+<span class="fc" id="L71">        buttonPanel.add(b0);</span>
+<span class="fc" id="L72">        buttonPanel.add(b1);</span>
+<span class="fc" id="L73">        buttonPanel.add(b7);</span>
+<span class="fc" id="L74">        window.add(buttonPanel);</span>
+        
+<span class="fc" id="L76">        txtWindow = new JFrame();</span>
+<span class="fc" id="L77">        txtWindow.setBounds(0,600,300,300);</span>
+<span class="fc" id="L78">        txtWindow.getContentPane();</span>
+<span class="fc" id="L79">        txtWindow.setVisible(true);</span>
+<span class="fc" id="L80">        txtWindow.setTitle(&quot;TextOutput&quot;);</span>
+<span class="fc" id="L81">        txtWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+
+        
+<span class="fc" id="L84">        textArea = new JTextArea(5,10);</span>
+<span class="fc" id="L85">        textArea.setLocation(800,800);</span>
+<span class="fc" id="L86">        txtWindow.add(textArea);</span>
+<span class="fc" id="L87">        textArea.setVisible(true);</span>
+<span class="fc" id="L88">        textArea.append(&quot;Welcome!&quot;);</span>
+<span class="fc" id="L89">        DefaultCaret caret = (DefaultCaret)textArea.getCaret();</span>
+<span class="fc" id="L90">        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);</span>
+
+        
+        
+<span class="fc" id="L94">        b0.addActionListener(new ActionListener(){</span>
+            public void actionPerformed(ActionEvent e)
+            {
+               //something to do when b0 is pressed 
+<span class="nc" id="L98">                System.out.println(&quot;Button 0 pressed&quot;);</span>
+<span class="nc" id="L99">            }</span>
+        });
+        
+<span class="fc" id="L102">        b1.addActionListener(new ActionListener(){</span>
+            public void actionPerformed(ActionEvent e)
+            {
+               //something to do when b0 is pressed 
+<span class="nc" id="L106">                System.out.println(&quot;Button 1 pressed&quot;);</span>
+<span class="nc" id="L107">            }</span>
+        });
+<span class="fc" id="L109">        b7.addActionListener(new ActionListener(){</span>
+            public void actionPerformed(ActionEvent e)
+            {
+               //something to do when b0 is pressed 
+<span class="nc" id="L113">                System.out.println(&quot;Button 7 pressed&quot;);</span>
+<span class="nc" id="L114">            }</span>
+        });
+        
+        
+                       
+<span class="fc" id="L119">    }</span>
+    public static int[] getCoords(int player)
+    {
+<span class="pc bpc" id="L122" title="1 of 5 branches missed.">        switch(player)</span>
+        {
+            case 0:
+<span class="fc" id="L125">                return p1Coords;</span>
+                
+            case 1:
+<span class="fc" id="L128">                return p2Coords;</span>
+                
+            case 2:
+<span class="fc" id="L131">                return p3Coords;</span>
+            case 3:
+<span class="fc" id="L133">                return p4Coords;</span>
+            default:
+<span class="nc" id="L135">                return null;</span>
+        }   
+    }
+    public void movePlayer(int player, int x, int y)
+    {
+        //set player coords
+<span class="pc bpc" id="L141" title="4 of 5 branches missed.">        switch(player)</span>
+        {
+            case 0:
+<span class="fc" id="L144">                p1Coords[0] = x;</span>
+<span class="fc" id="L145">                p1Coords[1] = y;</span>
+<span class="fc" id="L146">                break;</span>
+            case 1:
+<span class="nc" id="L148">                p2Coords[0] = x;</span>
+<span class="nc" id="L149">                p2Coords[1] = y;</span>
+<span class="nc" id="L150">                break;</span>
+            case 2:
+<span class="nc" id="L152">                p3Coords[0] = x;</span>
+<span class="nc" id="L153">                p3Coords[1] = y;</span>
+<span class="nc" id="L154">                break;</span>
+            case 3:
+<span class="nc" id="L156">                p4Coords[0] = x;</span>
+<span class="nc" id="L157">                p4Coords[1] = y;</span>
+                break;
+        }
+        
+<span class="fc" id="L161">          window.repaint(); //update jframe</span>
+
+<span class="fc" id="L163">    }</span>
+    
+    public void display(String s)     //call instead of println's in rest of program to output text to gui.
+    {
+<span class="pc bpc" id="L167" title="1 of 2 branches missed.">        if(lineCounter &gt; 30)    //if text area is too large,erase it</span>
+        {
+<span class="nc" id="L169">            textArea.selectAll();</span>
+<span class="nc" id="L170">            textArea.replaceSelection(&quot;&quot;);</span>
+<span class="nc" id="L171">            lineCounter = 0;</span>
+        }
+        //append data
+<span class="fc" id="L174">        textArea.append(&quot;\n&quot;);</span>
+<span class="fc" id="L175">        textArea.append(s);</span>
+<span class="fc" id="L176">        lineCounter +=2;</span>
+<span class="fc" id="L177">    }</span>
+    
+}
+
+<span class="fc" id="L181">class Canvas extends JComponent{</span>
+<span class="fc" id="L182">    private final int iconWidth = 20;</span>
+<span class="fc" id="L183">    private final int iconHeight = 20;</span>
+    private Image backgroundImage;
+    
+    private int p1X;
+    private int p1Y;
+    private int p2X;
+    private int p2Y;
+    private int p3X;
+    private int p3Y;
+    private int p4X;
+    private int p4Y;
+    
+    public void paintComponent(Graphics g)
+    {
+<span class="fc" id="L197">        int p1X = GUI.getCoords(0)[0];</span>
+<span class="fc" id="L198">        int p1Y = GUI.getCoords(0)[1];</span>
+<span class="fc" id="L199">        int p2X = GUI.getCoords(1)[0];</span>
+<span class="fc" id="L200">        int p2Y = GUI.getCoords(1)[1];</span>
+<span class="fc" id="L201">        int p3X = GUI.getCoords(2)[0];</span>
+<span class="fc" id="L202">        int p3Y = GUI.getCoords(2)[1];</span>
+<span class="fc" id="L203">        int p4X = GUI.getCoords(3)[0];</span>
+<span class="fc" id="L204">        int p4Y = GUI.getCoords(3)[1];</span>
+        
+<span class="fc" id="L206">        super.paintComponent(g);</span>
+        try
+        {   
+<span class="fc" id="L209">            backgroundImage = javax.imageio.ImageIO.read(new File(&quot;monopoly board.jpg&quot;));</span>
+<span class="nc" id="L210">        }catch (IOException e) </span>
+        {    
+<span class="nc" id="L212">             throw new RuntimeException(e);</span>
+<span class="fc" id="L213">        }</span>
+<span class="fc" id="L214">        g.drawImage(backgroundImage, WIDTH, WIDTH, this);   //background image</span>
+               
+<span class="fc" id="L216">        g.setColor(Color.blue);</span>
+<span class="fc" id="L217">        g.fillOval(p1X, p1Y, iconWidth, iconHeight); //p1</span>
+<span class="fc" id="L218">        g.setColor(Color.red);</span>
+<span class="fc" id="L219">        g.fillOval(p2X, p2Y, iconWidth, iconHeight); //p2</span>
+<span class="fc" id="L220">        g.setColor(Color.green);</span>
+<span class="fc" id="L221">        g.fillOval(p3X, p3Y, iconWidth, iconHeight); //p3</span>
+<span class="fc" id="L222">        g.setColor(Color.yellow);</span>
+<span class="fc" id="L223">        g.fillOval(p4X, p4Y, iconWidth, iconHeight); //p4</span>
+<span class="fc" id="L224">        }</span>
+    
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

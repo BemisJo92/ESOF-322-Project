@@ -276,19 +276,19 @@ public class Board
                 switch(i)
                 {
                     case 0:
-                        chanceCards[i] = new ChanceCard("Winner winner chicken dinner: Collect $100", -1, 100);
+                        communityChestCards[i] = new CommunityChestCard("Winner winner chicken dinner: Collect $100", -1, 100);
                         break;
                     case 1:
-                        chanceCards[i] = new ChanceCard("Lotto Winner: Collect $200", -1, 200);
+                        communityChestCards[i] = new CommunityChestCard("Lotto Winner: Collect $200", -1, 200);
                         break;
                     case 2:
-                        chanceCards[i] = new ChanceCard("Workers compensation: Collect $300", -1, 300);
+                        communityChestCards[i] = new CommunityChestCard("Workers compensation: Collect $300", -1, 300);
                         break;
                     case 3:
-                        chanceCards[i] = new ChanceCard("Christmas bonus at work! : Collect $400", -1, 400);
+                        communityChestCards[i] = new CommunityChestCard("Christmas bonus at work! : Collect $400", -1, 400);
                         break;
                     case 4:
-                        chanceCards[i] = new ChanceCard("Won a law suit!: Collect $500", -1, 500);
+                        communityChestCards[i] = new CommunityChestCard("Won a law suit!: Collect $500", -1, 500);
                         break;
 
                 }

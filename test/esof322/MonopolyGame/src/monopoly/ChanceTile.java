@@ -44,7 +44,7 @@ public class ChanceTile extends Tile{
         
     }
     
-    private void adjMoney(Player p, int amount)        //Junit test for this?
+    public void adjMoney(Player p, int amount)        //Junit test for this?
     {
         if(amount <0)
         {
@@ -52,7 +52,7 @@ public class ChanceTile extends Tile{
         }else p.addMoney(amount);
     }
 
-    private ChanceCard getCard(Board board)    //need to create a junit test for this if you make of size 1, it should only return that card
+    public ChanceCard getCard(Board board)    //need to create a junit test for this if you make of size 1, it should only return that card
     {
         random = rand.nextInt(board.getNumChanceCards()); //should be 4 
         ChanceCard[] allCards = board.getChanceCards();

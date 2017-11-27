@@ -140,7 +140,7 @@ public class Game {
         Thread.sleep(100);
         gui.display("Program will now exit");
         Thread.sleep(100);
-        System.exit(0);
+        //System.exit(0);
     }
     
     public Board getBoard()

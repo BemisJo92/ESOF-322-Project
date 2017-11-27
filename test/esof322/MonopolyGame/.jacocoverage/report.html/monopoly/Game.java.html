@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Game.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;MonopolyGame&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">monopoly</a> &gt; <span class="el_source">Game.java</span></div><h1>Game.java</h1><pre class="source lang-java linenums">
+package monopoly;
+
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class Game {
+    Board gameBoard;                   //instance of board
+<span class="fc" id="L15">    final int timeLimit = 10;         //time limit in mins</span>
+<span class="fc" id="L16">    Boolean gameStatus = true;</span>
+<span class="fc" id="L17">    public static int tileIDTotal = 0;</span>
+<span class="fc" id="L18">    public static int cardIDTotal = 0;</span>
+    static GUI gui;
+
+    //implement a timer
+<span class="fc" id="L22">    Timer gameTimer = new Timer();</span>
+<span class="fc" id="L23">    TimerTask callGameOver = new TimerTask(){           //timer task that calls gameOver</span>
+        public void run()  //call game over method 
+        {
+<span class="nc" id="L26">            gui.display(&quot;The time limit has been reached. The game is now over!&quot;);</span>
+           
+            try {               //try catch for Thread.sleep in gameOver()
+<span class="nc" id="L29">                gameOver();</span>
+<span class="nc" id="L30">            } catch (InterruptedException ex) {</span>
+<span class="nc" id="L31">                Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L32">            }</span>
+<span class="nc" id="L33">        }</span>
+    };
+      
+    public void TimedExit()
+    {
+<span class="nc" id="L38">        gameTimer.schedule(callGameOver, new Date(System.currentTimeMillis()+(timeLimit*60000)));   //execute timer task &quot;callGameOver&quot; after 'timeLimit' mins</span>
+<span class="nc" id="L39">    }</span>
+    
+    public Game(int totalPlayers)
+<span class="fc" id="L42">    {</span>
+<span class="fc" id="L43">        gameBoard = new Board(totalPlayers, gui);</span>
+<span class="fc" id="L44">    }</span>
+    
+    public static void main(String[] args) throws InterruptedException  //driver method
+    {
+        
+<span class="nc" id="L49">        System.out.println(&quot;Monopoly Game Start&quot;);</span>
+<span class="nc" id="L50">        Scanner scanner = new Scanner(System.in);</span>
+<span class="nc" id="L51">        int totalPlayers = 0;</span>
+<span class="nc" id="L52">        gui = new GUI();</span>
+<span class="nc" id="L53">        gui.setup();</span>
+<span class="nc bnc" id="L54" title="All 4 branches missed.">        while(totalPlayers &lt;2 || totalPlayers &gt; 4)</span>
+        {  
+<span class="nc" id="L56">            gui.display(&quot;How many players? (2-4)&quot;);</span>
+            //System.out.println(&quot;How many players? (2-4)&quot;);
+<span class="nc" id="L58">            totalPlayers = scanner.nextInt();</span>
+<span class="nc bnc" id="L59" title="All 4 branches missed.">            if(totalPlayers &lt; 2 || totalPlayers &gt; 4)</span>
+            {   
+<span class="nc" id="L61">                gui.display(&quot;Please enter a valid player count.&quot;);</span>
+                //System.out.println(&quot;Please enter a valid player count.&quot;);
+            }
+        }
+        //scanner.close();    
+<span class="nc" id="L66">        Game game = new Game(totalPlayers);      </span>
+<span class="nc" id="L67">        game.startGame();</span>
+<span class="nc" id="L68">    }</span>
+    public void startGame() throws InterruptedException //need to implement a timer here
+    {        
+        
+
+<span class="nc" id="L73">        Scanner scanner = new Scanner(System.in);</span>
+<span class="nc" id="L74">        gui.display(&quot;---------------------&quot;);</span>
+        
+<span class="nc bnc" id="L76" title="All 2 branches missed.">        while(gameStatus)</span>
+        {
+<span class="nc" id="L78">            int die1 = gameBoard.getPlayer().rollDie();</span>
+<span class="nc" id="L79">            int die2 = gameBoard.getPlayer().rollDie();</span>
+<span class="nc" id="L80">            int rollValue = die1 +die2;</span>
+                
+<span class="nc bnc" id="L82" title="All 2 branches missed.">            if(gameBoard.getPlayer().getJailStatus() == true)   //if player is in jail for their turn</span>
+            {
+<span class="nc bnc" id="L84" title="All 4 branches missed.">                if(die1 == die2 || gameBoard.getPlayer().getJailStayLength() &gt;= 3)        //if the player rolls doubles or they have been in jail for 3 turns, then they are released</span>
+                {
+<span class="nc" id="L86">                    gameBoard.getPlayer().resetJailStayLength();        //reset the jail stay counter</span>
+<span class="nc" id="L87">                    gameBoard.getPlayer().setJailStatus(false);         //remove jail status</span>
+<span class="nc" id="L88">                    gameBoard.movePlayer(gameBoard.getPlayer(), rollValue,gui); //move the player</span>
+                    
+                }else //player did not roll doubles this turn and hasnt been in jail long enough to be released.
+                {
+<span class="nc" id="L92">                    gameBoard.getPlayer().incrementJailStay();</span>
+<span class="nc" id="L93">                    gui.display(gameBoard.getPlayer().getName() + &quot; is stuck in jail for another turn&quot;);</span>
+                }
+            }
+<span class="nc bnc" id="L96" title="All 2 branches missed.">            else if(!gameBoard.getPlayer().isBroke())           //if the player is NOT broke</span>
+            {
+<span class="nc" id="L98">                gui.display(&quot;Die 1: &quot; + die1);</span>
+<span class="nc" id="L99">                gui.display(&quot;Die 2: &quot; + die2);</span>
+<span class="nc" id="L100">                gameBoard.movePlayer(gameBoard.getPlayer(), rollValue,gui);</span>
+            }
+<span class="nc bnc" id="L102" title="All 2 branches missed.">            else if(gameBoard.getPlayer().isBroke())            //if the player IS broke</span>
+            {
+<span class="nc" id="L104">                gui.display(&quot;Player is broke. This is game over&quot;);</span>
+<span class="nc" id="L105">                gameOver();</span>
+            }
+<span class="nc" id="L107">            gui.display(gameBoard.getPlayer().getName() + &quot;'s turn is over, press 7 to proceed&quot;);</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">            while(scanner.nextInt() != 7)</span>
+            {
+<span class="nc" id="L110">                Thread.sleep(100);</span>
+            }
+<span class="nc" id="L112">            gui.display(&quot;\nNext players turn -----------------------------------------------------\n\n&quot;);</span>
+<span class="nc" id="L113">            gameBoard.nextTurn();</span>
+<span class="nc" id="L114">        }</span>
+<span class="nc" id="L115">    }</span>
+    
+    public void gameOver() throws InterruptedException  //determine winner and exit
+    {
+<span class="nc" id="L119">        gameStatus = false;</span>
+<span class="nc" id="L120">        gui.display(&quot;Here are the money and property stats: &quot;);</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">        for(Player player: gameBoard.getPlayers())</span>
+        {
+<span class="nc" id="L123">            gui.display(player.getName() + &quot;:&quot; + &quot; Money:  $&quot; + player.getMoney());</span>
+<span class="nc" id="L124">            gui.display(&quot;\n\nProperties Owned:\n&quot;);</span>
+            
+            //Acquire all properties of player in a list
+<span class="nc" id="L127">            ArrayList&lt;Tile&gt; properties = player.getProperties();</span>
+            
+            //Print out all properties of player at Game Over
+<span class="nc bnc" id="L130" title="All 2 branches missed.">            for(Tile t: properties)</span>
+<span class="nc" id="L131">                {gui.display(t.getName());}</span>
+            
+<span class="nc" id="L133">            gui.display(&quot;\n&quot;);</span>
+            
+<span class="nc" id="L135">            Player winner = gameBoard.getRichestPlayer();</span>
+<span class="nc" id="L136">            gui.display(&quot;And the winner is: &quot; + winner.getName());</span>
+        }
+        
+        
+<span class="nc" id="L140">        Thread.sleep(100);</span>
+<span class="nc" id="L141">        gui.display(&quot;Program will now exit&quot;);</span>
+<span class="nc" id="L142">        Thread.sleep(100);</span>
+        //System.exit(0);
+<span class="nc" id="L144">    }</span>
+    
+    public Board getBoard()
+    {
+<span class="nc" id="L148">        return gameBoard;</span>
+    }   
+    
+    public boolean getGameStatus()
+    {
+<span class="fc" id="L153">        return gameStatus;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>UtilityTile.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;MonopolyGame&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">monopoly</a> &gt; <span class="el_source">UtilityTile.java</span></div><h1>UtilityTile.java</h1><pre class="source lang-java linenums">package monopoly;
+
+import java.util.Scanner;
+
+public class UtilityTile extends Tile
+{    
+    GUI gui;
+<span class="fc" id="L8">    private int owner = -1;                //# of player who owns this property</span>
+    
+    //rent is 4x the amount shown on dice if 1 utility owned. and 10x if both utilities owned
+    //need to implement the rent based off the dice rolls
+    
+<span class="fc" id="L13">    private int purchasePrice = 150; //all utility tiles have a purchase price of $150</span>
+<span class="fc" id="L14">    private int mortgageValue = 75; //all utility tiles have a mortgage of $75</span>
+<span class="fc" id="L15">    private Boolean mortgageStatus = false;</span>
+    
+    public UtilityTile(String name,int xCoord, int yCoord)
+<span class="fc" id="L18">        {super(name, xCoord, yCoord);}</span>
+    
+    public int getMortgage()
+<span class="nc" id="L21">        {return mortgageValue;}</span>
+
+    @Override
+    public void doAction(Player player, Board board)
+    {
+<span class="nc" id="L26">        gui = board.getGui();</span>
+<span class="nc" id="L27">        Scanner scanner = new Scanner(System.in);</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">        if(owner == -1)   //if no one owns the house</span>
+        {
+<span class="nc" id="L30">            int choice = 0;</span>
+            
+<span class="nc bnc" id="L32" title="All 2 branches missed.">            if(player.getMoney() &lt; purchasePrice)</span>
+            {
+<span class="nc" id="L34">                gui.display(player.getName() + &quot; does not have enough money to purchase this property.&quot;);</span>
+<span class="nc" id="L35">                gui.display(&quot;You need $&quot; + (purchasePrice - player.getMoney()) + &quot; more dollars.&quot;);</span>
+<span class="nc" id="L36">                gui.display(&quot;Do you want to mortgage a property&quot;</span>
+                        + &quot;? Enter 1 for yes and 0 for no.&quot;);
+<span class="nc" id="L38">                choice = 0;</span>
+<span class="nc" id="L39">                choice = scanner.nextInt();</span>
+<span class="nc bnc" id="L40" title="All 3 branches missed.">                switch(choice)</span>
+                {
+                    case 0:
+<span class="nc" id="L43">                        gui.display(&quot;Player elects not to mortgage their properties.&quot;);</span>
+<span class="nc" id="L44">                        break;</span>
+                        
+                    case 1:
+<span class="nc" id="L47">                        gui.display(&quot;Player elects to mortgage a property.&quot;);</span>
+<span class="nc" id="L48">                        player.mortgage(board);</span>
+<span class="nc" id="L49">                        break;</span>
+                        
+                    default:
+<span class="nc" id="L52">                        gui.display(&quot;Invalid response. Please choose either 1 or 0&quot;);</span>
+                        break;
+                }
+            }
+<span class="nc" id="L56">            choice = 0;</span>
+<span class="nc" id="L57">            gui.display(player.getName() + &quot;, would you like to purchase &quot; + getName() + &quot;?&quot;);</span>
+<span class="nc" id="L58">            gui.display(&quot;Press 1 for Yes and 0 for No&quot;);</span>
+<span class="nc" id="L59">            choice = scanner.nextInt();</span>
+            
+<span class="nc bnc" id="L61" title="All 3 branches missed.">            switch(choice)</span>
+            {
+                case 0:
+<span class="nc" id="L64">                    gui.display(player.getName() + &quot; declines to buy &quot; + getName());</span>
+                    //will be put up for auction here
+<span class="nc" id="L66">                    break;</span>
+
+                case 1:                                 
+<span class="nc" id="L69">                    gui.display(player.getName() + &quot; chooses to buy &quot; + getName());</span>
+<span class="nc" id="L70">                    owner = player.getIdNum();</span>
+<span class="nc" id="L71">                    player.removeMoney(purchasePrice);</span>
+<span class="nc" id="L72">                    player.addProperty(this);</span>
+<span class="nc" id="L73">                    gui.display(player.getName() + &quot; has &quot; + player.getMoney() + &quot; dollars remaining.&quot;);</span>
+<span class="nc" id="L74">                    break;</span>
+
+                default:
+<span class="nc" id="L77">                    gui.display(&quot;This is an invalid option. Please try again.&quot;);</span>
+                    break;
+            }
+<span class="nc" id="L80">        }</span>
+        else
+        {          
+<span class="nc bnc" id="L83" title="All 2 branches missed.">            while(player.getMoney() &lt; purchasePrice)</span>
+            {
+<span class="nc" id="L85">                gui.display(&quot;Sorry! You are broke! Please pick a property to mortgage.&quot;);            //bug: stuck mortgaging even with enough money to buy property</span>
+                
+                
+<span class="nc" id="L88">                player.mortgage(board);                </span>
+            }
+<span class="nc bnc" id="L90" title="All 2 branches missed.">            if(owner != player.getIdNum())</span>
+            {
+<span class="nc" id="L92">                int taxes = purchasePrice;</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">                if(super.getMortgageStatus()==true)</span>
+                {
+<span class="nc" id="L95">                    taxes = 0;</span>
+<span class="nc" id="L96">                    gui.display(&quot;This property is currently mortgaged, no taxes will be paid&quot;);</span>
+                }
+                else
+                {
+<span class="nc" id="L100">                    Player[] players = board.getPlayers();</span>
+<span class="nc" id="L101">                    String playerName = players[owner].getName();</span>
+<span class="nc" id="L102">                    gui.display(player.getName() + &quot; pays $&quot; + taxes + &quot; to &quot; + playerName);</span>
+<span class="nc" id="L103">                    player.removeMoney(taxes);</span>
+<span class="nc" id="L104">                    players[owner].addMoney(taxes);</span>
+                }
+            }
+        }
+<span class="nc" id="L108">    }</span>
+
+    @Override
+    public void setMortgageStatus(Boolean status)
+<span class="nc" id="L112">        {mortgageStatus = status;}</span>
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
