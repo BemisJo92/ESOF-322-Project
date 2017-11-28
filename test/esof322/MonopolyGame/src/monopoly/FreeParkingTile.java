@@ -22,7 +22,7 @@ public class FreeParkingTile extends Tile {
 
     @Override
     public void setMortgageStatus(Boolean status) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -46,7 +46,7 @@ public class ChanceTile extends Tile{
     
     public void adjMoney(Player p, int amount)        //Junit test for this?
     {
-        if(amount <0)
+        if(amount <=0)
         {
             p.removeMoney(amount);
         }else p.addMoney(amount);

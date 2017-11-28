@@ -154,145 +154,142 @@ public class Board
             }
         }
 <span class="fc" id="L156">    }</span>
-    public void drawChanceCard(Player player)
-    {
-        
-<span class="nc" id="L160">    }</span>
+
     public void moveToJail(Player player)
     {
-<span class="fc" id="L163">        player.setTile(jailTile);</span>
-<span class="fc" id="L164">        Tile t = tiles[10];</span>
-<span class="fc" id="L165">        t.doAction(player, this);</span>
+<span class="fc" id="L160">        player.setTile(jailTile);</span>
+<span class="fc" id="L161">        Tile t = tiles[10];</span>
+<span class="fc" id="L162">        t.doAction(player, this);</span>
         //send straight to tile number 10
         //integrate with GUI here
-<span class="fc" id="L168">    }</span>
+<span class="fc" id="L165">    }</span>
         
     public void movePlayer(Player player, int rollValue, GUI g)
     {
-<span class="fc" id="L172">        int currentTile = player.getCurrentTile();</span>
-<span class="pc bpc" id="L173" title="1 of 2 branches missed.">        if(currentTile + rollValue &gt;= 39)</span>
+<span class="fc" id="L169">        int currentTile = player.getCurrentTile();</span>
+<span class="fc bfc" id="L170" title="All 2 branches covered.">        if(currentTile + rollValue &gt;= 39)</span>
         {
-<span class="nc" id="L175">            g.display(player.getName() + &quot; passed Go&quot;);</span>
+<span class="nc" id="L172">            g.display(player.getName() + &quot; passed Go&quot;);</span>
             //pass or land on Go
-<span class="nc" id="L177">            int remainingTiles = (currentTile + rollValue) - 39;</span>
-<span class="nc" id="L178">            player.setTile(remainingTiles);</span>
-<span class="nc" id="L179">            player.addMoney(passGoMoney);</span>
+<span class="nc" id="L174">            int remainingTiles = (currentTile + rollValue) - 39;</span>
+<span class="nc" id="L175">            player.setTile(remainingTiles);</span>
+<span class="nc" id="L176">            player.addMoney(passGoMoney);</span>
             
-<span class="nc" id="L181">        }</span>
+<span class="nc" id="L178">        }</span>
         else
         {
-<span class="fc" id="L184">            int nextTile = currentTile + rollValue;</span>
-<span class="fc" id="L185">            player.setTile(nextTile);</span>
+<span class="fc" id="L181">            int nextTile = currentTile + rollValue;</span>
+<span class="fc" id="L182">            player.setTile(nextTile);</span>
         }
-<span class="nc" id="L187">        g.display(player.getName() + &quot; is on tile &quot; + player.getCurrentTile());</span>
-<span class="nc" id="L188">        g.display(player.getName() + &quot;'s money is &quot; + player.getMoney());</span>
-<span class="nc" id="L189">        Tile t = tiles[player.getCurrentTile()];</span>
+<span class="nc" id="L184">        g.display(player.getName() + &quot; is on tile &quot; + player.getCurrentTile());</span>
+<span class="nc" id="L185">        g.display(player.getName() + &quot;'s money is &quot; + player.getMoney());</span>
+<span class="nc" id="L186">        Tile t = tiles[player.getCurrentTile()];</span>
         
-<span class="nc" id="L191">        g.movePlayer(player.getIdNum(), t.getX(), t.getY());</span>
+<span class="nc" id="L188">        g.movePlayer(player.getIdNum(), t.getX(), t.getY());</span>
         
-<span class="nc" id="L193">        t.doAction(player, this);</span>
+<span class="nc" id="L190">        t.doAction(player, this);</span>
         
-<span class="nc" id="L195">    }</span>
+<span class="nc" id="L192">    }</span>
     
 
     public Player[] getPlayers()
-<span class="fc" id="L199">        {return players;}</span>
+<span class="fc" id="L196">        {return players;}</span>
 
     public Player getRichestPlayer()
     {
-<span class="fc" id="L203">        Player richest = null;</span>
+<span class="fc" id="L200">        Player richest = null;</span>
         
-<span class="fc bfc" id="L205" title="All 2 branches covered.">        for(Player player:players)</span>
+<span class="fc bfc" id="L202" title="All 2 branches covered.">        for(Player player:players)</span>
             
-<span class="pc bpc" id="L207" title="1 of 4 branches missed.">            {if(richest == null || richest.getMoney() &lt; player.getMoney())</span>
-<span class="fc" id="L208">                {richest = player;}}</span>
+<span class="pc bpc" id="L204" title="1 of 4 branches missed.">            {if(richest == null || richest.getMoney() &lt; player.getMoney())</span>
+<span class="fc" id="L205">                {richest = player;}}</span>
         
-<span class="fc" id="L210">        return richest;</span>
+<span class="fc" id="L207">        return richest;</span>
     }
     
     public void nextTurn()
     {
-<span class="nc bnc" id="L215" title="All 2 branches missed.">        if(++whosTurn &gt;= players.length)</span>
-<span class="nc" id="L216">            {whosTurn = 0;}</span>
-<span class="nc" id="L217">    }</span>
+<span class="pc bpc" id="L212" title="1 of 2 branches missed.">        if(++whosTurn &gt;= players.length)</span>
+<span class="fc" id="L213">            {whosTurn = 0;}</span>
+<span class="fc" id="L214">    }</span>
     
     public Player getPlayer()    //get the player based on who's turn it is
-<span class="nc" id="L220">        {return players[whosTurn];}</span>
+<span class="fc" id="L217">        {return players[whosTurn];}</span>
 
     public int getTotalTiles()
-<span class="fc" id="L223">        {return tiles.length;}</span>
+<span class="fc" id="L220">        {return tiles.length;}</span>
     
     public Tile getTile(int i)
-<span class="fc" id="L226">        {return tiles[i];}</span>
+<span class="fc" id="L223">        {return tiles[i];}</span>
     
     public GUI getGui()
     {
-<span class="fc" id="L230">        return gui;</span>
+<span class="fc" id="L227">        return gui;</span>
     }
     
     public int getNumChanceCards()
     {
-<span class="fc" id="L235">        return numChanceCards;</span>
+<span class="fc" id="L232">        return numChanceCards;</span>
     }
     public ChanceCard[] getChanceCards()
     {
-<span class="fc" id="L239">        return chanceCards;</span>
+<span class="fc" id="L236">        return chanceCards;</span>
     }
     public int getNumCommunityChestCards()
     {
-<span class="fc" id="L243">        return numCommunityChestCards;</span>
+<span class="fc" id="L240">        return numCommunityChestCards;</span>
     }
     public CommunityChestCard[] getCommunityChestCards()
     {
-<span class="fc" id="L247">        return communityChestCards;</span>
+<span class="fc" id="L244">        return communityChestCards;</span>
     }
     
     private void createCards(int numChance, int numCChest)
         {
-<span class="fc bfc" id="L252" title="All 2 branches covered.">            for(int i = 0; i &lt;= numChance; i++)</span>
+<span class="fc bfc" id="L249" title="All 2 branches covered.">            for(int i = 0; i &lt;= numChance; i++)</span>
             {
-<span class="fc bfc" id="L254" title="All 6 branches covered.">                switch(i)</span>
+<span class="fc bfc" id="L251" title="All 6 branches covered.">                switch(i)</span>
                 {
                     case 0:
-<span class="fc" id="L257">                        chanceCards[i] = new ChanceCard(&quot;GO TO JAIL&quot;, 10, 0);</span>
+<span class="fc" id="L254">                        chanceCards[i] = new ChanceCard(&quot;GO TO JAIL&quot;, 10, 0);</span>
+<span class="fc" id="L255">                        break;</span>
+                    case 1:
+<span class="fc" id="L257">                        chanceCards[i] = new ChanceCard(&quot;Tax Rebate: Collect $100&quot;, -1, 100);</span>
 <span class="fc" id="L258">                        break;</span>
-                    case 1:
-<span class="fc" id="L260">                        chanceCards[i] = new ChanceCard(&quot;Tax Rebate: Collect $100&quot;, -1, 100);</span>
-<span class="fc" id="L261">                        break;</span>
                     case 2:
-<span class="fc" id="L263">                        chanceCards[i] = new ChanceCard(&quot;Get out of jail free card!&quot;, -1, 0);</span>
-<span class="fc" id="L264">                        break;</span>
+<span class="fc" id="L260">                        chanceCards[i] = new ChanceCard(&quot;Get out of jail free card!&quot;, -1, 0);</span>
+<span class="fc" id="L261">                        break;</span>
                     case 3:
-<span class="fc" id="L266">                        chanceCards[i] = new ChanceCard(&quot;Win the lottery: Collect $500&quot;, -1, 500);</span>
-<span class="fc" id="L267">                        break;</span>
+<span class="fc" id="L263">                        chanceCards[i] = new ChanceCard(&quot;Win the lottery: Collect $500&quot;, -1, 500);</span>
+<span class="fc" id="L264">                        break;</span>
                     case 4:
-<span class="fc" id="L269">                        chanceCards[i] = new ChanceCard(&quot;Proceed to 'GO' and collect $200&quot;, 0, 0);</span>
+<span class="fc" id="L266">                        chanceCards[i] = new ChanceCard(&quot;Proceed to 'GO' and collect $200&quot;, 0, 0);</span>
                         break;
 
                 }
             }
-<span class="fc bfc" id="L274" title="All 2 branches covered.">            for(int i = 0; i &lt;= numCChest; i++)</span>
+<span class="fc bfc" id="L271" title="All 2 branches covered.">            for(int i = 0; i &lt;= numCChest; i++)</span>
             {
-<span class="fc bfc" id="L276" title="All 6 branches covered.">                switch(i)</span>
+<span class="fc bfc" id="L273" title="All 6 branches covered.">                switch(i)</span>
                 {
                     case 0:
-<span class="fc" id="L279">                        communityChestCards[i] = new CommunityChestCard(&quot;Winner winner chicken dinner: Collect $100&quot;, -1, 100);</span>
-<span class="fc" id="L280">                        break;</span>
+<span class="fc" id="L276">                        communityChestCards[i] = new CommunityChestCard(&quot;Winner winner chicken dinner: Collect $100&quot;, -1, 100);</span>
+<span class="fc" id="L277">                        break;</span>
                     case 1:
-<span class="fc" id="L282">                        communityChestCards[i] = new CommunityChestCard(&quot;Lotto Winner: Collect $200&quot;, -1, 200);</span>
-<span class="fc" id="L283">                        break;</span>
+<span class="fc" id="L279">                        communityChestCards[i] = new CommunityChestCard(&quot;Lotto Winner: Collect $200&quot;, -1, 200);</span>
+<span class="fc" id="L280">                        break;</span>
                     case 2:
-<span class="fc" id="L285">                        communityChestCards[i] = new CommunityChestCard(&quot;Workers compensation: Collect $300&quot;, -1, 300);</span>
-<span class="fc" id="L286">                        break;</span>
+<span class="fc" id="L282">                        communityChestCards[i] = new CommunityChestCard(&quot;Workers compensation: Collect $300&quot;, -1, 300);</span>
+<span class="fc" id="L283">                        break;</span>
                     case 3:
-<span class="fc" id="L288">                        communityChestCards[i] = new CommunityChestCard(&quot;Christmas bonus at work! : Collect $400&quot;, -1, 400);</span>
-<span class="fc" id="L289">                        break;</span>
+<span class="fc" id="L285">                        communityChestCards[i] = new CommunityChestCard(&quot;Christmas bonus at work! : Collect $400&quot;, -1, 400);</span>
+<span class="fc" id="L286">                        break;</span>
                     case 4:
-<span class="fc" id="L291">                        communityChestCards[i] = new CommunityChestCard(&quot;Won a law suit!: Collect $500&quot;, -1, 500);</span>
+<span class="fc" id="L288">                        communityChestCards[i] = new CommunityChestCard(&quot;Won a law suit!: Collect $500&quot;, -1, 500);</span>
                         break;
 
                 }
             }
-<span class="fc" id="L296">        }</span>
+<span class="fc" id="L293">        }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

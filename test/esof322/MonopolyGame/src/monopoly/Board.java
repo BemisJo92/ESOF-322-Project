@@ -154,10 +154,7 @@ public class Board
             }
         }
     }
-    public void drawChanceCard(Player player)
-    {
-        
-    }
+
     public void moveToJail(Player player)
     {
         player.setTile(jailTile);

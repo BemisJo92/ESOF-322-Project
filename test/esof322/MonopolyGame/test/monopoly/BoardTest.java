@@ -96,10 +96,27 @@ public class BoardTest
     {
         try{
         System.out.println("movePlayer");
-        //Player player = new Player(1, "Player1");
         int rollValue = 2;
         GUI g = new GUI();
         Board instance = new Board(1, g);
+        instance.movePlayer(instance.players[0], rollValue, g);
+        int expResult = 2;
+        int result = instance.players[0].getCurrentTile();
+        assertEquals(expResult, result);
+        }catch(NullPointerException e)
+        {
+            System.err.println("textArea was the excpetion");
+        }
+    }
+    @Test
+    public void movePlayerPassedGo()
+    {
+        try{
+        System.out.println("movePlayer");
+        int rollValue = 2;
+        GUI g = new GUI();
+        Board instance = new Board(1, g);
+        instance.players[0].tilePosition = 39;  //set this to 39 so that player passes go when moved.
         instance.movePlayer(instance.players[0], rollValue, g);
         int expResult = 2;
         int result = instance.players[0].getCurrentTile();
@@ -242,6 +259,41 @@ public class BoardTest
         
         int actual = instance.getCommunityChestCards().length;
         int expected = instance.getNumCommunityChestCards();    
+        assertEquals(expected, actual);
+    }
+    @Test
+    //tests when nextTurn should reset to 0 (when its currently the last player's turn)
+    public void testNextTurnReset()
+    {
+        GUI g = new GUI();
+        Board b = new Board(1,g);
+        b.whosTurn = 1;
+        b.nextTurn();
+        int actual = b.whosTurn;
+        int expected = 0;
+        assertEquals(expected, actual);
+    }
+    @Test
+    //tests when nextTurn should not be reset to 0
+    public void testNextTurnNoReset()
+    {
+        GUI g = new GUI();
+        Board b = new Board(1,g);
+        b.whosTurn = 0;
+        b.nextTurn();
+        int actual = b.whosTurn;
+        int expected = 0;
+        assertEquals(expected, actual);        
+    }
+    @Test
+    //Curent player should be the first player created by board.
+    public void testgetPlayer()
+    {
+        GUI g = new GUI();
+        Board b = new Board(1,g);   //only 1 player created, only one option for actual value.
+        Player actual = b.getPlayer();
+        Player[] players = b.getPlayers();
+        Player expected = players[0];
         assertEquals(expected, actual);
     }
 }
