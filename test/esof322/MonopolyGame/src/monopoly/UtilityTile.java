@@ -12,7 +12,7 @@ public class UtilityTile extends Tile
     
     private int purchasePrice = 150; //all utility tiles have a purchase price of $150
     private int mortgageValue = 75; //all utility tiles have a mortgage of $75
-    private Boolean mortgageStatus = false;
+    //private Boolean mortgageStatus = false;
     
     public UtilityTile(String name,int xCoord, int yCoord)
         {super(name, xCoord, yCoord);}
@@ -109,6 +109,6 @@ public class UtilityTile extends Tile
 
     @Override
     public void setMortgageStatus(Boolean status)
-        {mortgageStatus = status;}
+        {super.setMortgageStatus(status);}
     
 }

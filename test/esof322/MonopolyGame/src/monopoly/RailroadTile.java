@@ -130,5 +130,4 @@ public class RailroadTile extends Tile
             }
         }
     }
-    
 }

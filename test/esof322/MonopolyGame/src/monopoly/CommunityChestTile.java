@@ -45,7 +45,7 @@ public class CommunityChestTile extends Tile {
         return allCards[random];
     }
     
-    private void adjMoney(Player p, int amount)        //Junit test for this?
+    public void adjMoney(Player p, int amount)        //Junit test for this?
     {
         if(amount <0)
         {

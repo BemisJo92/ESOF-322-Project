@@ -68,7 +68,43 @@ public class CommunityChestTileTest {
     {
         CommunityChestCard c = new CommunityChestCard("Test CommunityChest Card", -1, 100);
         int actual = c.getCardID();
-        int expected = 0;
+        int expected = 1; //first
+        assertEquals(expected,actual);
+    }
+    @Test
+    public void testAdjMoney()
+    {
+        int adjAmount = 100;
+        Player p = new Player(1, "testPlayer");
+        CommunityChestTile t = new CommunityChestTile("Test community chest",40,160);
+        int startingMoney = p.getMoney();
+        t.adjMoney(p,adjAmount);
+        int actual = p.getMoney();
+        int expected = startingMoney + adjAmount;
+        assertEquals(expected,actual);
+    }
+    
+    @Test
+    public void testGetMortgage()
+    {
+        CommunityChestTile t = new CommunityChestTile("Test community chest",40,160);
+        int expected = -1;
+        int actual = t.getMortgage();
+        assertEquals(expected,actual);
+    }
+    @Test
+    public void testSetMortgageStatus()
+    {
+        CommunityChestTile t = new CommunityChestTile("Test community chest",40,160);
+        Boolean status = false;
+        try{
+            t.setMortgageStatus(true);
+        }catch(UnsupportedOperationException e)
+        {
+            status = true;
+        }
+        Boolean actual = status;
+        Boolean expected = true;
         assertEquals(expected,actual);
     }
 }

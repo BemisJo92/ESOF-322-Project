@@ -58,5 +58,13 @@ public class GameTest {
         Boolean expected = false;
         assertEquals(expected, actual);  
     }
+    @Test
+    public void testGetBoard()
+    {
+        Game g = new Game(1);
+        Board actual = g.getBoard();
+        Board expected = g.getBoard();
+        assertEquals(expected,actual);
+    }
 }
     

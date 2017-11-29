@@ -45,23 +45,23 @@ public class CommunityChestTile extends Tile {
 <span class="nc" id="L45">        return allCards[random];</span>
     }
     
-    private void adjMoney(Player p, int amount)        //Junit test for this?
+    public void adjMoney(Player p, int amount)        //Junit test for this?
     {
-<span class="nc bnc" id="L50" title="All 2 branches missed.">        if(amount &lt;0)</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">        if(amount &lt;0)</span>
         {
 <span class="nc" id="L52">            p.removeMoney(amount);</span>
-<span class="nc" id="L53">        }else p.addMoney(amount);</span>
-<span class="nc" id="L54">    }</span>
+<span class="fc" id="L53">        }else p.addMoney(amount);</span>
+<span class="fc" id="L54">    }</span>
 
     @Override
     public int getMortgage() {
        //    throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.
-<span class="nc" id="L59">       return -1;</span>
+<span class="fc" id="L59">       return -1;</span>
     }
 
     @Override
     public void setMortgageStatus(Boolean status) {
-<span class="nc" id="L64">        throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.</span>
+<span class="fc" id="L64">        throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.</span>
     }
     
 }
