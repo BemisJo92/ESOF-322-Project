@@ -78,6 +78,9 @@ public class Game {
                 System.out.println("Please enter a valid theme number.");
             }
         }
+        
+        ThemeFactory = new ThemeFactory();
+        
         gui = new GUI(theme);    //new position
         gui.setup();
         Game game = new Game(totalPlayers);   
