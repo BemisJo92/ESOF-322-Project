@@ -40,7 +40,9 @@ public class CommunityChestTile extends Tile {
     
     public CommunityChestCard getCard(Board board)    //need to create a junit test for this if you make of size 1, it should only return that card
     {
-        random = rand.nextInt(board.getNumCommunityChestCards()); //should be 4 
+        rand = new Random();
+        random = rand.nextInt(board.getNumCommunityChestCards()); //should be 4
+
         CommunityChestCard[] allCards = board.getCommunityChestCards();
         return allCards[random];
     }

@@ -40,32 +40,7 @@ public class Game {
     
     public Game(int totalPlayers)
     {
-        Scanner scanner = new Scanner(System.in);
-        int theme = -1;
-        while(theme <0 || theme > 1)
-        {  
-            System.out.println("What type of theme do you want? Press '0' for traditional and '1' for National Park themed");
-            theme = scanner.nextInt();
-            if(theme < 0 || theme > 1)
-            {   
-                System.out.println("Please enter a value for a theme.");
-            }
-        }
-        
-        if(theme == 0)
-        {
-        //create traditional board.   
-            
-        }
-        else    //create national parks board
-        {
-                
-        }
-        
-        
-        gameBoard = new Board(totalPlayers, gui);//traditional board before abstract factory  for now
-        
-        
+        gameBoard = new Board(totalPlayers, gui);
     }
     
     public static void main(String[] args) throws InterruptedException  //driver method
@@ -74,24 +49,21 @@ public class Game {
         System.out.println("Monopoly Game Start");
         Scanner scanner = new Scanner(System.in);
         int totalPlayers = 0;
-        
-        gui = new GUI();    //need to move?
+        gui = new GUI();
         gui.setup();
-        
         while(totalPlayers <2 || totalPlayers > 4)
         {  
-            System.out.println("How many players? (2-4)");
+            gui.display("How many players? (2-4)");
             //System.out.println("How many players? (2-4)");
             totalPlayers = scanner.nextInt();
             if(totalPlayers < 2 || totalPlayers > 4)
             {   
-                System.out.println("Please enter a valid player count.");
+                gui.display("Please enter a valid player count.");
                 //System.out.println("Please enter a valid player count.");
             }
         }
         //scanner.close();    
-        Game game = new Game(totalPlayers);    
-        
+        Game game = new Game(totalPlayers);      
         game.startGame();
     }
     public void startGame() throws InterruptedException //need to implement a timer here
