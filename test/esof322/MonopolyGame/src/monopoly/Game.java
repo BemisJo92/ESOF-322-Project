@@ -79,7 +79,7 @@ public class Game {
             }
         }
         
-        ThemeFactory = new ThemeFactory();
+        ThemeFactory factory = null;
         
         gui = new GUI(theme);    //new position
         gui.setup();
