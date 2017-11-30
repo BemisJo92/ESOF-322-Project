@@ -7,6 +7,7 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.JButton;
@@ -203,7 +204,6 @@ class Canvas extends JComponent{
         int p4X = GUI.getCoords(3)[0];
         int p4Y = GUI.getCoords(3)[1];
         
-        super.paintComponent(g);
         try
         {   
             backgroundImage = javax.imageio.ImageIO.read(new File("monopoly board.jpg"));
@@ -211,6 +211,9 @@ class Canvas extends JComponent{
         {    
              throw new RuntimeException(e);
         }
+        
+        super.paintComponent(g);
+        
         g.drawImage(backgroundImage, WIDTH, WIDTH, this);   //background image
                
         g.setColor(Color.blue);
@@ -221,7 +224,7 @@ class Canvas extends JComponent{
         g.fillOval(p3X, p3Y, iconWidth, iconHeight); //p3
         g.setColor(Color.yellow);
         g.fillOval(p4X, p4Y, iconWidth, iconHeight); //p4
-        }
+    }
     
-
+ 
 }
