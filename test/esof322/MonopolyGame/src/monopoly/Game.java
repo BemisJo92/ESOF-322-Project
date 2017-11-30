@@ -16,6 +16,10 @@ public class Game {
     Boolean gameStatus = true;
     public static int tileIDTotal = 0;
     public static int cardIDTotal = 0;
+    final static int minPlayers =2;
+    final static int maxPlayers = 4;
+    final static int minThemeNum =1;    
+    final static int maxThemeNum = 2;   //max number of themes to choose from
     static GUI gui;
 
     //implement a timer
@@ -49,23 +53,36 @@ public class Game {
         System.out.println("Monopoly Game Start");
         Scanner scanner = new Scanner(System.in);
         int totalPlayers = 0;
+        int theme = -1;
         
-        gui = new GUI();    //need to move?
-        gui.setup();
         
-        while(totalPlayers <2 || totalPlayers > 4)
+        while(totalPlayers <minPlayers || totalPlayers > maxPlayers)
         {  
-            gui.display("How many players? (2-4)");
+            System.out.println("How many players? (2-4)");
             //System.out.println("How many players? (2-4)");
             totalPlayers = scanner.nextInt();
-            if(totalPlayers < 2 || totalPlayers > 4)
+            if(totalPlayers < minPlayers || totalPlayers > maxPlayers)
             {   
-                gui.display("Please enter a valid player count.");
+                System.out.println("Please enter a valid player count.");
                 //System.out.println("Please enter a valid player count.");
             }
         }
         //scanner.close();    
-        Game game = new Game(totalPlayers);      
+        
+        while(theme < minThemeNum|| theme > maxThemeNum)
+        {
+            System.out.println("Please choose a theme: 1 for Classic, 2 for NationalParks");
+            theme = scanner.nextInt();
+            if(theme < minThemeNum || theme > maxThemeNum)
+            {
+                System.out.println("Please enter a valid theme number.");
+            }
+        }
+        gui = new GUI(theme);    //new position
+        gui.setup();
+        Game game = new Game(totalPlayers);   
+
+        
         game.startGame();
     }
     public void startGame() throws InterruptedException //need to implement a timer here

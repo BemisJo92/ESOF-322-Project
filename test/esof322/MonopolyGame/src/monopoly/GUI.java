@@ -26,12 +26,21 @@ public class GUI extends JPanel{
     JButton b1;
     JButton b7;
     int lineCounter;
+    static int theme = 0;
     
     static int[] p1Coords = new int[2];
     static int[] p2Coords = new int[2];
     static int[] p3Coords = new int[2];
     static int[] p4Coords = new int[2];
     
+    public GUI(int theme)
+    {
+        this.theme = theme;
+    }
+    public static int getTheme()
+    {
+        return theme;
+    }
     public void setup()
     {
         lineCounter = 0;
@@ -203,8 +212,20 @@ class Canvas extends JComponent{
         int p4Y = GUI.getCoords(3)[1];
         
         try
-        {   
-            backgroundImage = javax.imageio.ImageIO.read(new File("monopoly board.jpg"));
+        {  
+            if(GUI.getTheme() == 1)
+            {
+                backgroundImage = javax.imageio.ImageIO.read(new File("monopoly board.jpg"));
+            }else if(GUI.getTheme() == 2)
+            {
+               //national park themed
+                backgroundImage = javax.imageio.ImageIO.read(new File("nationalParksBoard.jpg"));
+            }
+            else
+            {
+                System.out.println("error in gui background");
+            }
+            
         }catch (IOException e) 
         {    
              throw new RuntimeException(e);
