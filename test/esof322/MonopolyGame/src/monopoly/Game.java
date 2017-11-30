@@ -40,7 +40,7 @@ public class Game {
     
     public Game(int totalPlayers)
     {
-        gameBoard = new Board(totalPlayers, gui);
+        gameBoard = new Board(totalPlayers, gui); //abstract factory?
     }
     
     public static void main(String[] args) throws InterruptedException  //driver method
@@ -49,8 +49,10 @@ public class Game {
         System.out.println("Monopoly Game Start");
         Scanner scanner = new Scanner(System.in);
         int totalPlayers = 0;
-        gui = new GUI();
+        
+        gui = new GUI();    //need to move?
         gui.setup();
+        
         while(totalPlayers <2 || totalPlayers > 4)
         {  
             gui.display("How many players? (2-4)");
