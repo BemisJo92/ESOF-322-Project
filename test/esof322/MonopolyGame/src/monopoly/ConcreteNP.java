@@ -11,7 +11,7 @@ public class ConcreteNP implements ThemeFactory {
 
     @Override
     public Board createNPBoard(int totalPlayers, GUI g) {
-        NPBoard b = new NPBoard(totalPlayers, g);
+        Board b = new NPBoard(totalPlayers, g);
         return b;
     }
 

@@ -21,6 +21,8 @@ public class Game {
     final static int minThemeNum =1;    
     final static int maxThemeNum = 2;   //max number of themes to choose from
     static GUI gui;
+    private static int theme;
+    private static ThemeFactory factory = null;
 
     //implement a timer
     Timer gameTimer = new Timer();
@@ -44,7 +46,16 @@ public class Game {
     
     public Game(int totalPlayers)
     {
-        gameBoard = new Board(totalPlayers, gui); //abstract factory?
+        if(theme == 1)
+        {
+            gameBoard = factory.createOGBoard(totalPlayers, gui);
+        }
+        else
+        {
+            gameBoard = factory.createNPBoard(totalPlayers, gui);
+                    
+        }
+        //gameBoard new Board(totalPlayers, gui); //abstract factory?
     }
     
     public static void main(String[] args) throws InterruptedException  //driver method
@@ -53,8 +64,7 @@ public class Game {
         System.out.println("Monopoly Game Start");
         Scanner scanner = new Scanner(System.in);
         int totalPlayers = 0;
-        int theme = -1;
-        ThemeFactory factory = null;
+        theme = -1;
         
         while(totalPlayers <minPlayers || totalPlayers > maxPlayers)
         {  
@@ -78,13 +88,13 @@ public class Game {
                 case 1:
                     System.out.println("You have selected the Classic board.");
                     gui = new GUI(theme);
-                    factory = new ConcreteOG(totalPlayers, gui);
+                    factory = new ConcreteOG();
                     break;
                     
                 case 2:
                     System.out.println("You have selected the NationalParks board.");
                     gui = new GUI(theme);
-                    factory = new ConcreteNP(totalPlayers, gui);
+                    factory = new ConcreteNP();
                     break;
                     
                 default:

@@ -5,7 +5,7 @@ public class ConcreteOG implements ThemeFactory{
 
     @Override
     public Board createOGBoard(int totalPlayers, GUI g) {
-        OGBoard b = new OGBoard(totalPlayers, g);
+        Board b = new OGBoard(totalPlayers, g);
         return b;
     }
 
