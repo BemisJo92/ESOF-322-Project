@@ -77,12 +77,12 @@ public class Game {
             {
                 case 1:
                     System.out.println("You have selected the Classic board.");
-                    factory = new ConcreteOG();
+                    factory = new ConcreteOG(totalPlayers);
                     break;
                     
                 case 2:
                     System.out.println("You have selected the NationalParks board.");
-                    factory = new ConcreteNP();
+                    factory = new ConcreteNP(totalPlayers);
                     break;
                     
                 default:
