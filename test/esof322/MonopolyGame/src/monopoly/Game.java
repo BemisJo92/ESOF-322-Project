@@ -54,7 +54,7 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
         int totalPlayers = 0;
         int theme = -1;
-        
+        ThemeFactory factory = null;
         
         while(totalPlayers <minPlayers || totalPlayers > maxPlayers)
         {  
@@ -73,14 +73,24 @@ public class Game {
         {
             System.out.println("Please choose a theme: 1 for Classic, 2 for NationalParks");
             theme = scanner.nextInt();
-            if(theme < minThemeNum || theme > maxThemeNum)
+            switch(theme)
             {
-                System.out.println("Please enter a valid theme number.");
+                case 1:
+                    System.out.println("You have selected the Classic board.");
+                    factory = new ConcreteOG();
+                    break;
+                    
+                case 2:
+                    System.out.println("You have selected the NationalParks board.");
+                    factory = new ConcreteNP();
+                    break;
+                    
+                default:
+                    System.out.println("This is not a valid option, please select 1 for Classic, 2 for NationalPakrs");
+                    break;
             }
         }
-        
-        ThemeFactory = new ThemeFactory();
-        
+         
         gui = new GUI(theme);    //new position
         gui.setup();
         Game game = new Game(totalPlayers);   
