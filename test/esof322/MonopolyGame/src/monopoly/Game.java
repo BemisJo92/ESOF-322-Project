@@ -92,8 +92,9 @@ public class Game {
                     break;
             }
         }
-         
+
         //gui = new GUI(theme);    //new position
+
         gui.setup();
         Game game = new Game(totalPlayers);   
 

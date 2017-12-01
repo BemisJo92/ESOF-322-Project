@@ -1,6 +1,6 @@
 package monopoly;
 
 public interface ThemeFactory {
-    public void createOGBoard();
-    public void createNPBoard();
+   public Board createOGBoard(int totalPlayers, GUI g);
+   public Board createNPBoard(int totalPlayers, GUI g);
 }
