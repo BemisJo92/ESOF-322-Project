@@ -41,7 +41,6 @@ public class GameTest {
     @Test
     public void testGetGameStatusTrue()
     {
-        GUI g = new GUI();
         Game instance = new Game(1);
         Boolean actual = instance.getGameStatus();
         Boolean expected = true;
@@ -51,7 +50,6 @@ public class GameTest {
     @Test
     public void testGetGameStatusFalse()
     {
-        GUI g = new GUI();
         Game instance = new Game(1);
         instance.gameStatus = false;
         Boolean actual = instance.getGameStatus();

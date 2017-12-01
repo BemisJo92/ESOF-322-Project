@@ -40,7 +40,7 @@ public class GUITest {
     @Test
     public void testMovePlayer0()
     {
-        GUI g = new GUI();
+        GUI g = new GUI(1);
         g.setup();
         Player p = new Player(0, "testName");
         PropertyTile t = new PropertyTile("Indiana Ave",160,40, 220, 18,90,250,700,875,1050,150,150,110);
@@ -52,7 +52,7 @@ public class GUITest {
     @Test
     public void testMovePlayer1()
     {
-        GUI g = new GUI();
+        GUI g = new GUI(1);
         g.setup();
         Player p = new Player(1, "testName1");
         PropertyTile t = new PropertyTile("Indiana Ave",160,40, 220, 18,90,250,700,875,1050,150,150,110);
@@ -63,7 +63,7 @@ public class GUITest {
     @Test
     public void testMovePlayer2()
     {
-        GUI g = new GUI();
+        GUI g = new GUI(1);
         g.setup();
         Player p = new Player(2, "testName2");
         PropertyTile t = new PropertyTile("Indiana Ave",160,40, 220, 18,90,250,700,875,1050,150,150,110);
@@ -74,7 +74,7 @@ public class GUITest {
     @Test
     public void testMovePlayer3()
     {
-        GUI g = new GUI();
+        GUI g = new GUI(1);
         g.setup();
         Player p = new Player(3, "testName3");
         PropertyTile t = new PropertyTile("Indiana Ave",160,40, 220, 18,90,250,700,875,1050,150,150,110);
