@@ -81,6 +81,7 @@ public class Game {
         
         ThemeFactory factory = null;
         
+        
         gui = new GUI(theme);    //new position
         gui.setup();
         Game game = new Game(totalPlayers);   
