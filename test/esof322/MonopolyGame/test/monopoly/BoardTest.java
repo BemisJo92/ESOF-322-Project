@@ -51,8 +51,8 @@ public class BoardTest
     @Test
     public void testGetPlayers1()    //test get players with 1 player
     {
-        GUI g = new GUI();
-        Board instance = new Board(1,g);
+        GUI g = new GUI(1);
+        Board instance = new OGBoard(1,g);
         Player[] array = instance.getPlayers();
         int actual = array.length;
         int expected = 1;

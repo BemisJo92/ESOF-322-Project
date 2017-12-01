@@ -84,10 +84,30 @@ public class ChanceTileTest {
         assertEquals(expected, actual);
     }
     @Test
-    public void testGetCard()
+    //test getCard for OG board
+    public void testGetCardOG()
     {
-        GUI g = new GUI();
-        Board b = new Board(1,g);
+        GUI g = new GUI(1);
+        Board b = new OGBoard(1,g);
+        ChanceTile t = new ChanceTile("TEST CHANCE TILE", 0, 0);
+        ChanceCard actual = t.getCard(b);
+        ChanceCard[] cards = b.getChanceCards();
+        
+        ChanceCard expected0 = cards[0];
+        ChanceCard expected1 = cards[1];
+        ChanceCard expected2 = cards[2];
+        ChanceCard expected3 = cards[3];
+        ChanceCard expected4 = cards[4];
+        assertTrue(actual == expected0 || actual == expected1 || actual == expected2|| actual == expected3 || actual == expected4);       
+        
+    }
+    
+    @Test
+    //test getCard for NP board
+    public void testGetCardNP()
+    {
+        GUI g = new GUI(1);
+        Board b = new NPBoard(1,g);
         ChanceTile t = new ChanceTile("TEST CHANCE TILE", 0, 0);
         ChanceCard actual = t.getCard(b);
         ChanceCard[] cards = b.getChanceCards();
