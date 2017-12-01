@@ -77,12 +77,14 @@ public class Game {
             {
                 case 1:
                     System.out.println("You have selected the Classic board.");
-                    factory = new ConcreteOG(totalPlayers);
+                    gui = new GUI(theme);
+                    factory = new ConcreteOG(totalPlayers, gui);
                     break;
                     
                 case 2:
                     System.out.println("You have selected the NationalParks board.");
-                    factory = new ConcreteNP(totalPlayers);
+                    gui = new GUI(theme);
+                    factory = new ConcreteNP(totalPlayers, gui);
                     break;
                     
                 default:
@@ -91,7 +93,7 @@ public class Game {
             }
         }
          
-        gui = new GUI(theme);    //new position
+        //gui = new GUI(theme);    //new position
         gui.setup();
         Game game = new Game(totalPlayers);   
 
