@@ -36,5 +36,11 @@ public class GameTest {
     @After
     public void tearDown() {
     } 
+    
+    @Test
+    public void placeHolder()
+    {
+        assertEquals(1,1);
+    }
 }
     

@@ -12,8 +12,8 @@ import java.util.logging.Logger;
 
 public class Game {
     Board gameBoard;                   //instance of board
-<span class="fc" id="L15">    final int timeLimit = 10;         //time limit in mins</span>
-<span class="fc" id="L16">    Boolean gameStatus = true;</span>
+<span class="nc" id="L15">    final int timeLimit = 10;         //time limit in mins</span>
+<span class="nc" id="L16">    Boolean gameStatus = true;</span>
 <span class="fc" id="L17">    public static int tileIDTotal = 0;</span>
 <span class="fc" id="L18">    public static int cardIDTotal = 0;</span>
     final static int minPlayers =2;
@@ -25,8 +25,8 @@ public class Game {
 <span class="fc" id="L25">    public static ThemeFactory factory = null;</span>
 
     //implement a timer
-<span class="fc" id="L28">    Timer gameTimer = new Timer();</span>
-<span class="pc" id="L29">    TimerTask callGameOver = new TimerTask(){           //timer task that calls gameOver</span>
+<span class="nc" id="L28">    Timer gameTimer = new Timer();</span>
+<span class="nc" id="L29">    TimerTask callGameOver = new TimerTask(){           //timer task that calls gameOver</span>
         public void run()  //call game over method 
         {
 <span class="nc" id="L32">            gui.display(&quot;The time limit has been reached. The game is now over!&quot;);</span>
@@ -45,7 +45,7 @@ public class Game {
 <span class="nc" id="L45">    }</span>
     
     public Game(int totalPlayers)
-<span class="fc" id="L48">    {</span>
+<span class="nc" id="L48">    {</span>
 <span class="nc bnc" id="L49" title="All 2 branches missed.">        if(theme == 1)</span>
         {
 <span class="nc" id="L51">            gameBoard = factory.createOGBoard(totalPlayers, gui);</span>
