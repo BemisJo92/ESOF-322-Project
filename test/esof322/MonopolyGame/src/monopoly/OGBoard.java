@@ -138,8 +138,4 @@ public class OGBoard extends Board{
             }
         }
     }
-    public String getTheme()
-    {
-        return theme;
-    }
 }

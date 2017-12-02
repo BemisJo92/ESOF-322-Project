@@ -63,6 +63,30 @@ public class ChanceTileTest {
         int expected = oldMoney;    //shouldnt change
     }
     @Test
+     //Tests adjusting players money when the chance card removes money from the player
+    public void testAdjMoneyLessThanZero()
+    {
+        Player p = new Player(0,"TestPlayer");
+        int oldMoney = p.getMoney();
+        ChanceCard c = new ChanceCard("TestChanceCard", -1,-100);
+        ChanceTile t = new ChanceTile("Chance 3",440,280);
+        t.adjMoney(p,c.getMoneyAdjust());
+        int actual = p.getMoney();
+        int expected = oldMoney;
+    }
+    @Test
+    public void testGetCard()
+    {
+        GUI g = new GUI(1);
+        OGBoard b = new OGBoard(2,g);
+        ChanceTile t = new ChanceTile("Chance 3",440,280);
+        ChanceCard c = t.getCard(b);
+        int actual = c.getCardID();
+        int max =b.numChanceCards;
+        int min = 0;
+        assertTrue(min <= actual && actual <= max);
+    }
+    @Test
     //Tests set mortgage status in class ChanceTile (chance tiles have no mortgage values but inheret this method from TILE
     //Therefore the method throws an unsupportedOperationExceptionError) 
     public void testSetMortgageStatus()

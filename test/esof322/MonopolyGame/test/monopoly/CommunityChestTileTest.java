@@ -64,14 +64,6 @@ public class CommunityChestTileTest {
         assertEquals(expected,actual);
     }
     @Test
-    public void testGetCardID()
-    {
-        CommunityChestCard c = new CommunityChestCard("Test CommunityChest Card", -1, 100);
-        int actual = c.getCardID();
-        int expected = 1; //first
-        assertEquals(expected,actual);
-    }
-    @Test
     public void testAdjMoney()
     {
         int adjAmount = 100;
@@ -81,6 +73,19 @@ public class CommunityChestTileTest {
         t.adjMoney(p,adjAmount);
         int actual = p.getMoney();
         int expected = startingMoney + adjAmount;
+        assertEquals(expected,actual);
+    }
+    @Test
+    //tests the method if the adjust amount is negative
+    public void testAdjMoneyNegative()
+    {
+        int adjAmount = -100;
+        Player p = new Player(1, "testPlayer");
+        CommunityChestTile t = new CommunityChestTile("Test community chest",40,160);
+        int startingMoney = p.getMoney();
+        t.adjMoney(p,adjAmount);
+        int actual = p.getMoney();
+        int expected = startingMoney - adjAmount;
         assertEquals(expected,actual);
     }
     
@@ -105,6 +110,27 @@ public class CommunityChestTileTest {
         }
         Boolean actual = status;
         Boolean expected = true;
+        assertEquals(expected,actual);
+    }
+    
+    @Test
+    public void testGetCard()
+    {
+        GUI g = new GUI(1);
+        OGBoard b = new OGBoard(2,g);
+        CommunityChestTile t = new CommunityChestTile("Test community chest",40,160);
+        CommunityChestCard c = t.getCard(b);
+        int actual = c.getCardID();
+        int max = b.numCommunityChestCards;
+        int min = 0;
+        assertTrue(min <= actual && actual <= max);
+    }
+    @Test
+    public void testGetCardID()
+    {
+        CommunityChestCard c = new CommunityChestCard("Test CommunityChest Card", -1, 100);
+        int actual = c.getCardID();
+        int expected = 83; //num cards created in this test class +1
         assertEquals(expected,actual);
     }
 }
