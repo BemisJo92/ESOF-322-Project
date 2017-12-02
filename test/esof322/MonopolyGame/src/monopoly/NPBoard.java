@@ -2,7 +2,7 @@
 package monopoly;
 
 public class NPBoard extends Board{
-    
+    final String theme = "NP";
     public NPBoard(int totalPlayers, GUI g) {
         super(totalPlayers, g);
         this.createTiles();
