@@ -61,6 +61,7 @@ public class ChanceTileTest {
         t.adjMoney(p,c.getMoneyAdjust());
         int actual = p.getMoney();
         int expected = oldMoney;    //shouldnt change
+        assertEquals(expected, actual);
     }
     @Test
     //Tests set mortgage status in class ChanceTile (chance tiles have no mortgage values but inheret this method from TILE
