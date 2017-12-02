@@ -82,6 +82,7 @@ public class GUITest {
         g.movePlayer(p.getIdNum(), t.getX(), t.getY());
         int expected = 40;
         int actual = t.getX();
+        assertEquals(expected, actual);
     }
     
     @Test
@@ -95,6 +96,7 @@ public class GUITest {
         g.movePlayer(p.getIdNum(), t.getX(), t.getY());
         int expected = 40;
         int actual = t.getX();
+        assertEquals(expected, actual);
     }
     @Test
     //Test moving player [2] (3 of 4) in class GUI
@@ -107,6 +109,7 @@ public class GUITest {
         g.movePlayer(p.getIdNum(), t.getX(), t.getY());
         int expected = 40;
         int actual = t.getX();
+        assertEquals(expected, actual);
     }
     @Test
     //Test moving player[3] (4 of 4) in class GUI
@@ -119,5 +122,6 @@ public class GUITest {
         g.movePlayer(p.getIdNum(), t.getX(), t.getY());
         int expected = 40;
         int actual = t.getX();
+        assertEquals(expected, actual);
     }
 }
