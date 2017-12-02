@@ -41,7 +41,13 @@ public class GameTest {
     @Test
     public void testGetGameStatusTrue()
     {
-        Game instance = new Game(1);
+        GUI g = new GUI(1);
+        ThemeFactory factory = null;
+
+        Game instance = new Game(2);
+        instance.theme =1;
+        instance.gui = g;
+        instance.factory = new ConcreteOG();
         Boolean actual = instance.getGameStatus();
         Boolean expected = true;
         assertEquals(expected, actual);
@@ -50,7 +56,11 @@ public class GameTest {
     @Test
     public void testGetGameStatusFalse()
     {
-        Game instance = new Game(1);
+        GUI g = new GUI(1);
+        Game instance = new Game(2);
+        instance.theme = 2;
+        instance.factory = new ConcreteNP();
+
         instance.gameStatus = false;
         Boolean actual = instance.getGameStatus();
         Boolean expected = false;

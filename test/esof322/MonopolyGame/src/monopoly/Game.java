@@ -21,8 +21,8 @@ public class Game {
     final static int minThemeNum =1;    
     final static int maxThemeNum = 2;   //max number of themes to choose from
     static GUI gui;
-    private static int theme;
-    private static ThemeFactory factory = null;
+    public static int theme;
+    public static ThemeFactory factory = null;
 
     //implement a timer
     Timer gameTimer = new Timer();
