@@ -27,7 +27,7 @@ public class GUI extends JPanel{
     JButton b7;
     int lineCounter;
 <span class="fc" id="L29">    static int theme = 0;</span>
-    
+    String displayMessage;
 <span class="fc" id="L31">    static int[] p1Coords = new int[2];</span>
 <span class="fc" id="L32">    static int[] p2Coords = new int[2];</span>
 <span class="fc" id="L33">    static int[] p3Coords = new int[2];</span>
@@ -103,92 +103,95 @@ public class GUI extends JPanel{
             public void actionPerformed(ActionEvent e)
             {
                //something to do when b0 is pressed 
-<span class="nc" id="L106">                System.out.println(&quot;Button 0 pressed&quot;);</span>
-<span class="nc" id="L107">            }</span>
+<span class="fc" id="L106">                displayMessage=(&quot;Button 0 pressed&quot;);</span>
+<span class="fc" id="L107">                System.out.println(displayMessage);</span>
+<span class="fc" id="L108">            }</span>
         });
         
-<span class="fc" id="L110">        b1.addActionListener(new ActionListener(){</span>
+<span class="fc" id="L111">        b1.addActionListener(new ActionListener(){</span>
             public void actionPerformed(ActionEvent e)
             {
                //something to do when b0 is pressed 
-<span class="nc" id="L114">                System.out.println(&quot;Button 1 pressed&quot;);</span>
-<span class="nc" id="L115">            }</span>
+<span class="fc" id="L115">                displayMessage=(&quot;Button 1 pressed&quot;);</span>
+<span class="fc" id="L116">                System.out.println(displayMessage);</span>
+<span class="fc" id="L117">            }</span>
         });
-<span class="fc" id="L117">        b7.addActionListener(new ActionListener(){</span>
+<span class="fc" id="L119">        b7.addActionListener(new ActionListener(){</span>
             public void actionPerformed(ActionEvent e)
             {
                //something to do when b0 is pressed 
-<span class="nc" id="L121">                System.out.println(&quot;Button 7 pressed&quot;);</span>
-<span class="nc" id="L122">            }</span>
+<span class="fc" id="L123">                displayMessage=(&quot;Button 7 pressed&quot;);</span>
+<span class="fc" id="L124">                System.out.println(displayMessage);</span>
+<span class="fc" id="L125">            }</span>
         });
         
         
                        
-<span class="fc" id="L127">    }</span>
+<span class="fc" id="L130">    }</span>
     public static int[] getCoords(int player)
     {
-<span class="pc bpc" id="L130" title="1 of 5 branches missed.">        switch(player)</span>
+<span class="pc bpc" id="L133" title="1 of 5 branches missed.">        switch(player)</span>
         {
             case 0:
-<span class="fc" id="L133">                return p1Coords;</span>
+<span class="fc" id="L136">                return p1Coords;</span>
                 
             case 1:
-<span class="fc" id="L136">                return p2Coords;</span>
+<span class="fc" id="L139">                return p2Coords;</span>
                 
             case 2:
-<span class="fc" id="L139">                return p3Coords;</span>
+<span class="fc" id="L142">                return p3Coords;</span>
             case 3:
-<span class="fc" id="L141">                return p4Coords;</span>
+<span class="fc" id="L144">                return p4Coords;</span>
             default:
-<span class="nc" id="L143">                return null;</span>
+<span class="nc" id="L146">                return null;</span>
         }   
     }
     public void movePlayer(int player, int x, int y)
     {
         //set player coords
-<span class="pc bpc" id="L149" title="1 of 5 branches missed.">        switch(player)</span>
+<span class="pc bpc" id="L152" title="1 of 5 branches missed.">        switch(player)</span>
         {
             case 0:
-<span class="fc" id="L152">                p1Coords[0] = x;</span>
-<span class="fc" id="L153">                p1Coords[1] = y;</span>
-<span class="fc" id="L154">                break;</span>
+<span class="fc" id="L155">                p1Coords[0] = x;</span>
+<span class="fc" id="L156">                p1Coords[1] = y;</span>
+<span class="fc" id="L157">                break;</span>
             case 1:
-<span class="fc" id="L156">                p2Coords[0] = x;</span>
-<span class="fc" id="L157">                p2Coords[1] = y;</span>
-<span class="fc" id="L158">                break;</span>
+<span class="fc" id="L159">                p2Coords[0] = x;</span>
+<span class="fc" id="L160">                p2Coords[1] = y;</span>
+<span class="fc" id="L161">                break;</span>
             case 2:
-<span class="fc" id="L160">                p3Coords[0] = x;</span>
-<span class="fc" id="L161">                p3Coords[1] = y;</span>
-<span class="fc" id="L162">                break;</span>
+<span class="fc" id="L163">                p3Coords[0] = x;</span>
+<span class="fc" id="L164">                p3Coords[1] = y;</span>
+<span class="fc" id="L165">                break;</span>
             case 3:
-<span class="fc" id="L164">                p4Coords[0] = x;</span>
-<span class="fc" id="L165">                p4Coords[1] = y;</span>
+<span class="fc" id="L167">                p4Coords[0] = x;</span>
+<span class="fc" id="L168">                p4Coords[1] = y;</span>
                 break;
         }
         
-<span class="fc" id="L169">          window.repaint(); //update jframe</span>
+<span class="fc" id="L172">          window.repaint(); //update jframe</span>
 
-<span class="fc" id="L171">    }</span>
+<span class="fc" id="L174">    }</span>
     
     public void display(String s)     //call instead of println's in rest of program to output text to gui.
     {
-<span class="pc bpc" id="L175" title="1 of 2 branches missed.">        if(lineCounter &gt; 30)    //if text area is too large,erase it</span>
+<span class="pc bpc" id="L178" title="1 of 2 branches missed.">        if(lineCounter &gt; 30)    //if text area is too large,erase it</span>
         {
-<span class="nc" id="L177">            textArea.selectAll();</span>
-<span class="nc" id="L178">            textArea.replaceSelection(&quot;&quot;);</span>
-<span class="nc" id="L179">            lineCounter = 0;</span>
+<span class="nc" id="L180">            textArea.selectAll();</span>
+<span class="nc" id="L181">            textArea.replaceSelection(&quot;&quot;);</span>
+<span class="nc" id="L182">            lineCounter = 0;</span>
         }
         //append data
-<span class="fc" id="L182">        textArea.append(&quot;\n&quot;);</span>
-<span class="fc" id="L183">        textArea.append(s);</span>
-<span class="fc" id="L184">        lineCounter +=2;</span>
-<span class="fc" id="L185">    }</span>
+<span class="fc" id="L185">        textArea.append(&quot;\n&quot;);</span>
+<span class="fc" id="L186">        textArea.append(s);</span>
+<span class="fc" id="L187">        lineCounter +=2;</span>
+<span class="fc" id="L188">    }</span>
     
 }
 
-<span class="fc" id="L189">class Canvas extends JComponent{</span>
-<span class="fc" id="L190">    private final int iconWidth = 20;</span>
-<span class="fc" id="L191">    private final int iconHeight = 20;</span>
+<span class="fc" id="L192">class Canvas extends JComponent{</span>
+<span class="fc" id="L193">    private final int iconWidth = 20;</span>
+<span class="fc" id="L194">    private final int iconHeight = 20;</span>
     private Image backgroundImage;
     
     private int p1X;
@@ -202,48 +205,48 @@ public class GUI extends JPanel{
     
     public void paintComponent(Graphics g)
     {
-<span class="fc" id="L205">        int p1X = GUI.getCoords(0)[0];</span>
-<span class="fc" id="L206">        int p1Y = GUI.getCoords(0)[1];</span>
-<span class="fc" id="L207">        int p2X = GUI.getCoords(1)[0];</span>
-<span class="fc" id="L208">        int p2Y = GUI.getCoords(1)[1];</span>
-<span class="fc" id="L209">        int p3X = GUI.getCoords(2)[0];</span>
-<span class="fc" id="L210">        int p3Y = GUI.getCoords(2)[1];</span>
-<span class="fc" id="L211">        int p4X = GUI.getCoords(3)[0];</span>
-<span class="fc" id="L212">        int p4Y = GUI.getCoords(3)[1];</span>
+<span class="fc" id="L208">        int p1X = GUI.getCoords(0)[0];</span>
+<span class="fc" id="L209">        int p1Y = GUI.getCoords(0)[1];</span>
+<span class="fc" id="L210">        int p2X = GUI.getCoords(1)[0];</span>
+<span class="fc" id="L211">        int p2Y = GUI.getCoords(1)[1];</span>
+<span class="fc" id="L212">        int p3X = GUI.getCoords(2)[0];</span>
+<span class="fc" id="L213">        int p3Y = GUI.getCoords(2)[1];</span>
+<span class="fc" id="L214">        int p4X = GUI.getCoords(3)[0];</span>
+<span class="fc" id="L215">        int p4Y = GUI.getCoords(3)[1];</span>
         
         try
         {  
-<span class="fc bfc" id="L216" title="All 2 branches covered.">            if(GUI.getTheme() == 1)</span>
+<span class="fc bfc" id="L219" title="All 2 branches covered.">            if(GUI.getTheme() == 1)</span>
             {
-<span class="fc" id="L218">                backgroundImage = javax.imageio.ImageIO.read(new File(&quot;monopoly board.jpg&quot;));</span>
-<span class="pc bpc" id="L219" title="1 of 2 branches missed.">            }else if(GUI.getTheme() == 2)</span>
+<span class="fc" id="L221">                backgroundImage = javax.imageio.ImageIO.read(new File(&quot;monopoly board.jpg&quot;));</span>
+<span class="pc bpc" id="L222" title="1 of 2 branches missed.">            }else if(GUI.getTheme() == 2)</span>
             {
                //national park themed
-<span class="fc" id="L222">                backgroundImage = javax.imageio.ImageIO.read(new File(&quot;nationalParksBoard.jpg&quot;));</span>
+<span class="fc" id="L225">                backgroundImage = javax.imageio.ImageIO.read(new File(&quot;nationalParksBoard.jpg&quot;));</span>
             }
             else
             {
-<span class="nc" id="L226">                System.out.println(&quot;error in gui background&quot;);</span>
+<span class="nc" id="L229">                System.out.println(&quot;error in gui background&quot;);</span>
             }
             
-<span class="nc" id="L229">        }catch (IOException e) </span>
+<span class="nc" id="L232">        }catch (IOException e) </span>
         {    
-<span class="nc" id="L231">             throw new RuntimeException(e);</span>
-<span class="fc" id="L232">        }</span>
+<span class="nc" id="L234">             throw new RuntimeException(e);</span>
+<span class="fc" id="L235">        }</span>
         
-<span class="fc" id="L234">        super.paintComponent(g);</span>
+<span class="fc" id="L237">        super.paintComponent(g);</span>
         
-<span class="fc" id="L236">        g.drawImage(backgroundImage, WIDTH, WIDTH, this);   //background image</span>
+<span class="fc" id="L239">        g.drawImage(backgroundImage, WIDTH, WIDTH, this);   //background image</span>
                
-<span class="fc" id="L238">        g.setColor(Color.blue);</span>
-<span class="fc" id="L239">        g.fillOval(p1X, p1Y, iconWidth, iconHeight); //p1</span>
-<span class="fc" id="L240">        g.setColor(Color.red);</span>
-<span class="fc" id="L241">        g.fillOval(p2X, p2Y, iconWidth, iconHeight); //p2</span>
-<span class="fc" id="L242">        g.setColor(Color.green);</span>
-<span class="fc" id="L243">        g.fillOval(p3X, p3Y, iconWidth, iconHeight); //p3</span>
-<span class="fc" id="L244">        g.setColor(Color.yellow);</span>
-<span class="fc" id="L245">        g.fillOval(p4X, p4Y, iconWidth, iconHeight); //p4</span>
-<span class="fc" id="L246">    }</span>
+<span class="fc" id="L241">        g.setColor(Color.blue);</span>
+<span class="fc" id="L242">        g.fillOval(p1X, p1Y, iconWidth, iconHeight); //p1</span>
+<span class="fc" id="L243">        g.setColor(Color.red);</span>
+<span class="fc" id="L244">        g.fillOval(p2X, p2Y, iconWidth, iconHeight); //p2</span>
+<span class="fc" id="L245">        g.setColor(Color.green);</span>
+<span class="fc" id="L246">        g.fillOval(p3X, p3Y, iconWidth, iconHeight); //p3</span>
+<span class="fc" id="L247">        g.setColor(Color.yellow);</span>
+<span class="fc" id="L248">        g.fillOval(p4X, p4Y, iconWidth, iconHeight); //p4</span>
+<span class="fc" id="L249">    }</span>
     
  
 }

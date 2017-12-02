@@ -1,6 +1,7 @@
 package monopoly;
 
 public class OGBoard extends Board{
+    final String theme = "OG";
     public OGBoard(int totalPlayers, GUI g)
     {
         super(totalPlayers, g);
@@ -136,5 +137,9 @@ public class OGBoard extends Board{
                     break;
             }
         }
+    }
+    public String getTheme()
+    {
+        return theme;
     }
 }
