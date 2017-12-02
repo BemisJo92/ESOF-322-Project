@@ -98,6 +98,7 @@ public class GUITest {
         int expected = 160;
         int actual = t.getX();
         assertEquals(expected,actual);
+
     }
     
     @Test

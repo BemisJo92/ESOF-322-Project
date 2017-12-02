@@ -38,7 +38,7 @@ public class CommunityChestCardTest {
     }
 
     @Test
-    public void testGetMoneyAdjust()
+    public void testGetMoneyAdjust()    //Test getMoneyAdjust method for Community Chest
     {
         CommunityChestCard c = new CommunityChestCard("TestCommunityChest1", -1, 300);
         int actual = c.getMoneyAdjust();
@@ -46,7 +46,7 @@ public class CommunityChestCardTest {
         assertEquals(expected,actual);
     }
     @Test
-    public void testGetName()
+    public void testGetName()       //Test for correct name return from Community Chest Card
     {
         CommunityChestCard c = new CommunityChestCard("TestCommunityChest1", -1, 200);
         String actual = c.getName();
@@ -54,7 +54,7 @@ public class CommunityChestCardTest {
         assertEquals(expected, actual);
     }
     @Test
-    public void testGetToTileNum()
+    public void testGetToTileNum()     //Test for correct name return from Community Chest
     {
         CommunityChestCard c = new CommunityChestCard("TestCommunityChest", -1, 200);
         int expected = c.getToTileNum();
@@ -62,7 +62,7 @@ public class CommunityChestCardTest {
         assertEquals(expected, actual);
     }
     @Test
-    public void testGetCardID()
+    public void testGetCardID()     //Test for correct ID return from Communnity Chest
     {
         CommunityChestCard c = new CommunityChestCard("TestCommunityChest", -1, 200);
         int actual = c.getCardID();

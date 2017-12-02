@@ -38,7 +38,7 @@ public class CommunityChestTileTest {
     }
 
     @Test
-    public void testGetMoneyAdjust()
+    public void testGetMoneyAdjust()    //Test for getMoneyAdjust  return of int
     {
         CommunityChestCard c = new CommunityChestCard("Test CommunityChest Card", -1, 100);
         int actual = c.getMoneyAdjust();
@@ -47,7 +47,7 @@ public class CommunityChestTileTest {
     }
     
     @Test
-    public void testGetName()
+    public void testGetName()       //Test for getName return of string
     {
         CommunityChestCard c = new CommunityChestCard("Test CommunityChest Card", -1, 100);
         String actual = c.getName();
@@ -56,23 +56,11 @@ public class CommunityChestTileTest {
     }
     
     @Test
-    public void testGetToTileNum()
+    public void testGetToTileNum()      //Test for getToTileNum return of int
     {
         CommunityChestCard c = new CommunityChestCard("Test CommunityChest Card", -1, 100);
         int actual = c.getToTileNum();
         int expected = -1;
-        assertEquals(expected,actual);
-    }
-    @Test
-    public void testAdjMoney()
-    {
-        int adjAmount = 100;
-        Player p = new Player(1, "testPlayer");
-        CommunityChestTile t = new CommunityChestTile("Test community chest",40,160);
-        int startingMoney = p.getMoney();
-        t.adjMoney(p,adjAmount);
-        int actual = p.getMoney();
-        int expected = startingMoney + adjAmount;
         assertEquals(expected,actual);
     }
     @Test
@@ -90,7 +78,7 @@ public class CommunityChestTileTest {
     }
     
     @Test
-    public void testGetMortgage()
+    public void testGetMortgage()   //Test for getMortgage return of int 
     {
         CommunityChestTile t = new CommunityChestTile("Test community chest",40,160);
         int expected = -1;
@@ -98,7 +86,7 @@ public class CommunityChestTileTest {
         assertEquals(expected,actual);
     }
     @Test
-    public void testSetMortgageStatus()
+    public void testSetMortgageStatus()     //Test for setMortgageStatus return of boolean of true
     {
         CommunityChestTile t = new CommunityChestTile("Test community chest",40,160);
         Boolean status = false;
@@ -126,11 +114,12 @@ public class CommunityChestTileTest {
         assertTrue(min <= actual && actual <= max);
     }
     @Test
+    //Test for testGetCardID return of ID int
     public void testGetCardID()
     {
         CommunityChestCard c = new CommunityChestCard("Test CommunityChest Card", -1, 100);
         int actual = c.getCardID();
-        int expected = 83; //num cards created in this test class +1
+        int expected = 82; //num cards created in this test class +1
         assertEquals(expected,actual);
     }
 }

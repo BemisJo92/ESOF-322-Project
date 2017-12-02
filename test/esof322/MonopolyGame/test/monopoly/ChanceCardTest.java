@@ -41,9 +41,6 @@ public class ChanceCardTest {
     //Tests getMoneyAdjust method in class ChanceCard. Just checks to see if method returns the correct value
     public void testGetMoneyAdjust()
     {
-        //GUI g = new GUI(1);
-        Player p = new Player(0, "Player 1");
-        int previousMoney = p.getMoney();
         ChanceCard c = new ChanceCard("testcard", -1, 100);
         int actual =  c.getMoneyAdjust();
         int expected = 100;
@@ -53,9 +50,6 @@ public class ChanceCardTest {
     @Test
     public void testGetMoneyAdjustNeg()
     {
-        GUI g = new GUI(1);
-        Player p = new Player(0, "Player 1");
-        int previousMoney = p.getMoney();
         ChanceCard c = new ChanceCard("testcard", -1, -100);
         int actual = c.getMoneyAdjust();
         int expected = -100;

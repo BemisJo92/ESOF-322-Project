@@ -61,6 +61,7 @@ public class ChanceTileTest {
         t.adjMoney(p,c.getMoneyAdjust());
         int actual = p.getMoney();
         int expected = oldMoney;    //shouldnt change
+        assertEquals(expected, actual);
     }
     @Test
      //Tests adjusting players money when the chance card removes money from the player
