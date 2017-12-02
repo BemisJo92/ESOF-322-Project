@@ -38,7 +38,7 @@ public class FreeParkingTileTest {
     }
 
     @Test
-    public void testGetMortgage()
+    public void testGetMortgage()   //Test for getMortgage return of int (-1 for null)
     {
         FreeParkingTile t= new FreeParkingTile("FreeparkingTEST",40,40);
         int actual = t.getMortgage();
@@ -46,7 +46,7 @@ public class FreeParkingTileTest {
         assertEquals(expected,actual);
     }
     @Test
-    public void testSetMortgageStatus()
+    public void testSetMortgageStatus() //Test for setMortgageStatus of boolean value true
     {
         Boolean status = false;
         FreeParkingTile t= new FreeParkingTile("FreeparkingTEST",40,40);
@@ -61,7 +61,7 @@ public class FreeParkingTileTest {
         assertEquals(expected, actual);
     }
     @Test
-    public void testDoAction()
+    public void testDoAction()  //Test for doAction return of 0
     {
         FreeParkingTile t= new FreeParkingTile("FreeparkingTEST",40,40);
         int actual = 0;
