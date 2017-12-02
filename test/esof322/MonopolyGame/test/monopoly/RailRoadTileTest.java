@@ -44,6 +44,7 @@ public class RailRoadTileTest {
         int expected = 100; //all railroads have a mortgage value of 100
         assertEquals(expected, actual);
     }
+    
     @Test
     public void testGetRent1()
     {
@@ -52,6 +53,7 @@ public class RailRoadTileTest {
         int expected = 25;
         assertEquals(expected,actual);
     }
+    
     @Test
     public void testGetRent2()
     {
@@ -60,6 +62,7 @@ public class RailRoadTileTest {
         int expected = 50;
         assertEquals(expected,actual);
     }
+    
     @Test
     public void testGetRent3()
     {
@@ -68,6 +71,7 @@ public class RailRoadTileTest {
         int expected = 100;
         assertEquals(expected,actual);
     }
+    
     @Test
     public void testGetRent4()
     {
