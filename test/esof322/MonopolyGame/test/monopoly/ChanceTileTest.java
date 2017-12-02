@@ -38,6 +38,7 @@ public class ChanceTileTest {
     }
 
     @Test
+    //Tests adjusting player's money when the chance card is awarding money to the player
     public void testAdjMoney()
     {
         Player p = new Player(0,"TestPlayer");
@@ -50,7 +51,8 @@ public class ChanceTileTest {
         
     }
     @Test
-    public void testAdjMoneyLessThanZero()
+    //Tests adjusting players money when the chance card does not have a money adjustment value
+    public void testAdjMoneyZero()
     {
         Player p = new Player(0,"TestPlayer");
         int oldMoney = p.getMoney();
@@ -61,6 +63,8 @@ public class ChanceTileTest {
         int expected = oldMoney;    //shouldnt change
     }
     @Test
+    //Tests set mortgage status in class ChanceTile (chance tiles have no mortgage values but inheret this method from TILE
+    //Therefore the method throws an unsupportedOperationExceptionError) 
     public void testSetMortgageStatus()
     {
         Boolean status= false;
@@ -76,6 +80,7 @@ public class ChanceTileTest {
         assertEquals(expected, actual);
     }
     @Test
+    //Tests getMortgage method in class ChanceTile (chance tiles have no mortgage values so expected = -1)
     public void testGetMortgage()
     {
         ChanceTile t = new ChanceTile("Get out of jail free card!", 0, 0);

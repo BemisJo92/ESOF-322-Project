@@ -27,7 +27,7 @@ public class GUI extends JPanel{
     JButton b7;
     int lineCounter;
     static int theme = 0;
-    
+    String displayMessage;
     static int[] p1Coords = new int[2];
     static int[] p2Coords = new int[2];
     static int[] p3Coords = new int[2];
@@ -103,7 +103,8 @@ public class GUI extends JPanel{
             public void actionPerformed(ActionEvent e)
             {
                //something to do when b0 is pressed 
-                System.out.println("Button 0 pressed");
+                displayMessage=("Button 0 pressed");
+                System.out.println(displayMessage);
             }
         });
         
@@ -111,14 +112,16 @@ public class GUI extends JPanel{
             public void actionPerformed(ActionEvent e)
             {
                //something to do when b0 is pressed 
-                System.out.println("Button 1 pressed");
+                displayMessage=("Button 1 pressed");
+                System.out.println(displayMessage);
             }
         });
         b7.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e)
             {
                //something to do when b0 is pressed 
-                System.out.println("Button 7 pressed");
+                displayMessage=("Button 7 pressed");
+                System.out.println(displayMessage);
             }
         });
         
