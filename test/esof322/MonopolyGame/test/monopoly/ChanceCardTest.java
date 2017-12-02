@@ -38,6 +38,7 @@ public class ChanceCardTest {
     }
 
     @Test
+    //Tests getMoneyAdjust method in class ChanceCard. Just checks to see if method returns the correct value
     public void testGetMoneyAdjust()
     {
         GUI g = new GUI(1);
@@ -62,6 +63,7 @@ public class ChanceCardTest {
     }
     
     @Test
+    //Tests the getCardID method in class ChanceCard Note: card ID is just the card's number out of the total amount of chanceCards
     public void testGetCardID()
     {
         ChanceCard c = new ChanceCard("testCard", -1, 100);
@@ -70,6 +72,7 @@ public class ChanceCardTest {
         assertEquals(expected,actual);
     }
     @Test
+    //Tests simple getName method in class ChanceCard
     public void testGetName()
     {
         ChanceCard c = new ChanceCard("testCard3", -1, 100);
@@ -79,6 +82,7 @@ public class ChanceCardTest {
     }
     
     @Test
+    //Tests getToTileIDNum in class ChanceCard when the chanceCard has a totileid of -1 meaning it does not affect the player's position
     public void testGetToTileIDNumvoid()
     {
         ChanceCard c = new ChanceCard("testCard4", -1, 100);
@@ -88,6 +92,7 @@ public class ChanceCardTest {
     }
     
     @Test
+    //Tests getToTileIDNum in class ChanceCard whe the chanceCard moves a player to a new position/tile on the board (ex go to jail)
     public void testGetToTileIDNumpos()
     {
         ChanceCard c = new ChanceCard("testCard5", 30, 100);

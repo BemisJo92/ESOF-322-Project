@@ -38,6 +38,41 @@ public class GUITest {
     }
     
     @Test
+    //Tests the actionListener for button0 in class GUI
+    public void testButton0()
+    {
+        GUI g = new GUI(1);
+        g.setup();
+        String expected = "Button 0 pressed";
+        g.b0.doClick();
+        String actual = g.displayMessage;
+        assertEquals(expected,actual);
+    }
+    @Test
+    //Tests the actionListener for button1 in class GUI
+    public void testButton1()
+    {
+        GUI g = new GUI(1);
+        g.setup();
+        String expected = "Button 1 pressed";
+        g.b1.doClick();
+        String actual = g.displayMessage;
+        assertEquals(expected,actual);
+    }
+    @Test
+    //Tests the actionListener for button7 in class GUI
+    public void testButton7()
+    {
+        GUI g = new GUI(1);
+        g.setup();
+        String expected = "Button 7 pressed";
+        g.b7.doClick();
+        String actual = g.displayMessage;
+        assertEquals(expected,actual);
+    }
+    
+    @Test
+    //Tests moving player 0 in class GUI
     public void testMovePlayer0()
     {
         GUI g = new GUI(1);
@@ -50,6 +85,7 @@ public class GUITest {
     }
     
     @Test
+    //Tests moving player[1] (2 of 4) in class GUI
     public void testMovePlayer1()
     {
         GUI g = new GUI(1);
@@ -61,6 +97,7 @@ public class GUITest {
         int actual = t.getX();
     }
     @Test
+    //Test moving player [2] (3 of 4) in class GUI
     public void testMovePlayer2()
     {
         GUI g = new GUI(1);
@@ -72,6 +109,7 @@ public class GUITest {
         int actual = t.getX();
     }
     @Test
+    //Test moving player[3] (4 of 4) in class GUI
     public void testMovePlayer3()
     {
         GUI g = new GUI(1);

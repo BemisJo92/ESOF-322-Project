@@ -38,30 +38,32 @@ public class CommunityChestTile extends Tile {
         
 <span class="nc" id="L39">    }</span>
     
-    private CommunityChestCard getCard(Board board)    //need to create a junit test for this if you make of size 1, it should only return that card
+    public CommunityChestCard getCard(Board board)    //need to create a junit test for this if you make of size 1, it should only return that card
     {
-<span class="nc" id="L43">        random = rand.nextInt(board.getNumCommunityChestCards()); //should be 4 </span>
-<span class="nc" id="L44">        CommunityChestCard[] allCards = board.getCommunityChestCards();</span>
-<span class="nc" id="L45">        return allCards[random];</span>
+<span class="nc" id="L43">        rand = new Random();</span>
+<span class="nc" id="L44">        random = rand.nextInt(board.getNumCommunityChestCards()); //should be 4</span>
+
+<span class="nc" id="L46">        CommunityChestCard[] allCards = board.getCommunityChestCards();</span>
+<span class="nc" id="L47">        return allCards[random];</span>
     }
     
     public void adjMoney(Player p, int amount)        //Junit test for this?
     {
-<span class="pc bpc" id="L50" title="1 of 2 branches missed.">        if(amount &lt;0)</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if(amount &lt;0)</span>
         {
-<span class="nc" id="L52">            p.removeMoney(amount);</span>
-<span class="fc" id="L53">        }else p.addMoney(amount);</span>
-<span class="fc" id="L54">    }</span>
+<span class="nc" id="L54">            p.removeMoney(amount);</span>
+<span class="fc" id="L55">        }else p.addMoney(amount);</span>
+<span class="fc" id="L56">    }</span>
 
     @Override
     public int getMortgage() {
        //    throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.
-<span class="fc" id="L59">       return -1;</span>
+<span class="fc" id="L61">       return -1;</span>
     }
 
     @Override
     public void setMortgageStatus(Boolean status) {
-<span class="fc" id="L64">        throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.</span>
+<span class="fc" id="L66">        throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.</span>
     }
     
 }
