@@ -49,8 +49,8 @@ public class BoardTest
     */
 
     @Test
-    public void testGetPlayers1OG()    //test get players with 1 player
-    {
+    public void testGetPlayers1OG()    //Test get Players with 1 player, Original Board
+    {                                  
         GUI g = new GUI(1);
         Board instance = new OGBoard(1,g);
         Player[] array = instance.getPlayers();
@@ -60,7 +60,7 @@ public class BoardTest
     }
     
     @Test
-    public void testGetPlayers1NP()    //test get players with 1 player
+    public void testGetPlayers1NP()    //Test get Players with 1 player, National Park Board
     {
         GUI g = new GUI(2);
         Board instance = new NPBoard(1,g);
@@ -71,7 +71,7 @@ public class BoardTest
     }
     
     @Test
-    public void testGetPlayers4OG()
+    public void testGetPlayers4OG()     //Test get Players with 4 players, Original board
     {
         GUI g = new GUI(1);
         Board instance = new OGBoard(4,g);
@@ -82,7 +82,7 @@ public class BoardTest
     }
       
     @Test
-    public void testGetPlayers4NP()
+    public void testGetPlayers4NP()     //Test get Players with 4 players, National Park board
     {
         GUI g = new GUI(2);
         Board instance = new NPBoard(4,g);
@@ -94,11 +94,10 @@ public class BoardTest
     
     
     @Test
-    public void testMoveToJailOG()
+    public void testMoveToJailOG()      //Test moving 1 Player to Jail, Original Board
     {
         try{
         System.out.println("moveToJail");
-        //Player player = new Player(1, "Player1");
         GUI g = new GUI(1);
         Board instance = new OGBoard(1, g);
         instance.moveToJail(instance.players[0]);
@@ -110,11 +109,10 @@ public class BoardTest
     }
     
     @Test
-    public void testMoveToJailNP()
+    public void testMoveToJailNP()      //Test moving 1 Player to Jail, National Park Board
     {
         try{
-        System.out.println("moveToJail");
-        //Player player = new Player(1, "Player1");
+        System.out.println("moveToJail");       
         GUI g = new GUI(2);
         Board instance = new NPBoard(1, g);
         instance.moveToJail(instance.players[0]);
@@ -129,7 +127,7 @@ public class BoardTest
      * Test of movePlayer method, of class Board.
      */
     @Test
-    public void testMovePlayer()
+    public void testMovePlayer()        //Test moving player on National Park Board
     {
         try{
         System.out.println("movePlayer");
@@ -147,7 +145,7 @@ public class BoardTest
     }
     
     @Test
-    public void movePlayerPassedGoOG()
+    public void movePlayerPassedGoOG()      //Test moving Player past 'GO' on Original Board
     {
         try{
         System.out.println("movePlayer");
@@ -166,7 +164,7 @@ public class BoardTest
     }
     
     @Test
-    public void movePlayerPassedGoNP()
+    public void movePlayerPassedGoNP()      //Test moving Player past 'GO' on National Park Board
     {
         try{
         System.out.println("movePlayer");
@@ -185,11 +183,10 @@ public class BoardTest
     }
     
     @Test
-    public void testMovePlayer2OG()
+    public void testMovePlayer2OG()     //test moving 2 Players, OG Board
     {
         try{
-        System.out.println("movePlayer");
-        //Player player = new Player(1, "Player1");
+        System.out.println("movePlayer");       
         int rollValue = 4;
         GUI g = new GUI(1);
         Board instance = new OGBoard(1, g);
@@ -204,11 +201,10 @@ public class BoardTest
     }
     
     @Test
-    public void testMovePlayer2NP()
+    public void testMovePlayer2NP()     //Test moving 2 players, NP Board
     {
         try{
-        System.out.println("movePlayer");
-        //Player player = new Player(1, "Player1");
+        System.out.println("movePlayer");        
         int rollValue = 4;
         GUI g = new GUI(2);
         Board instance = new NPBoard(1, g);
@@ -223,11 +219,10 @@ public class BoardTest
     }
 
     @Test
-    public void testMovePlayer3OG()
+    public void testMovePlayer3OG()     //Test moving 3 Players, OG board
     {
         try{
-        System.out.println("movePlayer");
-        //Player player = new Player(1, "Player1");
+        System.out.println("movePlayer");    
         int rollValue = 7;
         GUI g = new GUI(1);
         Board instance = new OGBoard(1, g);
@@ -242,11 +237,10 @@ public class BoardTest
     }
     
     @Test
-    public void testMovePlayer3NP()
+    public void testMovePlayer3NP()     //Test moving 3 Players, NP Board
     {
         try{
-        System.out.println("movePlayer");
-        //Player player = new Player(1, "Player1");
+        System.out.println("movePlayer");        
         int rollValue = 7;
         GUI g = new GUI(2);
         Board instance = new NPBoard(1, g);
@@ -261,7 +255,7 @@ public class BoardTest
     }
     
     @Test
-    public void testMovePlayer4OG()
+    public void testMovePlayer4OG()     //Test moving 4 Players, OG board
     {
         try{
         System.out.println("movePlayer");
@@ -280,7 +274,7 @@ public class BoardTest
     }
     
     @Test
-    public void testMovePlayer4NP()
+    public void testMovePlayer4NP()     //Test moving 4 Players, NP Board
     {
         try{
         System.out.println("movePlayer");
@@ -298,8 +292,8 @@ public class BoardTest
         }
     }
 
-    @Test
-    public void testGetRichestPlayerOG()
+    @Test   
+    public void testGetRichestPlayerOG()    //Test for richest Player, OG board
     {
         System.out.println("getRichestPlayer");
         GUI g = new GUI(1);
@@ -311,7 +305,7 @@ public class BoardTest
     }
     
     @Test
-    public void testGetRichestPlayerNP()
+    public void testGetRichestPlayerNP()    //Test for richest Player, NP board
     {
         System.out.println("getRichestPlayer");
         GUI g = new GUI(1);
@@ -323,7 +317,7 @@ public class BoardTest
     }
 
     @Test
-    public void testGetTotalTilesOG()
+    public void testGetTotalTilesOG()   //Test get Total tiles, OG board - should be 40
     {
         System.out.println("getTotalTiles");
         GUI g = new GUI(1);
@@ -334,7 +328,7 @@ public class BoardTest
     }
     
     @Test
-    public void testGetTotalTilesNP()
+    public void testGetTotalTilesNP()   //Test get Total tiles, NP Board - should be 40
     {
         System.out.println("getTotalTiles");
         GUI g = new GUI(2);
@@ -345,10 +339,9 @@ public class BoardTest
     }
 
     @Test
-    public void testGetTileOG()
+    public void testGetTileOG()     //Test get Tile after creation, looking for string name
     {
-        System.out.println("getTile");
-        int i = 0;
+        System.out.println("getTile");        
         GUI g = new GUI(1);
         Board instance = new OGBoard(1, g);
         String expResult = "Boardwalk";
@@ -358,10 +351,9 @@ public class BoardTest
     }
     
     @Test
-    public void testGetTileNP()
+    public void testGetTileNP()    //Test get Tile after creation, looking for string name
     {
-        System.out.println("getTile");
-        int i = 0;
+        System.out.println("getTile");        
         GUI g = new GUI(2);
         Board instance = new NPBoard(1, g);
         String expResult = "Yellowstone";
