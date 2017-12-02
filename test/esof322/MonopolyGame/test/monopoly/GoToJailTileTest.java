@@ -67,4 +67,20 @@ public class GoToJailTileTest {
         int actual = p.getCurrentTile();
         assertEquals(expected, actual);
     }
+    @Test
+    public void testGetMortgage()
+    {
+        GoToJailTile t = new GoToJailTile("Test Jail tile",40,440);
+        Boolean status = false;
+        try
+        {
+            t.getMortgage();
+        }catch(UnsupportedOperationException e)
+        {
+            status = true;
+        }
+        Boolean actual = status;
+        Boolean expected = true;
+        assertEquals(expected,actual);
+    }
 }
