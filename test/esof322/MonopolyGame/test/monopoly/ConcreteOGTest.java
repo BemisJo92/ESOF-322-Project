@@ -42,6 +42,7 @@ public class ConcreteOGTest {
     }
     
     @Test
+    //Tests createOGBoard in class ConcreteOP class, the method is unsupported in the class but is inherited from the ThemeFactory
     public void testCreateNPBoard()
     {
         GUI g = new GUI(2);
