@@ -49,10 +49,10 @@ public class CommunityChestTile extends Tile {
     
     public void adjMoney(Player p, int amount)        //Junit test for this?
     {
-<span class="fc bfc" id="L52" title="All 2 branches covered.">        if(amount &lt;0)</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if(amount &lt;0)</span>
         {
 <span class="fc" id="L54">            p.removeMoney(amount);</span>
-<span class="fc" id="L55">        }else p.addMoney(amount);</span>
+<span class="nc" id="L55">        }else p.addMoney(amount);</span>
 <span class="fc" id="L56">    }</span>
 
     @Override

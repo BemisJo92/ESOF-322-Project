@@ -64,6 +64,19 @@ public class CommunityChestTileTest {
         assertEquals(expected,actual);
     }
     @Test
+    //tests the method if the adjust amount >0
+    public void testAdjMoney()
+    {
+        int adjAmount = 100;
+        Player p = new Player(1, "testPlayer");
+        CommunityChestTile t = new CommunityChestTile("Test community chest",40,160);
+        int startingMoney = p.getMoney();
+        t.adjMoney(p,adjAmount);
+        int actual = p.getMoney();
+        int expected = startingMoney + adjAmount;
+        assertEquals(expected,actual);
+    }
+    @Test
     //tests the method if the adjust amount is negative
     public void testAdjMoneyNegative()
     {
@@ -119,7 +132,7 @@ public class CommunityChestTileTest {
     {
         CommunityChestCard c = new CommunityChestCard("Test CommunityChest Card", -1, 100);
         int actual = c.getCardID();
-        int expected = 82; //num cards created in this test class +1
+        int expected = 83; //num cards created in this test class +1
         assertEquals(expected,actual);
     }
 }
