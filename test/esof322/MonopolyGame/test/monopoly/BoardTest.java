@@ -42,11 +42,6 @@ public class BoardTest
     {
     }
     
-    /*READ FIRST
-    *The movePlayers tests wouldn't work because the GUI never actually showed up. The textArea
-    *variable in line 174 was throwing a NullPointerException because it was never being created.
-    *I threw in a try-catch block just to catch that one error, and the test ran fine with it.
-    */
 
     @Test
     public void testGetPlayers1OG()    //Test get Players with 1 player, Original Board
@@ -303,7 +298,7 @@ public class BoardTest
         Player result = instance.getRichestPlayer();
         assertEquals(expResult, result);
     }
-    
+       
     @Test
     public void testGetRichestPlayerNP()    //Test for richest Player, NP board
     {
@@ -416,7 +411,7 @@ public class BoardTest
     {
         GUI g = new GUI(1);
         Board b = new OGBoard(1,g);
-        b.whosTurn = 1;
+        b.whosTurn = -1;
         b.nextTurn();
         int actual = b.whosTurn;
         int expected = 0;

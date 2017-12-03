@@ -142,4 +142,17 @@ public class GUITest {
         assertEquals(expected,actual);
 
     }
+    @Test
+    public void testDisplayLineCounterMax()
+    {
+        GUI g = new GUI(1);
+        g.setup();
+        g.lineCounter = 50;
+        g.display("Test");
+        int actual = g.lineCounter;
+        int expected =2;
+        assertEquals(expected,actual);
+
+    }        
+        
 }

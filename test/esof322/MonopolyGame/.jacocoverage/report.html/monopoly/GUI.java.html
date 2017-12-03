@@ -175,11 +175,11 @@ public class GUI extends JPanel{
     
     public void display(String s)     //call instead of println's in rest of program to output text to gui.
     {
-<span class="pc bpc" id="L178" title="1 of 2 branches missed.">        if(lineCounter &gt; 30)    //if text area is too large,erase it</span>
+<span class="fc bfc" id="L178" title="All 2 branches covered.">        if(lineCounter &gt; 30)    //if text area is too large,erase it</span>
         {
-<span class="nc" id="L180">            textArea.selectAll();</span>
-<span class="nc" id="L181">            textArea.replaceSelection(&quot;&quot;);</span>
-<span class="nc" id="L182">            lineCounter = 0;</span>
+<span class="fc" id="L180">            textArea.selectAll();</span>
+<span class="fc" id="L181">            textArea.replaceSelection(&quot;&quot;);</span>
+<span class="fc" id="L182">            lineCounter = 0;</span>
         }
         //append data
 <span class="fc" id="L185">        textArea.append(&quot;\n&quot;);</span>

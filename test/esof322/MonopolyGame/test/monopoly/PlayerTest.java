@@ -244,4 +244,25 @@ public class PlayerTest
         int actual = instance.rollDie();
         assertTrue(actual <= 6 && actual >=1);
     }
+    @Test
+    //tests isBroke() method in player class when player DOES NOT have money
+    public void testIsBrokeTrue()
+    {
+        Player instance = new Player(1, "Test Player");
+        instance.money=0;
+        Boolean actual = instance.isBroke();
+        Boolean expected = true;
+        assertEquals(expected,actual);
+    }
+    
+    @Test
+    //tests isBroke() method in class player when the player does have money
+    public void testIsBrokeFalse()
+    {
+        Player instance = new Player(1, "Test Player");
+        instance.money=100;
+        Boolean actual = instance.isBroke();
+        Boolean expected = false;
+        assertEquals(expected,actual);
+    }
 }

@@ -36,13 +36,7 @@ public class RailRoadTileTest {
     @After
     public void tearDown() {
     }
-    
-    @Test
-    public void placeholder()
-    {
-        RailroadTile t = new RailroadTile("TestRailroad Tile",40,240);
-        int actual = t.placeholder(1);
-    }
+   
     
     @Test
     public void testGetMortgage()
