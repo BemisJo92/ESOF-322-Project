@@ -69,15 +69,12 @@ public class Game {
         while(totalPlayers <minPlayers || totalPlayers > maxPlayers)
         {  
             System.out.println("How many players? (2-4)");
-            //System.out.println("How many players? (2-4)");
             totalPlayers = scanner.nextInt();
             if(totalPlayers < minPlayers || totalPlayers > maxPlayers)
             {   
                 System.out.println("Please enter a valid player count.");
-                //System.out.println("Please enter a valid player count.");
             }
         }
-        //scanner.close();    
         
         while(theme < minThemeNum|| theme > maxThemeNum)
         {
@@ -103,7 +100,6 @@ public class Game {
             }
         }
 
-        //gui = new GUI(theme);    //new position
 
         gui.setup();
         Game game = new Game(totalPlayers);   
@@ -111,7 +107,7 @@ public class Game {
         
         game.startGame();
     }
-    public void startGame() throws InterruptedException //need to implement a timer here
+    public void startGame() throws InterruptedException 
     {        
         
 
@@ -185,7 +181,6 @@ public class Game {
         Thread.sleep(100);
         gui.display("Program will now exit");
         Thread.sleep(100);
-        //System.exit(0);
     }
     
     public Board getBoard()

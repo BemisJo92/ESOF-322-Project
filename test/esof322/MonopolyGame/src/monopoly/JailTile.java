@@ -9,6 +9,7 @@ public class JailTile extends Tile
             super(name, xCoord, yCoord);
         }
         
+        //displays if player is in jail or just visiting based off of player's jail status
         public void doAction(Player player, Board board)
         {
             gui = board.getGui();

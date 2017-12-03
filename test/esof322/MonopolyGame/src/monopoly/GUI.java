@@ -25,7 +25,7 @@ public class GUI extends JPanel{
     JButton b0;
     JButton b1;
     JButton b7;
-    int lineCounter;
+    int lineCounter;    //counter for lines in display window. 
     static int theme = 0;
     String displayMessage;
     static int[] p1Coords = new int[2];

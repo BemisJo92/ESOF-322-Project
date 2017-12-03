@@ -30,16 +30,14 @@ public abstract class Board
         
     }
     public abstract void createTiles();
-    {
-    }
+    {}
     
     public void moveToJail(Player player)
     {
         player.setTile(jailTile);
         Tile t = tiles[10];
         t.doAction(player, this);
-        //send straight to tile number 10
-        //integrate with GUI here
+
     }
         
     public void movePlayer(Player player, int rollValue, GUI g)
@@ -73,6 +71,7 @@ public abstract class Board
     public Player[] getPlayers()
         {return players;}
 
+    // returns the instance of player that has the most 
     public Player getRichestPlayer()
     {
         Player richest = null;
@@ -85,6 +84,7 @@ public abstract class Board
         return richest;
     }
     
+    //changes the counter of whos turn it is, resets it back to 0 if over the total # of players
     public void nextTurn()
     {
         if(++whosTurn >= players.length)
@@ -94,34 +94,44 @@ public abstract class Board
     public Player getPlayer()    //get the player based on who's turn it is
         {return players[whosTurn];}
 
+    //returns total number of tiles
     public int getTotalTiles()
         {return tiles.length;}
     
+    //returns instance of tile based off of TileNumber
     public Tile getTile(int i)
         {return tiles[i];}
     
+    //returns instance of GUI
     public GUI getGui()
     {
         return gui;
     }
     
+    //returns # of chance cards
     public int getNumChanceCards()
     {
         return numChanceCards;
     }
+    
+    //returns array of chanceCard objects
     public ChanceCard[] getChanceCards()
     {
         return chanceCards;
     }
+    
+    //returns number of community chest cards
     public int getNumCommunityChestCards()
     {
         return numCommunityChestCards;
     }
+    
+    //returns array of communitychest card objects
     public CommunityChestCard[] getCommunityChestCards()
     {
         return communityChestCards;
     }
-    
+    //creates instances of chance and community chest cards
     private void createCards(int numChance, int numCChest)
         {
             for(int i = 0; i <= numChance; i++)
