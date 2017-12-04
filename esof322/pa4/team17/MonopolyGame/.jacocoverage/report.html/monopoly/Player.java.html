@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Player.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;MonopolyGame&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">monopoly</a> &gt; <span class="el_source">Player.java</span></div><h1>Player.java</h1><pre class="source lang-java linenums">package monopoly;
+
+import java.lang.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Player 
+{
+    int tilePosition;               //position on the board 0-3
+    int id, die, money;
+    final String name;
+<span class="fc" id="L12">    boolean jailStatus = false;</span>
+<span class="fc" id="L13">    int jailStayLength = 0;</span>
+<span class="fc" id="L14">    ArrayList&lt;Tile&gt; properties = new ArrayList&lt;Tile&gt;();</span>
+<span class="fc" id="L15">    boolean broke = false;</span>
+<span class="fc" id="L16">    boolean mortagageStatus = false;</span>
+<span class="fc" id="L17">    int getOutOfJailCards = 0;</span>
+<span class="fc" id="L18">    int numRailroadsOwned = 0;</span>
+<span class="fc" id="L19">    int numBrownOwned = 0;</span>
+<span class="fc" id="L20">    int numLightBlueOwned = 0;</span>
+<span class="fc" id="L21">    int numPinkOwned = 0; </span>
+<span class="fc" id="L22">    int numOrangeOwned = 0;</span>
+<span class="fc" id="L23">    int numRedOwned = 0;</span>
+<span class="fc" id="L24">    int numYellowOwned = 0;</span>
+<span class="fc" id="L25">    int numGreenOwned = 0;</span>
+<span class="fc" id="L26">    int numDarkBlueOwned = 0;</span>
+    GUI gui;
+    
+    public Player(int idNum, String name)
+<span class="fc" id="L30">    {</span>
+<span class="fc" id="L31">        this.id = idNum;</span>
+<span class="fc" id="L32">        this.name = name;</span>
+<span class="fc" id="L33">        broke = false;</span>
+<span class="fc" id="L34">        tilePosition = 0;</span>
+<span class="fc" id="L35">        addMoney(1500);</span>
+<span class="fc" id="L36">    }</span>
+    
+    public int rollDie()
+    {
+<span class="fc" id="L40">        die = (int) (Math.random() * 6) + 1;</span>
+<span class="fc" id="L41">        return die;</span>
+    }
+    
+    public void addJailFreeCard()
+<span class="fc" id="L45">    {getOutOfJailCards++;}        </span>
+    
+    public String getName()   
+<span class="fc" id="L48">        {return name;}</span>
+    
+    public boolean getJailStatus()
+<span class="fc" id="L51">        {return jailStatus;}</span>
+    
+    public void setJailStatus(Boolean newStatus)
+<span class="fc" id="L54">        {jailStatus = newStatus;}</span>
+    
+    public int getJailStayLength()
+<span class="fc" id="L57">        {return jailStayLength;}</span>
+    
+    public void resetJailStayLength()
+<span class="fc" id="L60">        {jailStayLength = 0;}</span>
+    
+    public void useGetOutOfJailFreeCard()
+    {
+<span class="fc" id="L64">         getOutOfJailCards--;</span>
+<span class="fc" id="L65">    }</span>
+    
+    public void incrementJailStay()
+<span class="fc" id="L68">        {jailStayLength++;}</span>
+    
+    public int getIdNum()    
+<span class="fc" id="L71">        {return id;}</span>
+  
+    public int getCurrentTile()
+<span class="fc" id="L74">        {return tilePosition;}</span>
+    
+    public void setTile(int tile)
+<span class="fc" id="L77">        {this.tilePosition = tile;}</span>
+    
+    public int getMoney()
+<span class="fc" id="L80">        {return money;}</span>
+    
+    public void addMoney(int amount)
+<span class="fc" id="L83">        {money += amount;}</span>
+    
+    public void removeMoney(int amount)
+<span class="fc" id="L86">        {money -= amount;}</span>
+    
+    public boolean isBroke()
+<span class="fc bfc" id="L89" title="All 2 branches covered.">        {return money &lt;= 0;}</span>
+    
+    public ArrayList getProperties()
+<span class="fc" id="L92">        {return properties;}</span>
+    
+    public void addProperty(PropertyTile property)
+<span class="fc" id="L95">        {properties.add(property);}</span>
+    
+    public void addProperty(RailroadTile property)
+        {
+<span class="fc" id="L99">            properties.add(property);</span>
+<span class="fc" id="L100">            numRailroadsOwned++;</span>
+<span class="fc" id="L101">        }</span>
+    
+    public void addProperty(UtilityTile property)
+<span class="fc" id="L104">        {properties.add(property);}</span>
+    
+    public void mortgage(Board board)
+    {
+<span class="nc" id="L108">        gui = board.getGui();</span>
+<span class="nc" id="L109">        Scanner scanner = new Scanner(System.in);</span>
+        
+<span class="nc" id="L111">        gui.display(&quot;Here are the properties you can mortgage&quot;);</span>
+        //display player's properties 
+
+<span class="nc bnc" id="L114" title="All 2 branches missed.">        for(Tile property: properties)</span>
+        {
+<span class="nc bnc" id="L116" title="All 2 branches missed.">            if(property.getMortgageStatus() == false) // if property is not already mortgaged </span>
+            {
+<span class="nc" id="L118">                gui.display(property.getName() + &quot; mortgage Value: $&quot; + property.getMortgage() + &quot; ID NUM: &quot; + property.getTileID());</span>
+            }
+<span class="nc" id="L120">        }</span>
+       
+<span class="nc" id="L122">        gui.display(&quot;What property would you like to mortgage? Please enter the ID number&quot;);</span>
+        
+         //user input for choice
+<span class="nc" id="L125">        int choice = scanner.nextInt();</span>
+        
+<span class="nc" id="L127">        Boolean valid = false;</span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">        while(!valid)                   //check if player actually owns property</span>
+        {         
+            
+<span class="nc bnc" id="L131" title="All 2 branches missed.">            for(Tile property:properties)  </span>
+            {
+<span class="nc bnc" id="L133" title="All 2 branches missed.">                if (choice == property.getTileID())</span>
+                {   
+<span class="nc" id="L135">                    valid = true;</span>
+                    //break;              //dont waste time searching the rest of properties if you found it
+                }
+                
+<span class="nc" id="L139">            }</span>
+<span class="nc bnc" id="L140" title="All 2 branches missed.">            if(!valid)</span>
+            {
+<span class="nc" id="L142">                gui.display(&quot;That is an invalid choice, please choose a property you own:&quot;);</span>
+<span class="nc" id="L143">                choice = scanner.nextInt();</span>
+            }
+        }
+        
+<span class="nc" id="L147">        board.getTile(choice);</span>
+<span class="nc" id="L148">        Tile currentProperty = board.getTile(choice);</span>
+        
+        //set mortgage boolean on property to true.
+<span class="nc" id="L151">        currentProperty.setMortgageStatus(true);</span>
+        
+        //give player the mortgage money
+<span class="nc" id="L154">        addMoney(currentProperty.getMortgage());</span>
+<span class="nc" id="L155">        gui.display(name + &quot; now has $&quot; +getMoney());</span>
+
+<span class="nc" id="L157">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
