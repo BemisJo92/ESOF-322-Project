@@ -119,6 +119,7 @@ public class Game {
             int die1 = gameBoard.getPlayer().rollDie();
             int die2 = gameBoard.getPlayer().rollDie();
             int rollValue = die1 +die2;
+            gui.clearDisplay(); //clear display every turn
                 
             if(gameBoard.getPlayer().getJailStatus() == true)   //if player is in jail for their turn
             {

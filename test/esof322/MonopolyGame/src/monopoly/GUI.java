@@ -175,16 +175,22 @@ public class GUI extends JPanel{
     
     public void display(String s)     //call instead of println's in rest of program to output text to gui.
     {
-        if(lineCounter > 30)    //if text area is too large,erase it
-        {
-            textArea.selectAll();
-            textArea.replaceSelection("");
-            lineCounter = 0;
-        }
+//        if(lineCounter > 30)    //if text area is too large,erase it
+//        {
+//            textArea.selectAll();
+//            textArea.replaceSelection("");
+//            lineCounter = 0;
+//        }
         //append data
         textArea.append("\n");
         textArea.append(s);
         lineCounter +=2;
+    }
+    
+    public void clearDisplay()
+    {
+        textArea.selectAll();
+        textArea.replaceSelection("");
     }
     
 }
