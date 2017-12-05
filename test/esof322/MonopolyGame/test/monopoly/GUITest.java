@@ -143,11 +143,12 @@ public class GUITest {
 
     }
     @Test
-    public void testDisplayLineCounterMax()
+    //tests the clear method for the GUI display
+    public void testDisplay()
     {
         GUI g = new GUI(1);
         g.setup();
-        g.lineCounter = 50;
+        g.lineCounter = 0;
         g.display("Test");
         int actual = g.lineCounter;
         int expected =2;
